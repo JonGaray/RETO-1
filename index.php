@@ -21,12 +21,12 @@ if(method_exists($controller, $_GET["action"])) $dataToView["data"] = $controlle
 if ($_GET["controller=usuario"] && $_GET["action=login"]){
     require_once "view/".$_GET["controller"]."/".$controller->view.".html.php";
 }else{
-    require_once "view/layout/header.html.php";
+    require_once "view/layout/header.php";
     require_once "view/".$_GET["controller"]."/".$controller->view.".html.php";
-    require_once "view/layout/footer.html.php";
+    require_once "view/layout/footer.php";
 }
 
-//require_once "view/layout/header.html.php";
+//require_once "view/layout/header.php";
 //require_once "view/".$_GET["controller"]."/".$controller->view.".html.php";
-//require_once "view/layout/footer.html.php";
+//require_once "view/layout/footer.php";
 ?>
