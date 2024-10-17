@@ -8,13 +8,14 @@
     <div class="contacto">
         <h2>Contact with us</h2>
         <form class="formulario-contacto" action="" method="post">
-            <input type="text" placeholder="Correo">
+            <input class="correo-contacto" type="text" placeholder="Correo">
             <textarea rows="8" name="descripcion-contacto" id="descripcion-contacto" placeholder="Descripcion"></textarea>
+            <input class="btn-contacto" type="submit">
         </form>
     </div>
     <div class="rrss">
-            <p>instagram</p>
-            <p>twitter</p>
-            <p>facebook</p>
+            <div class="instagram"><a href="#"><img class="img-insta" src="../../assets/Images/instagram.png" alt=""></a></div>
+            <div class="twitter"><a href="#"><img class="img-twitter" src="../../assets/Images/Twitter-X-Logo.png" alt=""></a></div>
+            <div class="facebook"><a href="#"><img class="img-facebook" src="../../assets/Images/facebook.png" alt=""></a></div>
         </div>
 </footer>

@@ -130,7 +130,7 @@ hr{
     height: auto;
 }
 
-
+/* aqui empiezo a modifiar el footer */
 footer{
     background-color: #364156;
     display: grid;
@@ -169,6 +169,7 @@ footer{
 .formulario-contacto{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: .7em;
     margin-top: .3em;
     border-radius: 10%;
@@ -176,8 +177,10 @@ footer{
 
 .rrss{
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
     grid-area: rrss;
+    padding-right: 2em;
 }
 
 .formulario-contacto input{
@@ -188,7 +191,15 @@ footer{
     resize: none;
 }
 
-.formulario-contacto textarea, .formulario-contacto input{
+.formulario-contacto textarea, .correo-contacto{
+    background-color: #cdcdcd;
+    border: none;
+    border-radius: .3em;
+    width: 100%;
+}
+
+.btn-contacto{
+    width: 50%;
     background-color: #cdcdcd;
     border: none;
     border-radius: .3em;
@@ -196,4 +207,13 @@ footer{
 
 .formulario-contacto textarea::placeholder, .formulario-contacto input::placeholder{
     padding-left: .2em;
+}
+
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.instagram, .twitter, .facebook{
+    height: 3em;
 }
