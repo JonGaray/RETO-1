@@ -6,6 +6,4 @@ define("DB_PASS", "UMq7.E-[5Lt_@oMA");
 
 define("DEFAULT_CONTROLLER", "Preguntas");
 define("DEFAULT_ACTION", "list");
-
-define("PAGINATION", 10);
 ?>
