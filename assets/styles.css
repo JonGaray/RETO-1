@@ -6,3 +6,69 @@
 
 
 
+footer{
+    background-color: #364156;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-areas: 
+    "logo form form rrss";
+    gap: 2em;
+    padding: 1em;
+    height: 40vh;
+    color: white;
+    letter-spacing: .1em;
+}
+
+.logo-copyright{
+    grid-area: logo;
+    border-right: 1px solid white;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.logo-copyright p{
+    font-size: .5em;
+}
+
+
+.contacto{
+    grid-area: form;
+    margin: 1em;
+    border-right: 1px solid white;
+    padding-right: 4em;
+}
+
+.formulario-contacto{
+    display: flex;
+    flex-direction: column;
+    gap: .7em;
+    margin-top: .3em;
+    border-radius: 10%;
+}
+
+.rrss{
+    display: flex;
+    justify-content: space-evenly;
+    grid-area: rrss;
+}
+
+.formulario-contacto input{
+    height: 2em;
+}
+
+.formulario-contacto textarea{
+    resize: none;
+}
+
+.formulario-contacto textarea, .formulario-contacto input{
+    background-color: #cdcdcd;
+    border: none;
+    border-radius: .3em;
+}
+
+.formulario-contacto textarea::placeholder, .formulario-contacto input::placeholder{
+    padding-left: .2em;
+}
