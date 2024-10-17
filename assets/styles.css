@@ -3,6 +3,64 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: #393939;
+    height: 100vh;
+    width: 100vw;
+}
+/*Aqui estoy modificando el header con el titulo de la empresa y su eslogan*/
+.div-header{
+    gap: 20px;
+    display: flex;
+    margin: 0 auto;
+    width: 40%;
+    height: 10%;
+    background-color: pink;
+}
+.eslogan{
+    margin-top: 9px;
+    font-family: "Italianno", cursive;;
+}
+/*Aqui dejo de modificar el header*/
+/*Aqui estoy modificando el nav*/
+.div-nav{
+    margin: 0 auto;
+    width: 40%;
+    background-color: green;;
+}
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px
+}
+li{
+    list-style: none;
+}
+.buscar{
+border-radius: 25px;
+}
+.div-lupa{
 
+    width: 40px;
+    padding: 5px;
+}
+.lupa{
+    width: 100%;
+    height: auto;
+}
+hr{
+    width: 1px;
+    height: 15px;
+    transform: rotate(180deg);
+}
+.div-userLogo{
+    width: 40px;
+    padding: 5px;
+}
+.persona{
+    width: 100%;
+    height: auto;
+}
 
 
