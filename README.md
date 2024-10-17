@@ -7,6 +7,6 @@ Se pide desarrollar una aplicación web para la gestión de preguntas frecuentes
   - Página de perfil de usuario
 
 Desarrolladores que han trabajado en el proyecto
-  - Jon Garay
-  - Jordi Fernández
-  - Ibai López de la puente
+  - Jon Garay (jon.garay@ikasle.egibide.org)
+  - Jordi Fernández (jordi.fernandez@ikasle.egibide.org)
+  - Ibai López de la puente (ibai.lopezdelapuente@ikasle.egibide.org)
