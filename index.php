@@ -18,7 +18,7 @@ $controller = new $controllerName();
 $dataToView["data"] = array();
 if(method_exists($controller, $_GET["action"])) $dataToView["data"] = $controller -> {$_GET["action"]}();
 
-if ($_GET["controller=usuario"] && $_GET["action=login"]){
+if ($_GET["controller"] == "usuario" && $_GET["action"] == "login"){
     require_once "view/".$_GET["controller"]."/".$controller->view.".html.php";
 }else{
     require_once "view/layout/header.php";
