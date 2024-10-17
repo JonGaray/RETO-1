@@ -9,7 +9,7 @@ if(!isset($_GET["action"])) $_GET["action"] = constant("DEFAULT_ACTION");
 $controller_path = "controller/" .$_GET["controller"]."Controller.php";
 
 if(!file_exists($controller_path)) $controller_path =
-    "controller/".constant("DEFAULT_CONTROLLER").".php";
+    "controller/".constant("DEFAULT_CONTROLLER")."Controller.php";
 
 require_once $controller_path;
 $controllerName = $_GET["controller"]."Controller";
