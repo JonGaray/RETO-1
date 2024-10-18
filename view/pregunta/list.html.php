@@ -76,15 +76,15 @@
                 ?>
                 <div class="preguntaBlock">
                     <div class="preguntaTopSection">
-                    <input type="text" name="titulo" class="titulo" value="<?php echo $pregunta["titulo"]; ?>">
+                    <input type="text" name="titulo" class="titulo" disabled value="<?php echo $pregunta["titulo"]; ?>">
                     </div>
                 <div class="preguntaBottomSection">
                     <div class="preguntaBottomLeft">
-                    <input type="text" name="descripcion" class="descripcion" value="<?php echo $pregunta["descripcion"]; ?>">
+                    <input type="text" name="descripcion" disabled class="descripcion" value="<?php echo $pregunta["descripcion"]; ?>">
                 </div>
                 <div class="preguntasBottomRight">
-                    <input type="text" name="usuario" class="usuario" value="<?php echo $pregunta["id_usuario"]; ?>">
-                    <input type="text" name="categoria" class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
+                    <input type="text" name="usuario" disabled class="usuario" value="<?php echo $pregunta["id_usuario"]; ?>"> <!-- NECESITAMOS EL NOMBRE -->
+                    <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
                 </div>
             </div>
         </div>

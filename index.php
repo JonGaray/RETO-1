@@ -18,11 +18,12 @@ $controller = new $controllerName();
 $dataToView["data"] = array();
 if(method_exists($controller, $_GET["action"])) $dataToView["data"] = $controller -> {$_GET["action"]}();
 
-if (($_GET["controller"] == "usuario" && $_GET["action"] == "login") || urldecode("localhost/RETO-1/index.php")){
-    require_once "view/".$_GET["controller"]."/".$controller->view.".html.php";
-}else{
+if (($_GET["controller"] === "usuario" && $_GET["action"] == "login") ||
+    ($_GET["controller"] === constant("DEFAULT_CONTROLLER") && $_GET["action"] === constant("DEFAULT_ACTION"))) {
+    require_once "view/" . $_GET["controller"] . "/" . $controller->view . ".html.php";
+} else {
     require_once "view/layout/header.php";
-    require_once "view/".$_GET["controller"]."/".$controller->view.".html.php";
+    require_once "view/" . $_GET["controller"] . "/" . $controller->view . ".html.php";
     require_once "view/layout/footer.php";
 }
 

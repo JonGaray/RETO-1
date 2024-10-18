@@ -14,6 +14,6 @@ class PreguntaController
     }
     public function list(){
         $this->page_title = "Listado de Preguntas";
-        $this->model->getPreguntas();
+        return $this->model->getPreguntas();
     }
 }
