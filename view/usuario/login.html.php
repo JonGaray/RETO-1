@@ -77,7 +77,7 @@
     <hr>
     <h1>INICIO DE SESI&Oacute;N</h1>
     <hr>
-    <form method="post" action="index.php?usuario=pregunta&action=login">
+    <form method="post" action="index.php?controller=usuario&action=login">
         <div class="campos">
             <input type="text" name="nombre" class="loginNombre" placeholder="Nombre">
             <input type="password" name="contrasenna" class="loginContrasenna" placeholder="Contrase&ntilde;a">
