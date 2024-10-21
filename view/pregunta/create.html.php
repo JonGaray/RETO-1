@@ -1,41 +1,61 @@
 <style>
-    *{
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #393939;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 20px;
+        justify-items: center;
+        align-items: start;
+        width: 90%;
     }
     .preguntaBlock {
         background-color: #364156;
         padding: 20px;
         border-radius: 15px;
         box-shadow: 5px 5px 10px #dff8eb56;
-        width: 50%;
-        height: 25%;
-        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        grid-column: 1;
+        grid-row: 1;
     }
-    .preguntaTopSection{
+
+    .prguntaTopSection {
         display: flex;
         justify-content: center;
         margin: 5px;
         width: 100%;
     }
-    .preguntaTopSection input{
+    .preguntaTopSection input {
         width: 100%;
         padding: 10px 0;
         border-radius: 15px;
         text-align: center;
         background-color: #CDCDCD;
     }
-    .preguntaBottomSection{
+    .preguntaBottomSection {
         display: flex;
         justify-content: space-between;
         gap: 10px;
         margin-top: 10px;
     }
-    .preguntaBottomLeft{
+    .preguntaBottomLeft {
         flex: 1;
     }
-    .preguntaBottomLeft input{
+    .preguntaBottomLeft input {
         width: 100%;
         height: 100%;
         padding: 10px;
@@ -52,20 +72,6 @@
         flex: 0.48;
         margin-top: 7px;
     }
-    .annadirPregunta{
-        margin: 15px auto;
-        width: 30%;
-        height: 10%;
-        padding: 10px;
-        background-color: #CDCDCD;
-        border-radius: 15px;
-        border: none;
-        resize: none;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-    }
     .preguntasBottomRight input {
         padding: 10px;
         background-color: #CDCDCD;
@@ -74,9 +80,40 @@
         margin-bottom: 10px;
         text-align: center;
     }
+    .seccionCategoria {
+        background-color: #364156;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px #dff8eb56;
+        width: 100%;
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .annadirPregunta {
+        width: 100%;
+        padding: 10px 40px;
+        background-color: #CDCDCD;
+        border-radius: 15px;
+        border: none;
+        text-align: center;
+    }
+    h3{
+        text-align: center;
+        color: #CDCDCD;
+        margin: 15px;
+    }
+    p{
+        padding: 10px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: #CDCDCD;
+        text-align: center;
+    }
+
 </style>
 <form action="index.php?controller=pregunta&action=save">
     <div class="preguntaBlock">
+        <h3>NUEVA PREGUNTA</h3>
         <div class="preguntaTopSection">
             <input type="text" name="titulo" class="titulo" placeholder="Título">
         </div>
@@ -89,6 +126,13 @@
                 <input type="text" name="categoria"  class="categoria" placeholder="Categoria">
             </div>
         </div>
+    </div>
+    <div class="seccionCategoria">
+        <h3>CATEGORIAS</h3>
+        <p>Motores</p>
+        <p>Alerones</p>
+        <p>Tren de aterrizaje</p>
+        <p>Ventanas</p>
     </div>
     <div>
         <input type="submit" value="Añadir pregunta" name="submit" class="annadirPregunta">
