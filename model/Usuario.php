@@ -9,10 +9,10 @@ class Usuario{
         $dbObj =new Db();
         $this->connection = $dbObj->conection_db;
     }
-    public function getUserByNombre($nombre)
+    public function getUserIdByNombre($nombre)
     {
         if (is_null($nombre)) return false;
-        $sql = "SELECT * FROM " . $this->table . " WHERE nombre = ?";
+        $sql = "SELECT id FROM " . $this->table . " WHERE nombre = ?";
         $stmt = $this->connection->prepare($sql);
         $stmt->execute([$nombre]);
         return $stmt->fetch();

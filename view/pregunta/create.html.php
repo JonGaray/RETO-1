@@ -121,7 +121,7 @@
                 <input type="text" name="descripcion" class="descripcion" placeholder="Descripción">
             </div>
             <div class="preguntasBottomRight">
-                <input type="text" name="id_usuario" class="id_usuario" placeholder="Usuario">
+                <input type="text" name="nombre" class="nombre" placeholder="Usuario" value="<?php echo isset($_COOKIE['nombre_usuario']) ? htmlspecialchars($_COOKIE['nombre_usuario']) : ''; ?>">
                 <input type="text" name="categoria" class="categoria" placeholder="Categoria"> <!-- Este campo se llenará con JS -->
             </div>
         </div>
