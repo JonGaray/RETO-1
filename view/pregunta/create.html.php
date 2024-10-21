@@ -4,23 +4,15 @@
         padding: 0;
         box-sizing: border-box;
     }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #393939;
-    }
-
     form {
         display: grid;
         grid-template-columns: 2fr 1fr;
         grid-template-rows: auto auto;
         gap: 20px;
         justify-items: center;
-        align-items: start;
+        align-items: center;
         width: 90%;
+        margin: 62px auto;
     }
     .preguntaBlock {
         background-color: #364156;
@@ -32,8 +24,7 @@
         grid-column: 1;
         grid-row: 1;
     }
-
-    .prguntaTopSection {
+    .preguntaTopSection {
         display: flex;
         justify-content: center;
         margin: 5px;
@@ -123,7 +114,7 @@
             </div>
             <div class="preguntasBottomRight">
                 <input type="text" name="usuario"  class="usuario" placeholder="Usuario">
-                <input type="text" name="categoria"  class="categoria" placeholder="Categoria">
+                <input type="text" name="categoria"  class="categoria" placeholder="Categoria"> <!-- Con JS hacer que al hacer clic en un valor de la lista lateral, se ponga el valor automaticament en el campo de categoria-->
             </div>
         </div>
     </div>
