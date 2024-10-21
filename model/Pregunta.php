@@ -10,7 +10,7 @@ class Pregunta{
         $this->connection = $dbObj->conection_db;
     }
     public function getPreguntas(){
-        $sql = "SELECT titulo, descripcion, categoria, id_usuario FROM " . $this->table;
+        $sql = "SELECT titulo, descripcion, categoria, u.nombre FROM " . $this->table . " JOIN usuarios u ON id_usuario = u.id";
         $statement = $this->connection->prepare($sql);
         $statement->execute();
         return $statement->fetchAll();

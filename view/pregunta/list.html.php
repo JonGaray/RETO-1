@@ -83,7 +83,7 @@
                     <input type="text" name="descripcion" disabled class="descripcion" value="<?php echo $pregunta["descripcion"]; ?>">
                 </div>
                 <div class="preguntasBottomRight">
-                    <input type="text" name="usuario" disabled class="usuario" value="<?php echo $pregunta["id_usuario"]; ?>"> <!-- NECESITAMOS EL NOMBRE -->
+                    <input type="text" name="usuario" disabled class="usuario" value="<?php echo $pregunta["u.nombre"]; ?>"> <!-- NECESITAMOS EL NOMBRE -->
                     <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
                 </div>
             </div>
