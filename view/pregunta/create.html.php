@@ -102,7 +102,7 @@
     }
 
 </style>
-<form action="index.php?controller=pregunta&action=save">
+<form class="form" action="index.php?controller=pregunta&action=save" method="post">
     <div class="preguntaBlock">
         <h3>NUEVA PREGUNTA</h3>
         <div class="preguntaTopSection">
@@ -113,7 +113,7 @@
                 <input type="text" name="descripcion"  class="descripcion" placeholder="Descripción">
             </div>
             <div class="preguntasBottomRight">
-                <input type="text" name="usuario"  class="usuario" placeholder="Usuario">
+                <input type="text" name="id_usuario"  class="id_usuario" placeholder="Usuario">
                 <input type="text" name="categoria"  class="categoria" placeholder="Categoria"> <!-- Con JS hacer que al hacer clic en un valor de la lista lateral, se ponga el valor automaticament en el campo de categoria-->
             </div>
         </div>
