@@ -29,10 +29,10 @@ class Usuario{
             $map[$resultado['nombre']] = $resultado['contrasenna'];
         }
         if (isset($map[$nombreParam]) && $map[$nombreParam] === $contrasennaParam) {
+            setcookie("nombre_usuario", $nombreParam, 0, "/");
             return true; // Usuario encontrado y validado
         }
-
         return false; // Usuario no encontrado o credenciales incorrectas
     }
-    
+
 }
