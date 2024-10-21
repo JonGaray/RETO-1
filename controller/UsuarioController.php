@@ -13,23 +13,12 @@ class UsuarioController{
         $this->model = new Usuario();
     }
     public function login(){
-    $this->view = "login";
-    $this->page_title = "Acceso a la p&aacute;gina";
-        if (!isset($_SESSION['is_logged_in'])||!$_SESSION['is_logged_in']){
-            $row=$this->model->login();
-            if ($row){
-                $_SESSION['is_logged_in'] = true;
-                $_SESSION['user_data'] = array(
-                    "id" => $row['id'],
-                    "nombre" => $row['nombre'],
-                    "correo" => $row['correo']
-                );
-                header('Location: index.php');
-            }else{
-                $_SESSION['is_logged_in']=false;
-                return;
-            }
+        $this->view = "login";
+        $this->page_title = "Acceso a la p&aacute;gina";
+        $this->model->getUserIntoArray($_POST);
+        if ($this->model->getUserIntoArray($_POST)){
+            header("Location:index.php?controller=pregunta&action=list");
+            exit();
         }
-        header('Location: index.php');
     }
 }

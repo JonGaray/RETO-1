@@ -17,14 +17,22 @@ class Usuario{
         $stmt->execute([$nombre]);
         return $stmt->fetch();
     }
-    public function login(){
-        $post =filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
-        if (isset($post["submit"])){
-            $storedUser = $this->getUserByNombre($post["nombre"]);
-            if (isset($storedUser["nombre"]) && password_verify($post["contrasenna"], $storedUser["contrasenna"])){
-                return $storedUser;
-            }
+    public function getUserIntoArray($param){
+        $map = array();
+        $nombreParam = $param["nombre"] ?? null;
+        $contrasennaParam = $param["contrasenna"] ?? null;
+        $sql = "SELECT nombre, contrasenna FROM " . $this->table;
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($resultados as $resultado) {
+            $map[$resultado['nombre']] = $resultado['contrasenna'];
         }
-        return;
+        if (isset($map[$nombreParam]) && $map[$nombreParam] === $contrasennaParam) {
+            return true; // Usuario encontrado y validado
+        }
+
+        return false; // Usuario no encontrado o credenciales incorrectas
     }
+    
 }
