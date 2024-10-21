@@ -4,21 +4,14 @@
         padding: 0;
         box-sizing: border-box;
     }
-    .preguntaGrupo{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        margin: 20px;
-        width: 90%;
-        margin: 20px auto;;
-    }
     .preguntaBlock {
         background-color: #364156;
         padding: 20px;
         border-radius: 15px;
         box-shadow: 5px 5px 10px #dff8eb56;
-        width: 100%;
-        margin: 25px;
+        width: 50%;
+        height: 25%;
+        margin: 0 auto;
     }
     .preguntaTopSection{
         display: flex;
@@ -62,7 +55,7 @@
     .annadirPregunta{
         margin: 15px auto;
         width: 30%;
-        height: 100%;
+        height: 10%;
         padding: 10px;
         background-color: #CDCDCD;
         border-radius: 15px;
@@ -72,8 +65,6 @@
         display: flex;
         justify-content: center;
         align-content: center;
-        text-decoration: none;
-        color: #393939;
     }
     .preguntasBottomRight input {
         padding: 10px;
@@ -84,34 +75,22 @@
         text-align: center;
     }
 </style>
-<div>
-    <a href="index.php?controller=pregunta&action=create" class="annadirPregunta">¿Cual es tu pregunta?</a>
-</div>
-<div class="preguntaGrupo">
-    <?php
-        if (count($dataToView["data"]) > 0){
-            foreach ($dataToView["data"] as $pregunta){
-                ?>
-                <div class="preguntaBlock">
-                    <div class="preguntaTopSection">
-                    <input type="text" name="titulo" class="titulo" disabled value="<?php echo $pregunta["titulo"]; ?>">
-                    </div>
-                <div class="preguntaBottomSection">
-                    <div class="preguntaBottomLeft">
-                    <input type="text" name="descripcion" disabled class="descripcion" value="<?php echo $pregunta["descripcion"]; ?>">
-                </div>
-                <div class="preguntasBottomRight">
-                    <input type="text" name="usuario" disabled class="usuario" value="<?php echo $pregunta["nombre"]; ?>"> <!-- NECESITAMOS EL NOMBRE -->
-                    <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
-                </div>
+<form action="index.php?controller=pregunta&action=save">
+    <div class="preguntaBlock">
+        <div class="preguntaTopSection">
+            <input type="text" name="titulo" class="titulo" placeholder="Título">
+        </div>
+        <div class="preguntaBottomSection">
+            <div class="preguntaBottomLeft">
+                <input type="text" name="descripcion"  class="descripcion" placeholder="Descripción">
+            </div>
+            <div class="preguntasBottomRight">
+                <input type="text" name="usuario"  class="usuario" placeholder="Usuario">
+                <input type="text" name="categoria"  class="categoria" placeholder="Categoria">
             </div>
         </div>
-        <?php
-            }
-        }else{
-        ?>
-            <p>Actualmente no existen preguntas</p>
-        <?php
-        }
-    ?>
-</div>
+    </div>
+    <div>
+        <input type="submit" value="Añadir pregunta" name="submit" class="annadirPregunta">
+    </div>
+</form>
