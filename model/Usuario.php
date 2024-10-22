@@ -17,6 +17,14 @@ class Usuario{
         $stmt->execute([$nombre]);
         return $stmt->fetch();
     }
+    public function getUserDataByNombre($nombre)
+    {
+        if (is_null($nombre)) return false;
+        $sql = "SELECT * FROM " . $this->table . " WHERE nombre = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$nombre]);
+        return $stmt->fetch();
+    }
     public function getUserIntoArray($param){
         $map = array();
         $nombreParam = $param["nombre"] ?? null;
@@ -34,5 +42,6 @@ class Usuario{
         }
         return false; // Usuario no encontrado o credenciales incorrectas
     }
+    
 
 }
