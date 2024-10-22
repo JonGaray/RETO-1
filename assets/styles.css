@@ -169,3 +169,49 @@ img{
 .instagram, .twitter, .facebook{
     height: 3em;
 }
+/*Modificando la parte de respuesta*/
+.general{
+    width: 100%;
+    height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5%;
+}
+
+.titulo{
+    width: 80%;
+    height: 30%;
+    background-color: rgb(102, 118, 148);
+
+}
+.segundo{
+    width: 80%;
+    height: 60%;
+
+    display: flex;
+    gap:5%;
+    flex-direction: row;
+
+}
+
+.respuesta{
+    width: 70%;
+    height: 100%;
+    background-color: rgb(63, 79, 102);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.botones{
+    width: 30%;
+    height: 100%;
+    background-color: rgb(76, 75, 94);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+}

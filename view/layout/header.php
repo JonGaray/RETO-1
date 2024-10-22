@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/styles.css">
     <title>Document</title>
 </head>
+<body>
 <header>
 
     <div class="div-header">
@@ -35,4 +36,4 @@
 
 
 </header>
-<body>
+
