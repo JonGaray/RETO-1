@@ -24,9 +24,12 @@ class PreguntaController
         $this->page_title ='Crear Pregunta';
         $this->view ='create';
         $id =$this->model->save($_POST);
-
         $result = $this->model->getPreguntaById($id);
         $_GET["response"] = true;
         return $result;
+    }
+    public function detalle(){
+        $this->view = "detalle";
+        return $this->model->getRespuestasByIdPregunta($_GET["id"]);
     }
 }
