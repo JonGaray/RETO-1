@@ -150,7 +150,7 @@ if (count($dataToView["data"]) > 0){
         </div>
         <div class="bottomRight">
             <div class="like-section">
-                <form action="megusta.php" method="post">
+                <form action="index.php?controller=respuesta&action=updatemegusta&id=<?php echo $dataToView["data"][$x]["respuesta_id"]; ?>"" method="post">
                     <button type="submit" name="megusta">
                         <img src="assets/Images/megusta.png" alt="Me gusta">
                     </button>
@@ -158,7 +158,7 @@ if (count($dataToView["data"]) > 0){
                 <input type="text" name="megusta" disabled class="megusta" value="<?php echo $dataToView["data"][$x]["respuesta_megusta"]; ?>">
             </div>
             <div class="dislike-section">
-                <form action="nomegusta.php" method="post">
+                <form action="index.php?controller=respuesta&action=updatenomegusta&id=<?php echo $dataToView["data"][$x]["respuesta_id"]; ?>"" method="post">
                     <button type="submit" name="nomegusta">
                         <img src="assets/Images/nomegusta.png" alt="No me gusta">
                     </button>
