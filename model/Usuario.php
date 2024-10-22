@@ -29,19 +29,22 @@ class Usuario{
         $map = array();
         $nombreParam = $param["nombre"] ?? null;
         $contrasennaParam = $param["contrasenna"] ?? null;
-        $sql = "SELECT nombre, contrasenna FROM " . $this->table;
+        $sql = "SELECT nombre, contrasenna, rol FROM " . $this->table;
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
         $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($resultados as $resultado) {
-            $map[$resultado['nombre']] = $resultado['contrasenna'];
+            $map[$resultado['nombre']] = [
+                'contrasenna' => $resultado['contrasenna'],
+                'rol' => $resultado['rol']
+            ];
         }
-        if (isset($map[$nombreParam]) && $map[$nombreParam] === $contrasennaParam) {
+        if (isset($map[$nombreParam]) && $map[$nombreParam]['contrasenna'] === $contrasennaParam) {
             setcookie("nombre_usuario", $nombreParam, 0, "/");
+            setcookie("rol_usuario", $map[$nombreParam]['rol'], 0, "/");
             return true; // Usuario encontrado y validado
         }
         return false; // Usuario no encontrado o credenciales incorrectas
     }
-    
 
 }
