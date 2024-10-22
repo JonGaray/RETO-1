@@ -19,6 +19,7 @@ class Usuario{
     }
     public function getUserDataByNombre($nombre)
     {
+        
         if (is_null($nombre)) return false;
         $sql = "SELECT * FROM " . $this->table . " WHERE nombre = ?";
         $stmt = $this->connection->prepare($sql);

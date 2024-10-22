@@ -1,16 +1,20 @@
 <?php
 require_once "model/Usuario.php";
+require_once "model/Respuesta.php";
+
 
 class UsuarioController{
     public $page_title;
     public $view;
     public $model;
+    public $modelRespuestas;
 
     public function __construct()
     {
         $this->view = "list";
         $this->page_title = "";
         $this->model = new Usuario();
+        $this->modelRespuestas = new Respuesta();
     }
     public function login(){
         $this->view = "login";
@@ -29,11 +33,18 @@ class UsuarioController{
     public function listRespuestas(){
         $this->view = "usuario_respuestas";
         $this->page_title = "Editar usuario";
-        return $this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
+        $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
+
+        $dataToView["data"]["usuario"] = $usuario;
+
+        include("view/usuario/usuario_respuestas.html.php");
     }
     public function getRespuestas(){
         $this->view = "usuario_respuestas";
         $this->page_title = "Editar usuario";
-        $respuestas = $this->
+        $respuestas = $this->modelRespuestas->getRespuestasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"]));
+        $dataToView["data"]["respuestas"] = $respuestas;
+
+        include("view/usuario/usuario_respuestas.html.php");
     }
 }
