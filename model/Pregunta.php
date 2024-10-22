@@ -11,7 +11,7 @@ class Pregunta{
         $this->connection = $dbObj->conection_db;
     }
     public function getPreguntas(){
-        $sql = "SELECT titulo, descripcion, categoria, u.nombre FROM " . $this->table . " JOIN usuarios u ON id_usuario = u.id";
+        $sql = "SELECT preguntas.id, titulo, descripcion, categoria, u.nombre FROM " . $this->table . " JOIN usuarios u ON id_usuario = u.id ORDER BY preguntas.id DESC";
         $statement = $this->connection->prepare($sql);
         $statement->execute();
         return $statement->fetchAll();
@@ -43,6 +43,63 @@ class Pregunta{
         } else {
             throw new Exception("No se ha iniciado sesión");
         }
+    }
+    public function getRespuestasByIdPregunta($id) {
+        if (is_null($id)) return false;
+
+        $sql = "SELECT 
+        p.id AS pregunta_id,
+        p.titulo AS pregunta_titulo,
+        p.descripcion AS pregunta_descripcion,
+        p.categoria AS pregunta_categoria,  -- Agregar la columna categoria
+        r.id AS respuesta_id,
+        r.contenido AS respuesta_contenido,
+        r.megusta AS respuesta_megusta,
+        r.nomegusta AS respuesta_nomegusta,
+        r.id_usuario AS respuesta_id_usuario,
+        u_preguntador.id AS usuario_id_preguntador,
+        u_preguntador.nombre AS usuario_nombre_preguntador,
+        u_preguntador.correo AS usuario_correo_preguntador,
+        u_respuesta.id AS usuario_id_respuesta,
+        u_respuesta.nombre AS usuario_nombre_respuesta,
+        u_respuesta.correo AS usuario_correo_respuesta 
+    FROM " . $this->table . " p 
+    JOIN respuestas r ON p.id = r.id_pregunta 
+    JOIN usuarios u_respuesta ON r.id_usuario = u_respuesta.id
+    JOIN usuarios u_preguntador ON p.id_usuario = u_preguntador.id
+    WHERE p.id = ?";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute([$id]);
+        $dataToView = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        // Inicializar todas las variables
+        $pregunta_id = $pregunta_titulo = $pregunta_descripcion = $pregunta_categoria = "";  // Inicializar categoria
+        $respuesta_id = $respuesta_contenido = $respuesta_megusta = $respuesta_nomegusta = "";
+        $usuario_id_preguntador = $usuario_nombre_preguntador = $usuario_correo_preguntador = "";
+        $usuario_id_respuesta = $usuario_nombre_respuesta = $usuario_correo_respuesta = "";
+
+        if (isset($dataToView[0])) {
+            $pregunta_id = $dataToView[0]['pregunta_id'];
+            $pregunta_titulo = htmlspecialchars($dataToView[0]['pregunta_titulo']);
+            $pregunta_descripcion = htmlspecialchars($dataToView[0]['pregunta_descripcion']);
+            $pregunta_categoria = htmlspecialchars($dataToView[0]['pregunta_categoria']);  // Obtener categoria
+            $usuario_id_preguntador = $dataToView[0]['usuario_id_preguntador'];
+            $usuario_nombre_preguntador = htmlspecialchars($dataToView[0]['usuario_nombre_preguntador']);
+            $usuario_correo_preguntador = htmlspecialchars($dataToView[0]['usuario_correo_preguntador']);
+
+            foreach ($dataToView as $respuesta) {
+                $respuesta_id = $respuesta['respuesta_id'];
+                $respuesta_contenido = htmlspecialchars($respuesta['respuesta_contenido']);
+                $respuesta_megusta = $respuesta['respuesta_megusta'];
+                $respuesta_nomegusta = $respuesta['respuesta_nomegusta'];
+                $usuario_id_respuesta = $respuesta['usuario_id_respuesta'];
+                $usuario_nombre_respuesta = htmlspecialchars($respuesta['usuario_nombre_respuesta']);
+                $usuario_correo_respuesta = htmlspecialchars($respuesta['usuario_correo_respuesta']);
+            }
+        }
+
+        return $dataToView;
     }
 
 
