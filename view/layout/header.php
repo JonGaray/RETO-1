@@ -22,12 +22,12 @@
     <nav>
         <hr class="hr-nav">
         <ul>
-            <li>Inicio</li>
-            <li>F.A.Q</li>
-            <li>Guia de reparacion</li>
+            <li><a href="">Inicio</a></li>
+            <li><a href="">F.A.Q</a></li>
+            <li><a href="">Guia de reparacion</a></li>
             <li><div class="div-buscar"><input type="text" class="buscar" placeholder="   Buscar"> <img src="assets/Images/Lupa.png" alt="Lupita" class="lupa"> </div></li>
             <li><hr class="linea-nav"></li>
-            <li><div class="div-sesion">Cerrar sesion <img src="assets/Images/Persona.png" alt="Personita" class="persona"> </div></li>
+            <li><div class="div-sesion"><a href="">Cerrar sesion</a> <img src="assets/Images/Persona.png" alt="Personita" class="persona"> </div></li>
         </ul>
     </nav>
     </div>
