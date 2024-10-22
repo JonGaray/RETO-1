@@ -7,7 +7,7 @@
             <?php if(!empty($dataToView["data"]["respuestas"])): foreach($dataToView["data"]["respuestas"] as $respuesta):?>
             <div class="div-respuesta">
                 <div class="respuesta">
-                   <?php echo $respuesta["conteido"] ?>
+                   <?php echo $respuesta["contenido"] ?>
                 </div>
                 <div class="likes">
                     <img class="img-like" src="assets/Images/like.png" alt=""><?php echo $respuesta["megusta"] ?>
@@ -22,8 +22,8 @@
             </div>
         </div>
         <div class="datos-usuario">
-            <form class="form-datos-usuario" action="" method="post">
-                <input type="hidden" >
+            <form class="form-datos-usuario" action="index.php?controller=usuario&action=listRespuestas" method="post">
+                <input name="id" id="id" type="hidden" value="<?php echo $dataToView["data"]["usuario"]["id"] ?>">
                 <input class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["nombre"] ?>" placeholder="nombre" disabled>
                 <input class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["correo"]  ?>" placeholder="correo" disabled>
                 <input class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["contrasenna"]  ?>" placeholder="contraseña" disabled>

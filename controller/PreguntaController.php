@@ -1,13 +1,15 @@
 <?php
 require_once "model/Pregunta.php";
+require_once "BaseController.php";
 
-class PreguntaController
+class PreguntaController extends BaseController
 {
     public $page_title;
     public $view;
     public $model;
 
     public function __construct(){
+        parent::__construct();
         $this->view = "list";
         $this->page_title = "";
         $this->model = new Pregunta();

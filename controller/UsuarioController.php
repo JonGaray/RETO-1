@@ -34,8 +34,10 @@ class UsuarioController{
         $this->view = "usuario_respuestas";
         $this->page_title = "Editar usuario";
         $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
+        $respuestas = $this->modelRespuestas->getRespuestasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
 
         $dataToView["data"]["usuario"] = $usuario;
+        $dataToView["data"]["respuestas"] = $respuestas;
 
         include("view/usuario/usuario_respuestas.html.php");
     }

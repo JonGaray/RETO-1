@@ -51,7 +51,7 @@ class Pregunta{
         p.id AS pregunta_id,
         p.titulo AS pregunta_titulo,
         p.descripcion AS pregunta_descripcion,
-        p.categoria AS pregunta_categoria,  -- Agregar la columna categoria
+        p.categoria AS pregunta_categoria,
         r.id AS respuesta_id,
         r.contenido AS respuesta_contenido,
         r.megusta AS respuesta_megusta,
@@ -67,27 +67,23 @@ class Pregunta{
     JOIN respuestas r ON p.id = r.id_pregunta 
     JOIN usuarios u_respuesta ON r.id_usuario = u_respuesta.id
     JOIN usuarios u_preguntador ON p.id_usuario = u_preguntador.id
-    WHERE p.id = ?";
+    WHERE p.id = ? ORDER BY respuesta_megusta DESC";
 
         $statement = $this->connection->prepare($sql);
         $statement->execute([$id]);
         $dataToView = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        // Inicializar todas las variables
-        $pregunta_id = $pregunta_titulo = $pregunta_descripcion = $pregunta_categoria = "";  // Inicializar categoria
+        $pregunta_id = $pregunta_titulo = $pregunta_descripcion = $pregunta_categoria = "";
         $respuesta_id = $respuesta_contenido = $respuesta_megusta = $respuesta_nomegusta = "";
         $usuario_id_preguntador = $usuario_nombre_preguntador = $usuario_correo_preguntador = "";
         $usuario_id_respuesta = $usuario_nombre_respuesta = $usuario_correo_respuesta = "";
-
         if (isset($dataToView[0])) {
             $pregunta_id = $dataToView[0]['pregunta_id'];
             $pregunta_titulo = htmlspecialchars($dataToView[0]['pregunta_titulo']);
             $pregunta_descripcion = htmlspecialchars($dataToView[0]['pregunta_descripcion']);
-            $pregunta_categoria = htmlspecialchars($dataToView[0]['pregunta_categoria']);  // Obtener categoria
+            $pregunta_categoria = htmlspecialchars($dataToView[0]['pregunta_categoria']);
             $usuario_id_preguntador = $dataToView[0]['usuario_id_preguntador'];
             $usuario_nombre_preguntador = htmlspecialchars($dataToView[0]['usuario_nombre_preguntador']);
             $usuario_correo_preguntador = htmlspecialchars($dataToView[0]['usuario_correo_preguntador']);
-
             foreach ($dataToView as $respuesta) {
                 $respuesta_id = $respuesta['respuesta_id'];
                 $respuesta_contenido = htmlspecialchars($respuesta['respuesta_contenido']);
@@ -98,9 +94,6 @@ class Pregunta{
                 $usuario_correo_respuesta = htmlspecialchars($respuesta['usuario_correo_respuesta']);
             }
         }
-
         return $dataToView;
     }
-
-
 }

@@ -13,10 +13,22 @@
             
             $sql = "SELECT contenido, megusta, nomegusta FROM " .$this->table. " WHERE id_usuario = ?";
             $statement=$this->connection->prepare($sql);
-            $statement->execute($param);
+            $statement->execute([$param]);
             return $statement->fetchAll();
         }
-    }
-
     
-
+        public function updatemegusta($id){
+            if (is_null($id)) return false;
+            $sql = "UPDATE " . $this->table . " SET megusta = megusta + 1 WHERE id = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$id]);
+            return $stmt->fetch();
+        }
+        public function updatenomegusta($id){
+            if (is_null($id)) return false;
+            $sql = "UPDATE " . $this->table . " SET nomegusta = nomegusta + 1 WHERE id = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$id]);
+            return $stmt->fetch();
+        }
+    }
