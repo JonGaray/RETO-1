@@ -21,4 +21,19 @@ class UsuarioController{
             exit();
         }
     }
+    public function listPreguntas(){
+        $this->view = "usuario_preguntas";
+        $this->page_title = "Editar usuario";
+        return $this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
+    }
+    public function listRespuestas(){
+        $this->view = "usuario_respuestas";
+        $this->page_title = "Editar usuario";
+        return $this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
+    }
+    public function getRespuestas(){
+        $this->view = "usuario_respuestas";
+        $this->page_title = "Editar usuario";
+        $respuestas = $this->
+    }
 }
