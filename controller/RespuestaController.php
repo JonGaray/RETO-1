@@ -14,12 +14,12 @@ class RespuestaController{
     }
     public function updatemegusta(){
         $this->view = "";
-        header("Location:index.php?controller=pregunta&action=detalle&id=".$_GET["id"] );
+        header("Location:index.php?controller=pregunta&action=list");
         return $this->model->updatemegusta($_GET["id"]);
     }
     public function updatenomegusta(){
         $this->view = "";
-        header("Location:index.php?controller=pregunta&action=detalle&id=".$_GET["id"] );
+        header("Location:index.php?controller=pregunta&action=list");
         return $this->model->updatenomegusta($_GET["id"]);
     }
 }

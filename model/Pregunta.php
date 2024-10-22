@@ -67,7 +67,7 @@ class Pregunta{
     JOIN respuestas r ON p.id = r.id_pregunta 
     JOIN usuarios u_respuesta ON r.id_usuario = u_respuesta.id
     JOIN usuarios u_preguntador ON p.id_usuario = u_preguntador.id
-    WHERE p.id = ?";
+    WHERE p.id = ? ORDER BY respuesta_megusta DESC";
 
         $statement = $this->connection->prepare($sql);
         $statement->execute([$id]);
