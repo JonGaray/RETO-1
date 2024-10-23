@@ -23,20 +23,41 @@
     <nav>
         <hr class="hr-nav">
         <ul>
-            <li><a href="">Inicio</a></li>
-            <li><a href="">F.A.Q</a></li>
-            <li><a href="">Guia de reparacion</a></li>
-            <li><div class="div-buscar"><input type="text" class="buscar" placeholder="   Buscar"> <img src="assets/Images/Lupa.png" alt="Lupita" class="lupa"> </div></li>
-            <li><hr class="linea-nav"></li>
-
-
-            <li><div class="div-sesion">Cerrar sesion <a href="index.php?controller=usuario&action=listPreguntas"><img src="assets/Images/Persona.png" alt="Personita" class="persona"></a> </div></li>
-
+            <li>
+                <a href="index.php?controller=pregunta&action=list">Inicio</a>
+            </li>
+            <li>
+                <a href="">Guia de reparacion</a>
+            </li>
+            <li>
+                <div class="div-buscar">
+                    <input type="text" class="buscar" placeholder="   Buscar">
+                    <img src="assets/Images/Lupa.png" alt="Lupita" class="lupa">
+                </div
+            </li>
+            <li>
+                <hr class="linea-nav">
+            </li>
+            <li>
+                <div class="div-sesion">
+                    <button id="cerrar-sesion" class="btn-cerrar-sesion" style="background-color: #364156; color: #CDCDCD; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; display: flex;">
+                        Cerrar sesión
+                        <img src="assets/Images/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
+                    </button>
+                </div>
+            </li>
         </ul>
     </nav>
     </div>
-
-
-
+    <script>
+        function eliminarCookie(nombre) {
+            document.cookie = nombre + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        }
+        document.getElementById('cerrar-sesion').addEventListener('click', function() {
+            eliminarCookie('nombre_usuario');
+            eliminarCookie('rol_usuario');
+            location.reload();
+        });
+    </script>
 </header>
 
