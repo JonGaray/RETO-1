@@ -40,10 +40,12 @@
             </li>
             <li>
                 <div class="div-sesion">
-                    <button id="cerrar-sesion" class="btn-cerrar-sesion" style="background-color: #364156; color: #CDCDCD; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; display: flex;">
-                        Cerrar sesión
+                    <span id="cerrar-sesion-text" style="cursor: pointer;">
+            Cerrar sesión
+        </span>
+                    <a id="imagen-redireccion" href="index.php?controller=usuario&action=listPreguntas">
                         <img src="assets/Images/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
-                    </button>
+                    </a>
                 </div>
             </li>
         </ul>
@@ -53,7 +55,7 @@
         function eliminarCookie(nombre) {
             document.cookie = nombre + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         }
-        document.getElementById('cerrar-sesion').addEventListener('click', function() {
+        document.getElementById('cerrar-sesion-text').addEventListener('click', function(event) {
             eliminarCookie('nombre_usuario');
             eliminarCookie('rol_usuario');
             location.reload();
