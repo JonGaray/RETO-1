@@ -31,4 +31,11 @@
             $stmt->execute([$id]);
             return $stmt->fetch();
         }
+
+        public function insertarRespuesta(){
+
+        }
+        public function deleteRespuestaById($id){
+
+        }
     }

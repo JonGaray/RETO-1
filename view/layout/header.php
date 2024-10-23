@@ -29,7 +29,6 @@
             <li><div class="div-buscar"><input type="text" class="buscar" placeholder="   Buscar"> <img src="assets/Images/Lupa.png" alt="Lupita" class="lupa"> </div></li>
             <li><hr class="linea-nav"></li>
 
-            <li><div class="div-sesion"><a href="">Cerrar sesion</a> <img src="assets/Images/Persona.png" alt="Personita" class="persona"> </div></li>
 
             <li><div class="div-sesion">Cerrar sesion <a href="index.php?controller=usuario&action=listPreguntas"><img src="assets/Images/Persona.png" alt="Personita" class="persona"></a> </div></li>
 

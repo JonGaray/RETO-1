@@ -8,7 +8,7 @@ class RespuestaController{
 
     public function __construct()
     {
-        $this->view = "list";
+        $this->view = "";
         $this->page_title = "";
         $this->model = new Respuesta();
     }
@@ -21,5 +21,16 @@ class RespuestaController{
         $this->view = "";
         header("Location:index.php?controller=pregunta&action=list");
         return $this->model->updatenomegusta($_GET["id"]);
+    }
+    public function responder(){
+        $this->view = "list";
+    }
+    public function responderPregunta(){
+        $this->view = "";
+
+        //$this->model->insertarRespuesta();
+    }
+    public function deleteRespuestaById(){
+        
     }
 }
