@@ -5,7 +5,7 @@
         Copyright © AERGIBIDE S.A. all rights reserved</p>
     </div>
     <div class="contacto">
-        <h2>Contact with us</h2>
+        <h2>Contactanos</h2>
         <form class="formulario-contacto" action="" method="post">
             <input class="correo-contacto" type="text" placeholder="Correo">
             <textarea rows="8" name="descripcion-contacto" id="descripcion-contacto" placeholder="Descripcion"></textarea>
@@ -18,3 +18,5 @@
             <div class="facebook"><a href="#"><img class="img-facebook" src="assets/Images/facebook.png" alt=""></a></div>
         </div>
 </footer>
+</body>
+</html>

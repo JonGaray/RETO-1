@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    border: 0;
+
 }
 body{
     background-color: #393939;
@@ -47,6 +49,12 @@ ul{
 li{
     list-style: none;
 }
+
+ul a{
+    text-decoration: none;
+    color: white;
+}
+
 .div-buscar{
     display: flex;
     width: 40%;
@@ -163,6 +171,72 @@ img{
 .instagram, .twitter, .facebook{
     height: 3em;
 }
+
+/*Modificando la parte de respuesta*/
+article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.general{
+    margin: 20px;
+    border-radius: 20px;
+    width: 50%;
+    height: 60vh;
+    background-color: #364156;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 30%;
+    background-color: rgb(102, 118, 148);
+
+}
+textarea{
+    width: 90%;
+    height: 60%;
+    resize: none;
+    border-radius: 10px;
+}
+.input-preg{
+    border-radius: 20px;
+    width: 70%;
+    margin-left: 25px;
+}
+.segundo{
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.respuesta{
+    width: 70%;
+    height: 100%;
+    background-color: rgb(63, 79, 102);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.botones{
+    width: 30%;
+    height: 100%;
+    background-color: rgb(76, 75, 94);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+}
+
 
 .pagina-usuario{
     max-width: 100%;
@@ -301,3 +375,4 @@ a{
 .foto-perfil{
     width: 12em;
 }
+
