@@ -16,6 +16,12 @@ class Pregunta{
         $statement->execute();
         return $statement->fetchAll();
     }
+    public function deletePreguntaById($id){
+        if(is_null($id)) return false;
+        $sql = "DELETE FROM " . $this->table . " WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        return $stmt->execute([$id]);
+    }
     public function getPreguntaById($id){
         if(is_null($id)) return false;
         $sql = "SELECT * FROM ".$this->table. " WHERE id = ?";
