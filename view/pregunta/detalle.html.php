@@ -175,6 +175,7 @@
                     <div class="bottomRight">
                         <div class="like-section">
                             <form action="index.php?controller=respuesta&action=updatemegusta&id=<?php echo $respuesta['id']; ?>" method="post">
+                                <input type="hidden" name="pregunta_id" value="<?php echo $dataToView["data"]['pregunta']['pregunta_id']; ?>">
                                 <button type="submit" name="megusta">
                                     <img src="assets/Images/megusta.png" alt="Me gusta">
                                 </button>
@@ -183,6 +184,7 @@
                         </div>
                         <div class="dislike-section">
                             <form action="index.php?controller=respuesta&action=updatenomegusta&id=<?php echo $respuesta['id']; ?>" method="post">
+                                <input type="hidden" name="pregunta_id" value="<?php echo $dataToView["data"]['pregunta']['pregunta_id']; ?>">
                                 <button type="submit" name="nomegusta">
                                     <img src="assets/Images/nomegusta.png" alt="No me gusta">
                                 </button>
