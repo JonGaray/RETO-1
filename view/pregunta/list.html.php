@@ -92,11 +92,24 @@
     .preguntasBottomRight .enlaces a {
         text-decoration: none;
         padding: 8px 15px;
+        border: 2px solid #CDCDCD;
+        border-radius: 10px;
+        color: #CDCDCD;
+        background-color: #364156;
+        display: block;
+        width: fit-content;
+        margin: 15px auto 0 auto;
+        text-align: center;
+        width: 60%
+    }
+    /*.preguntasBottomRight .enlaces a {
+        text-decoration: none;
+        padding: 8px 15px;
         background-color: #CDCDCD;
         border-radius: 10px;
         color: #393939;
         box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
-    }
+    }*/
     .boton-eliminar {
         text-decoration: none;
         padding: 8px 15px;
