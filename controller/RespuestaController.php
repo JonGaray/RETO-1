@@ -24,12 +24,10 @@ class RespuestaController{
     }
     public function responder(){
         $this->view = "list";
-        return $this->model-> getPreguntaById($_GET["id"]);
     }
     public function responderPregunta(){
-        $this->view = "";
-
-        //$this->model->insertarRespuesta();
+        $this->view = "nada";
+        return $this->model->insertarRespuesta($_GET);
     }
     public function deleteRespuestaById(){
 

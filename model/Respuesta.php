@@ -32,16 +32,28 @@
             return $stmt->fetch();
         }
 
-        public function getPreuntabyId()
-        {
-            $sql= "SELECT p.titulo, p.descripcion, r.contenido
-                   FROM respuestas r
-                   INNER JOIN preguntas p ON r.id_pregunta = p.id
-                   WHERE r.id = 1";
+        public function getPreguntaById($id){
+            $sql= "SELECT p.titulo, p.descripcion, r.contenido FROM respuestas r INNER JOIN preguntas p ON r.id_pregunta = p.id WHERE r.id = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$id]);
+            return $stmt->fetch();
         }
-
-        public function insertarRespuesta(){
-
+        public function getIdbyNombre($nombre){
+            $sql = "SELECT r.id_usuario FROM respuestas r INNER JOIN usuarios u ON r.id_usuario = u.id WHERE u.nombre = ?;";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$nombre]);
+            return $stmt->fetch();
+        }
+        public function insertarRespuesta($param){
+            echo $param["id"] . "<br>";
+            echo $param["user"] . "<br>";
+            echo $param["respuesta"] . "<br>";
+//            $idDeluser = $this->getIdbyNombre($param['nombre']);
+//            $sql = "insert into " . $this->table . " (contenido, megusta, nomegusta, id_usuario, id_pregunta) values (?, ?, ?, ?, ?)";
+//            $stmt = $this->connection->prepare($sql);
+//            $stmt->execute([$param["respuesta"],0,0,$idDeluser,$param["id_pregunta"]]);
+            header("Location:index.php?controller=pregunta&action=list");
+            return;
         }
         public function deleteRespuestaById($id){
 

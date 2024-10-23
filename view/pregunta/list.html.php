@@ -133,7 +133,7 @@
                         <input type="text" name="usuario" disabled class="usuario" value="<?php echo $pregunta["nombre"]; ?>">
                         <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
                         <div class="enlaces">
-                            <a href="index.php?controller=respuesta&action=responder&id=<?php echo $pregunta["id"]; ?>">Responder</a>
+                            <a href="index.php?controller=respuesta&action=responder&id=<?php echo $pregunta["id"]; ?>&user=<?php echo $pregunta["nombre"]; ?>">Responder</a>
                             <a href="index.php?controller=pregunta&action=detalle&id=<?php echo $pregunta["id"]; ?>">Ver m&aacute;s</a>
                         </div>
                     </div>

@@ -3,18 +3,18 @@
     <div class="general">
         <form method="get" action="index.php?controller=respuesta&action=responderPregunta">
 
-        <div class="titulo"><input type="text" class="input-preg"></div>
+
         <div class="segundo">
             <div class="respuesta">
-                <textarea name="" id="" cols="10" rows="10"></textarea>
+                <p class="parrafo-resp">Respuesta</p>
+                <textarea name="respuesta" id="respuesta" cols="10" rows="10" class="area"></textarea>
             </div>
             <div class="botones">
-                <button class="btn btn-primary" type="submit">Aceptar</button>
-                <button class="btn btn-danger" type="reset">Cancelar</button>
+                <input class="btn btn-primary" type="submit" value="Enviar">
+                <input class="btn btn-danger" type="reset" value="Cancelar">
             </div>
         </div>
         </form>
-
     </div>
 </article>
 
