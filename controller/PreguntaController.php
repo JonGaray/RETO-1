@@ -30,9 +30,15 @@ class PreguntaController extends BaseController
         $_GET["response"] = true;
         return $result;
     }
-    public function detalle(){
+    public function detalle() {
         $this->view = "detalle";
-        return $this->model->getRespuestasByIdPregunta($_GET["id"]);
+        $pregunta = $this->model->getPreguntaById($_GET["id"]);
+        $respuestas = $this->model->getRespuestasByIdPregunta($_GET["id"]);
+        /*if (empty($dataToView["data"]['respuestas'])) {
+            return $dataToView["data"]['pregunta'];
+        }
+        return $dataToView;*/
+        return ["pregunta"=>$pregunta,"respuestas"=>$respuestas];
     }
     public function delete(){
         $this->view = "";

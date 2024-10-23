@@ -31,8 +31,7 @@ class RespuestaController{
 
         //$this->model->insertarRespuesta();
     }
-    public function deleteRespuestaById(){
-
+    public function delete(){
         $this->view = "";
         if (isset($_POST["id"])) {
             $result = $this->model->deleteRespuestaById($_POST["id"]);

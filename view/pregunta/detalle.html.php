@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario con Categorías</title>
-    <style>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -28,6 +21,21 @@
             box-shadow: 5px 5px 10px #dff8eb56;
             width: 60%;
             margin: 20px auto;
+        }
+
+        .noRespuestasBlock {
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 2px solid red;
+            border-radius: 10px;
+            color: red;
+            background-color: #393939;
+            display: block;
+            width: fit-content;
+            margin: 15px auto 0 auto;
+            text-align: center;
+            width: 60%;
+            margin-bottom: 20px;
         }
 
         .topSection {
@@ -84,18 +92,21 @@
             text-align: center;
         }
 
-        .like-section, .dislike-section {
+        .like-section,
+        .dislike-section {
             display: flex;
             align-items: center;
             justify-content: space-around;
         }
 
-        .like-section img, .dislike-section img {
+        .like-section img,
+        .dislike-section img {
             height: 35.5px;
             border-radius: 5px;
         }
 
-        .like-section input, .dislike-section input {
+        .like-section input,
+        .dislike-section input {
             padding: 10px;
             background-color: #CDCDCD;
             border-radius: 15px;
@@ -119,6 +130,7 @@
         form button img {
             height: 35.5px;
         }
+
         .boton-eliminar {
             text-decoration: none;
             padding: 8px 15px;
@@ -132,69 +144,65 @@
             text-align: center;
             width: 60%;
         }
-    </style>
-</head>
+</style>
+
 <div class="preguntaBlock">
     <div class="topSection">
-        <input type="text" name="titulo" class="titulo" disabled value="<?php echo $dataToView["data"][0]["pregunta_titulo"]; ?>">
+        <input type="text" name="titulo" class="titulo" disabled value="<?php echo $dataToView["data"]['pregunta']['titulo'] ?? ''; ?>">
     </div>
     <div class="bottomSection">
         <div class="bottomLeft">
-            <input type="text" name="descripcion" disabled class="descripcion" value="<?php echo $dataToView["data"][0]["pregunta_descripcion"]; ?>">
+            <input type="text" name="descripcion" disabled class="descripcion" value="<?php echo $dataToView["data"]['pregunta']['descripcion'] ?? ''; ?>">
         </div>
         <div class="bottomRight">
-            <input type="text" name="usuario" disabled class="usuario" value="<?php echo $dataToView["data"][0]["usuario_nombre_preguntador"]; ?>">
-            <input type="text" name="categoria" disabled class="categoria" value="<?php echo $dataToView["data"][0]["pregunta_categoria"]; ?>">
+            <input type="text" name="usuario" disabled class="usuario" value="<?php echo $dataToView["data"]['pregunta']['nombre'] ?? ''; ?>">
+            <input type="text" name="categoria" disabled class="categoria" value="<?php echo $dataToView["data"]['pregunta']['categoria'] ?? ''; ?>">
         </div>
     </div>
 </div>
-<?php
-$x = 0;
-if (count($dataToView["data"]) > 0){
-    foreach ($dataToView["data"] as $respuesta){
-        ?>
-<div class="respuestaBlock">
-    <div class="topSection">
-        <input type="text" name="usuario" class="usuario" disabled value="<?php echo $dataToView["data"][$x]["usuario_nombre_respuesta"]; ?>">
-    </div>
-    <div class="bottomSection">
-        <div class="bottomLeft">
-            <input type="text" name="contenido" disabled class="contenido" value="<?php echo $dataToView["data"][$x]["respuesta_contenido"]; ?>">
-        </div>
-        <div class="bottomRight">
-            <div class="like-section">
-                <form action="index.php?controller=respuesta&action=updatemegusta&id=<?php echo $dataToView["data"][$x]["respuesta_id"]; ?>" method="post">
-                    <button type="submit" name="megusta">
-                        <img src="assets/Images/megusta.png" alt="Me gusta">
-                    </button>
-                </form>
-                <input type="text" name="megusta" disabled class="megusta" value="<?php echo $dataToView["data"][$x]["respuesta_megusta"]; ?>">
+<div class="respuestas">
+    <?php if (!empty($dataToView["data"]['respuestas']["respuestas"])): ?>
+        <?php foreach ($dataToView["data"]['respuestas']['respuestas'] as $respuesta): ?>
+            <div class="respuestaBlock">
+                <div class="topSection">
+                    <input type="text" name="usuario" class="usuario" disabled value="<?php echo isset($respuesta['usuario_nombre_respuesta']) ? $respuesta['usuario_nombre_respuesta'] : 'Desconocido'; ?>">
+                </div>
+                <div class="bottomSection">
+                    <div class="bottomLeft">
+                        <input type="text" name="contenido" disabled class="contenido" value="<?php echo isset($respuesta['contenido']) ? $respuesta['contenido'] : 'Sin contenido'; ?>">
+                    </div>
+                    <div class="bottomRight">
+                        <div class="like-section">
+                            <form action="index.php?controller=respuesta&action=updatemegusta&id=<?php echo $respuesta['id']; ?>" method="post">
+                                <button type="submit" name="megusta">
+                                    <img src="assets/Images/megusta.png" alt="Me gusta">
+                                </button>
+                            </form>
+                            <input type="text" name="megusta" disabled class="megusta" value="<?php echo isset($respuesta['megusta']) ? $respuesta['megusta'] : 0; ?>">
+                        </div>
+                        <div class="dislike-section">
+                            <form action="index.php?controller=respuesta&action=updatenomegusta&id=<?php echo $respuesta['id']; ?>" method="post">
+                                <button type="submit" name="nomegusta">
+                                    <img src="assets/Images/nomegusta.png" alt="No me gusta">
+                                </button>
+                            </form>
+                            <input type="text" name="nomegusta" disabled class="nomegusta" value="<?php echo isset($respuesta['nomegusta']) ? $respuesta['nomegusta'] : 0; ?>">
+                        </div>
+                    </div>
+                </div>
+                <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin"): ?>
+                    <form action="index.php?controller=respuesta&action=delete" method="post">
+                        <input type="hidden" name="id" value="<?php echo $respuesta['id']; ?>">
+                        <button type="submit" class="boton-eliminar">Eliminar</button>
+                    </form>
+                <?php endif; ?>
             </div>
-            <div class="dislike-section">
-                <form action="index.php?controller=respuesta&action=updatenomegusta&id=<?php echo $dataToView["data"][$x]["respuesta_id"]; ?>" method="post">
-                    <button type="submit" name="nomegusta">
-                        <img src="assets/Images/nomegusta.png" alt="No me gusta">
-                    </button>
-                </form>
-                <input type="text" name="nomegusta" disabled class="nomegusta" value="<?php echo $dataToView["data"][$x]["respuesta_nomegusta"]; ?>">
-            </div>
-        </div>
-    </div>
-    <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
-        <form action="index.php?controller=respuesta&action=delete" method="post">
-            <input type="hidden" name="id" value="<?php echo $respuesta['respuesta_id']; ?>">
-            <button type="submit" class="boton-eliminar">Eliminar</button>
-        </form>
-    <?php } ?>
-</div>
-<?php
-        $x++;
-}
-}else{
-    ?>
-<p>Actualemte no existen respuestas</p>
-<?php
-    }
-?>
 
-</html>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <div class="noRespuestasBlock">
+            <p>No existen respuestas para esta pregunta.</p>
+        </div>
+    <?php endif; ?>
+</div>
+

@@ -24,7 +24,7 @@ class Pregunta{
     }
     public function getPreguntaById($id){
         if(is_null($id)) return false;
-        $sql = "SELECT * FROM ".$this->table. " WHERE id = ?";
+        $sql = "SELECT preguntas.id, titulo, descripcion, categoria, u.nombre FROM ".$this->table. " JOIN usuarios u ON id_usuario = u.id WHERE preguntas.id = ?";
         $stmt = $this->connection->prepare($sql);
         $stmt-> execute([$id]);
         return $stmt->fetch();
@@ -52,7 +52,6 @@ class Pregunta{
     }
     public function getRespuestasByIdPregunta($id) {
         if (is_null($id)) return false;
-
         $sql = "SELECT 
         p.id AS pregunta_id,
         p.titulo AS pregunta_titulo,
@@ -69,37 +68,41 @@ class Pregunta{
         u_respuesta.id AS usuario_id_respuesta,
         u_respuesta.nombre AS usuario_nombre_respuesta,
         u_respuesta.correo AS usuario_correo_respuesta 
-    FROM " . $this->table . " p 
-    JOIN respuestas r ON p.id = r.id_pregunta 
-    JOIN usuarios u_respuesta ON r.id_usuario = u_respuesta.id
-    JOIN usuarios u_preguntador ON p.id_usuario = u_preguntador.id
-    WHERE p.id = ? ORDER BY respuesta_megusta DESC";
-
+        FROM " . $this->table . " p 
+        JOIN respuestas r ON p.id = r.id_pregunta 
+        JOIN usuarios u_respuesta ON r.id_usuario = u_respuesta.id
+        JOIN usuarios u_preguntador ON p.id_usuario = u_preguntador.id
+        WHERE p.id = ? ORDER BY respuesta_megusta DESC";
         $statement = $this->connection->prepare($sql);
         $statement->execute([$id]);
         $dataToView = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $pregunta_id = $pregunta_titulo = $pregunta_descripcion = $pregunta_categoria = "";
-        $respuesta_id = $respuesta_contenido = $respuesta_megusta = $respuesta_nomegusta = "";
-        $usuario_id_preguntador = $usuario_nombre_preguntador = $usuario_correo_preguntador = "";
-        $usuario_id_respuesta = $usuario_nombre_respuesta = $usuario_correo_respuesta = "";
+        $pregunta = [];
+        $respuestas = [];
         if (isset($dataToView[0])) {
-            $pregunta_id = $dataToView[0]['pregunta_id'];
-            $pregunta_titulo = htmlspecialchars($dataToView[0]['pregunta_titulo']);
-            $pregunta_descripcion = htmlspecialchars($dataToView[0]['pregunta_descripcion']);
-            $pregunta_categoria = htmlspecialchars($dataToView[0]['pregunta_categoria']);
-            $usuario_id_preguntador = $dataToView[0]['usuario_id_preguntador'];
-            $usuario_nombre_preguntador = htmlspecialchars($dataToView[0]['usuario_nombre_preguntador']);
-            $usuario_correo_preguntador = htmlspecialchars($dataToView[0]['usuario_correo_preguntador']);
+            $pregunta = [
+                'id' => $dataToView[0]['pregunta_id'],
+                'titulo' => htmlspecialchars($dataToView[0]['pregunta_titulo']),
+                'descripcion' => htmlspecialchars($dataToView[0]['pregunta_descripcion']),
+                'categoria' => htmlspecialchars($dataToView[0]['pregunta_categoria']),
+                'usuario_id_pregunta' => $dataToView[0]['usuario_id_preguntador'],
+                'usuario_nombre_pregunta' => htmlspecialchars($dataToView[0]['usuario_nombre_preguntador']),
+                'usuario_correo_pregunta' => htmlspecialchars($dataToView[0]['usuario_correo_preguntador']),
+            ];
             foreach ($dataToView as $respuesta) {
-                $respuesta_id = $respuesta['respuesta_id'];
-                $respuesta_contenido = htmlspecialchars($respuesta['respuesta_contenido']);
-                $respuesta_megusta = $respuesta['respuesta_megusta'];
-                $respuesta_nomegusta = $respuesta['respuesta_nomegusta'];
-                $usuario_id_respuesta = $respuesta['usuario_id_respuesta'];
-                $usuario_nombre_respuesta = htmlspecialchars($respuesta['usuario_nombre_respuesta']);
-                $usuario_correo_respuesta = htmlspecialchars($respuesta['usuario_correo_respuesta']);
+                $respuestas[] = [
+                    'id' => $respuesta['respuesta_id'],
+                    'contenido' => htmlspecialchars($respuesta['respuesta_contenido']),
+                    'megusta' => $respuesta['respuesta_megusta'],
+                    'nomegusta' => $respuesta['respuesta_nomegusta'],
+                    'usuario_id_respuesta' => $respuesta['usuario_id_respuesta'],
+                    'usuario_nombre_respuesta' => htmlspecialchars($respuesta['usuario_nombre_respuesta']),
+                    'usuario_correo_respuesta' => htmlspecialchars($respuesta['usuario_correo_respuesta']),
+                ];
             }
         }
-        return $dataToView;
+        return [
+            'pregunta' => $pregunta,
+            'respuestas' => $respuestas,
+        ];
     }
 }
