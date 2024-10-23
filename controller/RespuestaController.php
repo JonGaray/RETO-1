@@ -33,5 +33,19 @@ class RespuestaController{
     }
     public function deleteRespuestaById(){
 
+        $this->view = "";
+        if (isset($_POST["id"])) {
+            $result = $this->model->deleteRespuestaById($_POST["id"]);
+            if ($result) {
+                header("Location: index.php?controller=pregunta&action=detalle&id=".($_POST["id"]));
+                exit();
+            } else {
+                echo "Error al eliminar la respuesta.";
+            }
+        } else {
+            echo "ID no proporcionado para la eliminación.";
+            return false;
+        }
+
     }
 }
