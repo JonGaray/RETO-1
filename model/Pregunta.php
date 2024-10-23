@@ -24,7 +24,7 @@ class Pregunta{
     }
     public function getPreguntaById($id){
         if(is_null($id)) return false;
-        $sql = "SELECT preguntas.id, titulo, descripcion, categoria, u.nombre FROM ".$this->table. " JOIN usuarios u ON id_usuario = u.id WHERE preguntas.id = ?";
+        $sql = "SELECT preguntas.id AS pregunta_id, titulo, descripcion, categoria, u.nombre FROM ".$this->table. " JOIN usuarios u ON id_usuario = u.id WHERE preguntas.id = ?";
         $stmt = $this->connection->prepare($sql);
         $stmt-> execute([$id]);
         return $stmt->fetch();
@@ -80,7 +80,7 @@ class Pregunta{
         $respuestas = [];
         if (isset($dataToView[0])) {
             $pregunta = [
-                'id' => $dataToView[0]['pregunta_id'],
+                'pregunta_id' => $dataToView[0]['pregunta_id'],
                 'titulo' => htmlspecialchars($dataToView[0]['pregunta_titulo']),
                 'descripcion' => htmlspecialchars($dataToView[0]['pregunta_descripcion']),
                 'categoria' => htmlspecialchars($dataToView[0]['pregunta_categoria']),

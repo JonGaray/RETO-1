@@ -160,6 +160,7 @@
         </div>
     </div>
 </div>
+
 <div class="respuestas">
     <?php if (!empty($dataToView["data"]['respuestas']["respuestas"])): ?>
         <?php foreach ($dataToView["data"]['respuestas']['respuestas'] as $respuesta): ?>
@@ -193,6 +194,7 @@
                 <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin"): ?>
                     <form action="index.php?controller=respuesta&action=delete" method="post">
                         <input type="hidden" name="id" value="<?php echo $respuesta['id']; ?>">
+                        <input type="hidden" name="pregunta_id" value="<?php echo $dataToView["data"]['pregunta']['pregunta_id']; ?>">
                         <button type="submit" class="boton-eliminar">Eliminar</button>
                     </form>
                 <?php endif; ?>
