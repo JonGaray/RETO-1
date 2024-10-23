@@ -50,12 +50,11 @@
 
 
 <article>
-
     <div class="general">
-        <div class="titulo"><h1>pregunta</h1></div>
+        <div class="titulo"><input type="text" class="input-preg"></div>
         <div class="segundo">
             <div class="respuesta">
-                <h1>respuesta</h1>
+                <textarea name="" id="" cols="10" rows="10"></textarea>
             </div>
             <div class="botones">
                 <button class="btn btn-primary">Aceptar</button>
@@ -64,7 +63,6 @@
         </div>
 
     </div>
-
 </article>
 
 
