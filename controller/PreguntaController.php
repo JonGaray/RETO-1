@@ -35,6 +35,7 @@ class PreguntaController extends BaseController
         return $this->model->getRespuestasByIdPregunta($_GET["id"]);
     }
     public function delete(){
+        $this->view = "";
         if (isset($_POST["id"])) {
             $result = $this->model->deletePreguntaById($_POST["id"]);
             if ($result) {

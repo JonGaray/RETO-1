@@ -119,6 +119,19 @@
         form button img {
             height: 35.5px;
         }
+        .boton-eliminar {
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 2px solid red;
+            border-radius: 10px;
+            color: red;
+            background-color: #364156;
+            display: block;
+            width: fit-content;
+            margin: 15px auto 0 auto;
+            text-align: center;
+            width: 60%;
+        }
     </style>
 </head>
 <div class="preguntaBlock">
@@ -167,6 +180,12 @@ if (count($dataToView["data"]) > 0){
             </div>
         </div>
     </div>
+    <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
+        <form action="index.php?controller=respuesta&action=delete" method="post">
+            <input type="hidden" name="id" value="<?php echo $respuesta['respuesta_id']; ?>">
+            <button type="submit" class="boton-eliminar">Eliminar</button>
+        </form>
+    <?php } ?>
 </div>
 <?php
         $x++;

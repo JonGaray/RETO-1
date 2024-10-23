@@ -36,6 +36,9 @@
 
         }
         public function deleteRespuestaById($id){
-
+            if(is_null($id)) return false;
+            $sql = "DELETE FROM " . $this->table . " WHERE id = ?";
+            $stmt = $this->connection->prepare($sql);
+            return $stmt->execute([$id]);
         }
     }
