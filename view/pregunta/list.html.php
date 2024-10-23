@@ -83,35 +83,53 @@
         margin-bottom: 10px;
         text-align: center;
     }
+    .preguntasBottomRight .enlaces {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+    .preguntasBottomRight .enlaces a {
+        text-decoration: none;
+        padding: 8px 15px;
+        background-color: #CDCDCD;
+        border-radius: 10px;
+        color: #393939;
+        box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+    }
 </style>
+
 <div>
     <a href="index.php?controller=pregunta&action=create" class="annadirPregunta">¿Cual es tu pregunta?</a>
 </div>
 <div class="preguntaGrupo">
     <?php
-        if (count($dataToView["data"]) > 0){
-            foreach ($dataToView["data"] as $pregunta){
-                ?>
-                <div class="preguntaBlock">
-                    <div class="preguntaTopSection">
+    if (count($dataToView["data"]) > 0){
+        foreach ($dataToView["data"] as $pregunta){
+            ?>
+            <div class="preguntaBlock">
+                <div class="preguntaTopSection">
                     <input type="text" name="titulo" class="titulo" disabled value="<?php echo $pregunta["titulo"]; ?>">
-                    </div>
+                </div>
                 <div class="preguntaBottomSection">
                     <div class="preguntaBottomLeft">
-                    <input type="text" name="descripcion" disabled class="descripcion" value="<?php echo $pregunta["descripcion"]; ?>">
-                </div>
-                <div class="preguntasBottomRight">
-                    <input type="text" name="usuario" disabled class="usuario" value="<?php echo $pregunta["nombre"]; ?>"> <!-- NECESITAMOS EL NOMBRE -->
-                    <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
+                        <input type="text" name="descripcion" disabled class="descripcion" value="<?php echo $pregunta["descripcion"]; ?>">
+                    </div>
+                    <div class="preguntasBottomRight">
+                        <input type="text" name="usuario" disabled class="usuario" value="<?php echo $pregunta["nombre"]; ?>">
+                        <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
+                        <div class="enlaces">
+                            <a href="index.php?controller=respuesta&action=responder">Responder</a>
+                            <a href="index.php?controller=pregunta&action=detalle&id=<?php echo $pregunta["id"]; ?>">Ver m&aacute;s</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <?php
-            }
-        }else{
-        ?>
-            <p>Actualmente no existen preguntas</p>
-        <?php
+            <?php
         }
+    }else{
+        ?>
+        <p>Actualmente no existen preguntas</p>
+        <?php
+    }
     ?>
 </div>
