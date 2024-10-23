@@ -110,6 +110,20 @@
         text-align: center;
         width: 60%;
     }
+    .sin-respuesta{
+        text-decoration: none;
+        padding: 8px 15px;
+        border: 2px solid red;
+        border-radius: 10px;
+        color: red;
+        background-color: #393939;
+        display: block;
+        width: fit-content;
+        margin: 15px auto 0 auto;
+        text-align: center;
+        width: 60%;
+        margin-bottom: 20px;
+    }
 </style>
 
 <div>
@@ -149,7 +163,7 @@
         }
     }else{
         ?>
-        <p>Actualmente no existen preguntas</p>
+        <div class="sin-respuesta">Actualmente no existen preguntas</div>
         <?php
     }
     ?>
