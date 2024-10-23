@@ -34,4 +34,18 @@ class PreguntaController extends BaseController
         $this->view = "detalle";
         return $this->model->getRespuestasByIdPregunta($_GET["id"]);
     }
+    public function delete(){
+        if (isset($_POST["id"])) {
+            $result = $this->model->deletePreguntaById($_POST["id"]);
+            if ($result) {
+                header("Location: index.php?controller=pregunta&action=list");
+                exit();
+            } else {
+                echo "Error al eliminar la pregunta.";
+            }
+        } else {
+            echo "ID no proporcionado para la eliminación.";
+            return false;
+        }
+    }
 }
