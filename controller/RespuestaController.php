@@ -24,6 +24,7 @@ class RespuestaController{
     }
     public function responder(){
         $this->view = "list";
+        return $this->model-> getPreguntaById($_GET["id"]);
     }
     public function responderPregunta(){
         $this->view = "";
@@ -31,6 +32,7 @@ class RespuestaController{
         //$this->model->insertarRespuesta();
     }
     public function deleteRespuestaById(){
+
         $this->view = "";
         if (isset($_POST["id"])) {
             $result = $this->model->deleteRespuestaById($_POST["id"]);
@@ -44,5 +46,6 @@ class RespuestaController{
             echo "ID no proporcionado para la eliminación.";
             return false;
         }
+
     }
 }

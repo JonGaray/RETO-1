@@ -32,6 +32,14 @@
             return $stmt->fetch();
         }
 
+        public function getPreuntabyId()
+        {
+            $sql= "SELECT p.titulo, p.descripcion, r.contenido
+                   FROM respuestas r
+                   INNER JOIN preguntas p ON r.id_pregunta = p.id
+                   WHERE r.id = 1";
+        }
+
         public function insertarRespuesta(){
 
         }
