@@ -47,5 +47,19 @@ class Usuario{
         }
         return false; // Usuario no encontrado o credenciales incorrectas
     }
+    public function updateUsuario($param){
+        $sql = "UPDATE " .$this->table. " SET nombre=?, correo=?, contrasenna=? WHERE id=?";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute([$param["nombre"], $param["correo"], $param["contrasenna"], $param["id"]]);
 
+        return $param["id"];
+    }
+    public function getUserById($id)
+    {
+        if (is_null($id)) return false;
+        $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$id]);
+        return $stmt->fetch();
+    }
 }

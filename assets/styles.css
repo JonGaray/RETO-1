@@ -221,7 +221,7 @@ textarea{
 .respuesta{
     width: 70%;
     height: 100%;
-    background-color: rgb(63, 79, 102);
+    background-color: #cdcdcd;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -376,3 +376,6 @@ a{
     width: 12em;
 }
 
+.papelera_usuario{
+    width: 2em;
+}

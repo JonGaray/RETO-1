@@ -1,6 +1,7 @@
 <?php
 require_once "model/Usuario.php";
 require_once "model/Respuesta.php";
+require_once "model/Pregunta.php";
 
 
 class UsuarioController{
@@ -8,6 +9,7 @@ class UsuarioController{
     public $view;
     public $model;
     public $modelRespuestas;
+    public $modelPreguntas;
 
     public function __construct()
     {
@@ -15,6 +17,7 @@ class UsuarioController{
         $this->page_title = "";
         $this->model = new Usuario();
         $this->modelRespuestas = new Respuesta();
+        $this->modelPreguntas = new Pregunta();
     }
     public function login(){
         $this->view = "login";
@@ -25,28 +28,32 @@ class UsuarioController{
             exit();
         }
     }
-    public function listPreguntas(){
-        $this->view = "usuario_preguntas";
-        $this->page_title = "Editar usuario";
-        return $this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
-    }
     public function listRespuestas(){
         $this->view = "usuario_respuestas";
         $this->page_title = "Editar usuario";
         $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
         $respuestas = $this->modelRespuestas->getRespuestasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
-
-        $dataToView["data"]["usuario"] = $usuario;
-        $dataToView["data"]["respuestas"] = $respuestas;
-
-        include("view/usuario/usuario_respuestas.html.php");
+        
+        return ["usuario"=>$usuario,"respuestas"=>$respuestas];
     }
-    public function getRespuestas(){
+    public function update(){
         $this->view = "usuario_respuestas";
         $this->page_title = "Editar usuario";
-        $respuestas = $this->modelRespuestas->getRespuestasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"]));
-        $dataToView["data"]["respuestas"] = $respuestas;
 
-        include("view/usuario/usuario_respuestas.html.php");
+        $id = $this->model->updateUsuario($_POST);
+        $result = $this->model->getUserById($id);
+        $_GET["response"] = true;
+        $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
+        $respuestas = $this->modelRespuestas->getRespuestasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
+
+        return ["usuario"=>$usuario,"respuestas"=>$respuestas];
+    }
+    public function listPreguntas(){
+        $this->view = "usuario_preguntas";
+        $this->page_title = "Editar usuario preguntas";
+        $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
+        $preguntas = $this->modelPreguntas->getPreguntasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
+
+        return ["usuario"=>$usuario,"preguntas"=>$preguntas];
     }
 }
