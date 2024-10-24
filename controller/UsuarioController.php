@@ -72,4 +72,7 @@ class UsuarioController{
             return false;
         }
     }
+    public function save(){
+    
+    }
 }

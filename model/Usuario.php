@@ -62,4 +62,7 @@ class Usuario{
         $stmt->execute([$id]);
         return $stmt->fetch();
     }
+    public function save($param){
+
+    }
 }

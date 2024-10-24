@@ -50,9 +50,7 @@
             <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listRespuestas">Mostrar respuestas</a>
             <a class="link-acciones-usuario" href="#">Mostrar preguntas</a>
             <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
-            <form action="index.php?controller=pregunta&action=delete" method="post">
-            <a class="link-acciones-usuario" href="#">Crear usuario</a>
-            </form>
+            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario</a>
             <?php } ?>
         </div>
 </div>
