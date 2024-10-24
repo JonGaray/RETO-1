@@ -102,6 +102,11 @@
         text-align: center;
         width: 60%;
         align-items: center;
+        transition: background-color 0.5s ease;
+    }
+    .preguntasBottomRight .enlaces a:hover{
+        background-color: #CDCDCD;
+        color: #393939;
     }
     /*.preguntasBottomRight .enlaces a {
         text-decoration: none;
@@ -123,6 +128,11 @@
         margin: 15px auto 0 auto;
         text-align: center;
         width: 60%;
+        transition: background-color 0.5s ease;
+    }
+    .boton-eliminar:hover {
+        background-color: red;
+        color: white;
     }
     .sin-respuesta{
         text-decoration: none;
