@@ -112,4 +112,11 @@ class Pregunta{
             'respuestas' => $respuestas,
         ];
     }
+    public function getPreguntasByUsuarioId($param){
+            
+        $sql = "SELECT titulo, descripcion FROM " .$this->table. " WHERE id_usuario = ?";
+        $statement=$this->connection->prepare($sql);
+        $statement->execute([$param]);
+        return $statement->fetchAll();
+    }
 }
