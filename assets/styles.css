@@ -181,46 +181,47 @@ article{
 .general form{
     width: 80%;
     height: 50vh;
-
 }
 .general{
     margin: 20px;
     border-radius: 20px;
     width: 50%;
-    height: 41vh;
+    height: 45vh;
     background-color: #364156;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
-.titulo{
-    display: flex;
-    align-items: center;
-    width: 80%;
-    height: 40%;
+.parrafo-resp{
+    font-size: 1.9em;
+    margin-bottom: 30px;
+    border:0;
+    background-color: #364156;
+    text-align: center;
+    color: black;
 
 }
-textarea{
-    width: 90%;
+.id-hidden{
+    visibility: hidden;
+}
+.area{
+    width: 100%;
     height: 60%;
     resize: none;
     border-radius: 5px 10px 10px 10px;
-}
-.input-preg{
-    border-radius: 20px;
-    width: 70%;
-    height: 20%;
-    margin-left: 25px;
-}
-.segundo{
-    width: 80%;
-    height: 60%;
-    display: flex;
-    flex-direction: row;
+    font-size: 1.9em;
+    background-color: #adadad;
+    border: 1px solid white;
+ }
 
+.segundo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .respuesta{
@@ -239,10 +240,11 @@ textarea{
     justify-content: center;
     align-items: center;
     gap: 20px;
-}
-.botones button{
-    width: 50%;
-    height: 10%;
+ }
+.botones input[type="submit"], input[type="reset"]{
+    width: 100%;
+    height: 40%;;
+    background-color: #393939;
 
 }
 /*Fin de responder pregunta*/
