@@ -19,7 +19,7 @@
         background-color: #364156;
         padding-top: 50px;
         width: 50%;
-        height: 50%;
+        height: 60%;
         box-shadow: 5px 5px 10px #dff8eb56;
         border-radius: 15px;
     }
