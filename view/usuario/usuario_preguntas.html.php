@@ -9,12 +9,17 @@
                 <div class="titulo_pregunta">
                     <h2><?php echo $preguntas["titulo"]?></h2>
                 </div>
-                <div class="respuesta">
+                <div class="respuesta-usuario">
                    <?php echo $preguntas["descripcion"] ?>
                 </div>
                 <div class="likes">
                     <a class="ver-mas" href="#">Ver mas</a>
-                    <a href="#"><img class="papelera_usuario" src="assets/Images/papelera.png" alt=""></a>
+                    <form method="post" action="index.php?controller=usuario&action=deletePregunta">
+                        <input type="hidden" id="id" name="id" value="<?php echo $preguntas["id"] ?>">
+                        <button class="btn-eliminar-pregunta-usuario" type="submit">
+                            <img class="papelera_usuario" src="assets/Images/papelera.png" alt="">
+                        </button>
+                    </form>
                 </div>
             </div>
             <?php endforeach; else: ?> <p>hola</p>;<?php endif; ?>
@@ -44,5 +49,6 @@
             <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil</a>
             <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listRespuestas">Mostrar respuestas</a>
             <a class="link-acciones-usuario" href="#">Mostrar preguntas</a>
+            <a class="link-acciones-usuario" href="#">Crear usuario</a>
         </div>
 </div>

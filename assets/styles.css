@@ -391,3 +391,12 @@ a{
 .papelera_usuario{
     width: 2em;
 }
+
+.respuesta-usuario{
+    background-color: #cdcdcd;
+    overflow-wrap: anywhere;
+}
+
+.btn-eliminar-pregunta-usuario{
+    background-color: #cdcdcd;
+}
