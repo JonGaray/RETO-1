@@ -14,12 +14,12 @@ class RespuestaController{
     }
     public function updatemegusta(){
         $this->view = "";
-        header("Location:index.php?controller=pregunta&action=list");
+        header("Location:index.php?controller=pregunta&action=detalle&id=".($_POST["pregunta_id"]));
         return $this->model->updatemegusta($_GET["id"]);
     }
     public function updatenomegusta(){
         $this->view = "";
-        header("Location:index.php?controller=pregunta&action=list");
+        header("Location:index.php?controller=pregunta&action=detalle&id=".($_POST["pregunta_id"]));
         return $this->model->updatenomegusta($_GET["id"]);
     }
     public function responder(){
@@ -37,13 +37,12 @@ class RespuestaController{
         echo $_GET["id"];
         return $this->model->insertarRespuesta($_GET);
     }
-    public function deleteRespuestaById(){
-
+    public function delete(){
         $this->view = "";
-        if (isset($_POST["id"])) {
+        if (isset($_POST["id"]) && isset($_POST["pregunta_id"])) {
             $result = $this->model->deleteRespuestaById($_POST["id"]);
             if ($result) {
-                header("Location: index.php?controller=pregunta&action=detalle&id=".($_POST["id"]));
+                header("Location: index.php?controller=pregunta&action=detalle&id=".($_POST["pregunta_id"]));
                 exit();
             } else {
                 echo "Error al eliminar la respuesta.";
@@ -52,6 +51,5 @@ class RespuestaController{
             echo "ID no proporcionado para la eliminación.";
             return false;
         }
-
     }
 }

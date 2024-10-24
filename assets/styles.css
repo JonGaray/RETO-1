@@ -219,6 +219,7 @@ article{
 .respuesta{
     width: 70%;
     height: 100%;
+    background-color: #364156;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -379,3 +380,6 @@ a{
     width: 12em;
 }
 
+.papelera_usuario{
+    width: 2em;
+}
