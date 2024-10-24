@@ -360,12 +360,17 @@ article{
 
 .btn-anterior, .btn-siguiente{
     text-decoration: none;
-    color: black;
-    background-color: #cdcdcd;
+    color: #CDCDCD;
+    background-color: #364156;
     padding: 0.4em 1em 0.4em 1em;
+    border: 2px solid #CDCDCD;
     border-radius: 15px;
+    transition: background-color 0.5s ease;
 }
-
+.btn-anterior:hover, .btn-siguiente:hover{
+    background-color: #CDCDCD;
+    color: #393939;
+}
 a{
     text-decoration: none;
 }
