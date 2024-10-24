@@ -34,7 +34,7 @@
                     <form action="index.php?controller=pregunta&action=listCategoria" method="POST" style="display: flex; align-items: center; width: 100%;">
                         <input type="text" name="categoria" class="buscar" placeholder="Buscar" required style="text-align: center; padding: 3px; flex: 1; border-radius: 5px; border: 1px solid #ccc;">
                         <button type="submit" class="lupa" style="background: none; border: none; cursor: pointer; padding-left: 5px;">
-                            <img src="assets/Images/Lupa.png" alt="Lupita" class="lupa" style="vertical-align: middle; width: 32px; height: 32px;"> <!-- Asegúrate de que el tamaño sea correcto -->
+                            <img src="assets/Images/Lupa.png" alt="Lupita" class="lupa" style="vertical-align: middle; width: 32px; height: 32px;">
                         </button>
                     </form>
                 </div>
@@ -44,12 +44,11 @@
             </li>
             <li>
                 <div class="div-sesion">
-                    <span id="cerrar-sesion-text" style="cursor: pointer;">
-            Cerrar sesión
-        </span>
+                    <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;">Cerrar sesión</a>
                     <a id="imagen-redireccion" href="index.php?controller=usuario&action=listPreguntas">
                         <img src="assets/Images/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
                     </a>
+                    <h3> <?php echo $_COOKIE["nombre_usuario"]?></h3>
                 </div>
             </li>
         </ul>
