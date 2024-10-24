@@ -96,11 +96,12 @@
         border-radius: 10px;
         color: #CDCDCD;
         background-color: #364156;
-        display: block;
+        display: flex;
         width: fit-content;
         margin: 15px auto 0 auto;
         text-align: center;
-        width: 60%
+        width: 60%;
+        align-items: center;
     }
     /*.preguntasBottomRight .enlaces a {
         text-decoration: none;
@@ -137,6 +138,23 @@
         width: 60%;
         margin-bottom: 20px;
     }
+    .descripcion {
+        resize: none;
+        white-space: normal;
+        overflow-wrap: break-word;
+        background-color: #CDCDCD;
+        border-radius: 15px;
+        margin: 10px 10px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        height: 150px;
+        line-height: 1.5;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
 </style>
 
 <div>
@@ -154,7 +172,7 @@
                 </div>
                 <div class="preguntaBottomSection">
                     <div class="preguntaBottomLeft">
-                        <input type="text" name="descripcion" disabled class="descripcion" value="<?php echo $pregunta["descripcion"]; ?>">
+                        <textarea name="descripcion" disabled class="descripcion"><?php echo $pregunta["descripcion"]; ?></textarea>
                     </div>
                     <div class="preguntasBottomRight">
                         <input type="text" name="usuario" disabled class="usuario" value="<?php echo $pregunta["nombre"]; ?>">
