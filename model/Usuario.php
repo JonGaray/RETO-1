@@ -63,6 +63,19 @@ class Usuario{
         return $stmt->fetch();
     }
     public function save($param){
-
+        $nombre = $contrasenna = $correo = "";
+        if (isset($param["nombre"])) $nombre = $param["nombre"];
+        if (isset($param["contrasenna"])) $contrasenna = $param["contrasenna"];
+        if (isset($param["correo"])) $correo = $param["correo"];
+        $sql = "INSERT INTO " . $this->table . "(nombre, contrasenna, correo, rol) VALUES (?,?,?,?)";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$nombre, $contrasenna, $correo, "usuario"]);
+        if ($stmt->rowCount() > 0) {
+            $id = $this->connection->lastInsertId();
+            header("Location: index.php?controller=usuario&action=listPreguntas");
+            return $id;
+        } else {
+            throw new Exception("Inserción fallifa");
+        }
     }
 }

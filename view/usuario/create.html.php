@@ -4,38 +4,42 @@
         padding: 0;
         box-sizing: border-box;
     }
-    .superiorInicioSesion{
+    .superiorRegistro{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         background-color: #393939;
-        height: 100vh;
+        height: 70vh;
         width: 100%;
+        color: #CDCDCD;
     }
-    .inicioSesion{
+    .Registro{
         display: block;
         text-align: center;
         background-color: #364156;
         padding-top: 50px;
-        width: 60%;
-        height: 60%;
+        width: 30%;
+        height: 80%;
         box-shadow: 5px 5px 10px #dff8eb56;
         border-radius: 15px;
+        padding: 30px;
     }
-    .inicioSesion h1{
+    .Registro h1{
         color: #CDCDCD;
         padding-top: 25px;
         padding-bottom: 25px;
     }
-    .inicioSesion hr{
+    .Registro hr{
         margin: 0 auto;
         width: 75%;
+        height: 2px;
+        background-color: #CDCDCD;
     }
     .campos{
         padding-top: 75px;
     }
-    .loginNombre{
+    .registroNombre{
         display: block;
         margin: 0 auto;
         margin-bottom: 25px;
@@ -47,7 +51,7 @@
         border-radius: 15px;
         box-shadow: 5px 5px 10px #393939;
     }
-    .loginContrasenna{
+    .registroContrasenna{
         display: block;
         margin: 0 auto;
         margin-bottom: 25px;
@@ -59,7 +63,7 @@
         border-radius: 15px;
         box-shadow: 5px 5px 10px #393939;
     }
-    .loginCorreo{
+    .registroCorreo{
         display: block;
         margin: 0 auto;
         margin-bottom: 25px;
@@ -71,7 +75,7 @@
         border-radius: 15px;
         box-shadow: 5px 5px 10px #393939;
     }
-    .loginEntrar{
+    .registroEntrar{
         display: block;
         margin: 0 auto;
         margin-bottom: 25px;
@@ -84,16 +88,18 @@
         box-shadow: 5px 5px 10px #393939;
     }
 </style>
-<form class="form" action="index.php?controller=usuario&action=save" method="post">
-    <div class="inicioSesion">
-        <hr>
-        <h1>CREAR USUARIO</h1>
-        <hr>
+<form class="form_registro" action="index.php?controller=usuario&action=save" method="post">
+    <div class="superiorRegistro">
+        <div class="Registro">
+            <hr>
+            <h1>CREAR USUARIO</h1>
+            <hr>
             <div class="campos">
-                <input type="text" name="nombre" class="loginNombre" placeholder="Nombre">
-                <input type="password" name="contrasenna" class="loginContrasenna" placeholder="Contrase&ntilde;a">
-                <input type="correo" name="correo" class="loginCorreo" placeholder="Correo">
+                <input type="text" name="nombre" class="registroNombre" placeholder="Nombre">
+                <input type="password" name="contrasenna" class="registroContrasenna" placeholder="Contrase&ntilde;a">
+                <input type="correo" name="correo" class="registroCorreo" placeholder="Correo">
             </div>
-            <input type="submit" value="Entrar" name="submit" class="loginEntrar">
+            <input type="submit" value="Entrar" name="submit" class="registroEntrar">
+        </div>
     </div>
 </form>

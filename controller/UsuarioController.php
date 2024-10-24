@@ -99,7 +99,16 @@ class UsuarioController{
             return false;
         }
     }
+    public function create(){
+        $this->page_title = "Crear usuario";
+        $this->view = "create";
+    }
     public function save(){
-    
+    $this->page_title = "";
+    $this->view = "create";
+    $id = $this->model->save($_POST);
+    $result = $this->model->getUserById($id);
+    $_GET["response"] = true;
+    return $result;
     }
 }
