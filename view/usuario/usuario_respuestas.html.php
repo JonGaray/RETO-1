@@ -13,7 +13,12 @@
                     <img class="img-like" src="assets/Images/like.png" alt=""><?php echo $respuesta["megusta"] ?>
                     <img class="img-dislike" src="assets/Images/dislike.png" alt=""><?php echo $respuesta["nomegusta"] ?>
                     <a class="ver-mas" href="#">Ver mas</a>
-                    <a href="#"><img class="papelera_usuario" src="assets/Images/papelera.png" alt=""></a>
+                    <form method="post" action="index.php?controller=usuario&action=deleteRespuesta">
+                    <input type="hidden" id="id" name="id" value="<?php echo $respuesta["id"] ?>">
+                        <button class="btn-eliminar-pregunta-usuario" type="submit">
+                            <img class="papelera_usuario" src="assets/Images/papelera.png" alt="">
+                        </button>
+                    </form>
                 </div>
             </div>
             <?php endforeach; else: ?> <p>hola</p>;<?php endif; ?>
@@ -23,7 +28,7 @@
             </div>
         </div>
         <div class="datos-usuario">
-            <form class="form-datos-usuario" action="index.php?controller=usuario&action=update" method="post">
+            <form class="form-datos-usuario" action="index.php?controller=usuario&action=updateUsuarioRespuestas" method="post">
                 <input name="id" id="id" type="hidden" value="<?php echo $dataToView["data"]["usuario"]["id"] ?>">
                 <input name="nombre" id="nombre" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["nombre"] ?>" placeholder="nombre" disabled>
                 <input name="correo" id="correo" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["correo"]  ?>" placeholder="correo" disabled>

@@ -36,7 +36,19 @@ class UsuarioController{
         
         return ["usuario"=>$usuario,"respuestas"=>$respuestas];
     }
-    public function update(){
+    public function updateUsuarioPreguntas(){
+        $this->view = "usuario_preguntas";
+        $this->page_title = "Editar usuario";
+
+        $id = $this->model->updateUsuario($_POST);
+        $result = $this->model->getUserById($id);
+        $_GET["response"] = true;
+        $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
+        $respuestas = $this->modelRespuestas->getRespuestasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
+
+        return ["usuario"=>$usuario,"respuestas"=>$respuestas];
+    }
+    public function updateUsuarioRespuestas(){
         $this->view = "usuario_respuestas";
         $this->page_title = "Editar usuario";
 
@@ -66,6 +78,21 @@ class UsuarioController{
                 exit();
             } else {
                 echo "Error al eliminar la pregunta.";
+            }
+        } else {
+            echo "ID no proporcionado para la eliminación.";
+            return false;
+        }
+    }
+    public function deleteRespuesta(){
+        $this->view = "usuario_respuestas";
+        if (isset($_POST["id"])) {
+            $result = $this->modelRespuestas->deleteRespuestaById($_POST["id"]);
+            if ($result) {
+                header("Location: index.php?controller=usuario&action=listRespuestas");
+                exit();
+            } else {
+                echo "Error al eliminar la respuesta.";
             }
         } else {
             echo "ID no proporcionado para la eliminación.";
