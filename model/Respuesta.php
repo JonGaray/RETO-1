@@ -33,7 +33,7 @@
         }
 
         public function getPreguntaById($id){
-            $sql= "SELECT p.titulo, p.descripcion, r.contenido FROM respuestas r INNER JOIN preguntas p ON r.id_pregunta = p.id WHERE r.id = ?";
+            $sql= "SELECT p.titulo, p.descripcion, r.contenido FROM respuestas r INNER JOIN preguntas p ON r.id_pregunta = p.id WHERE p.id = ?";
             $stmt = $this->connection->prepare($sql);
             $stmt->execute([$id]);
             return $stmt->fetch();
