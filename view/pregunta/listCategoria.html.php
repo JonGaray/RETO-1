@@ -92,24 +92,11 @@
     .preguntasBottomRight .enlaces a {
         text-decoration: none;
         padding: 8px 15px;
-        border: 2px solid #CDCDCD;
-        border-radius: 10px;
-        color: #CDCDCD;
-        background-color: #364156;
-        display: block;
-        width: fit-content;
-        margin: 15px auto 0 auto;
-        text-align: center;
-        width: 60%
-    }
-    /*.preguntasBottomRight .enlaces a {
-        text-decoration: none;
-        padding: 8px 15px;
         background-color: #CDCDCD;
         border-radius: 10px;
         color: #393939;
         box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
-    }*/
+    }
     .boton-eliminar {
         text-decoration: none;
         padding: 8px 15px;
@@ -122,20 +109,6 @@
         margin: 15px auto 0 auto;
         text-align: center;
         width: 60%;
-    }
-    .sin-respuesta{
-        text-decoration: none;
-        padding: 8px 15px;
-        border: 2px solid red;
-        border-radius: 10px;
-        color: red;
-        background-color: #393939;
-        display: block;
-        width: fit-content;
-        margin: 15px auto 0 auto;
-        text-align: center;
-        width: 60%;
-        margin-bottom: 20px;
     }
 </style>
 
@@ -160,14 +133,14 @@
                         <input type="text" name="usuario" disabled class="usuario" value="<?php echo $pregunta["nombre"]; ?>">
                         <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
                         <div class="enlaces">
-                            <a href="index.php?controller=respuesta&action=responder&id=<?php echo $pregunta["id"]; ?>">Responder</a>
-                            <a href="index.php?controller=pregunta&action=detalle&id=<?php echo $pregunta["id"]; ?>">Ver m&aacute;s</a>
+                            <a href="index.php?controller=respuesta&action=responder&id=<?php echo $pregunta["pregunta_id"]; ?>">Responder</a>
+                            <a href="index.php?controller=pregunta&action=detalle&id=<?php echo $pregunta["pregunta_id"]; ?>">Ver m&aacute;s</a>
                         </div>
                     </div>
                 </div>
                 <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
                     <form action="index.php?controller=pregunta&action=delete" method="post">
-                        <input type="hidden" name="id" value="<?php echo $pregunta['id']; ?>">
+                        <input type="hidden" name="id" value="<?php echo $pregunta['pregunta_id']; ?>">
                         <button type="submit" class="boton-eliminar">Eliminar</button>
                     </form>
                 <?php } ?>
@@ -176,7 +149,7 @@
         }
     }else{
         ?>
-        <div class="sin-respuesta">Actualmente no existen preguntas</div>
+        <p>Actualmente no existen preguntas</p>
         <?php
     }
     ?>

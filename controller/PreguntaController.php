@@ -55,4 +55,9 @@ class PreguntaController extends BaseController
             return false;
         }
     }
+    public function listCategoria(){
+        $this->page_title = "Listado de Preguntas";
+        $this->view ='listCategoria';
+        return $this->model->getPreguntaByCategoria($_POST["categoria"]);
+    }
 }

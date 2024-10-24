@@ -29,6 +29,13 @@ class Pregunta{
         $stmt-> execute([$id]);
         return $stmt->fetch();
     }
+    public function getPreguntaByCategoria($categoria){
+        if(is_null($categoria)) return false;
+        $sql = "SELECT preguntas.id AS pregunta_id, titulo, descripcion, categoria, u.nombre FROM ".$this->table. " JOIN usuarios u ON id_usuario = u.id WHERE preguntas.categoria = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt-> execute([$categoria]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function save($param) {
         $titulo = $descripcion = $categoria = "";
         if (isset($param["titulo"])) $titulo = $param["titulo"];

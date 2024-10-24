@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
     <style>
         * {
             margin: 0;
@@ -108,9 +102,8 @@
             cursor: pointer;
         }
     </style>
-</head>
-<body>
-<form class="form" action="index.php?controller=pregunta&action=save" method="post">
+
+    <form class="form" action="index.php?controller=pregunta&action=save" method="post">
     <div class="preguntaBlock">
         <h3>NUEVA PREGUNTA</h3>
         <div class="preguntaTopSection">
@@ -137,14 +130,14 @@
         <input type="submit" value="Añadir pregunta" name="submit" class="annadirPregunta">
     </div>
 </form>
-<script>
-    const categoriaItems = document.querySelectorAll('.seccionCategoria p');
-    const categoriaInput = document.querySelector('input[name="categoria"]');
-    categoriaItems.forEach(item => {
-        item.addEventListener('click', () => {
-            categoriaInput.value = item.textContent;
+    <script>
+        const form = document.querySelector('.form');
+        const categoriaItems = form.querySelectorAll('.seccionCategoria p');
+        const categoriaInput = form.querySelector('input[name="categoria"]');
+        categoriaItems.forEach(item => {
+            item.addEventListener('click', () => {
+                categoriaInput.value = item.textContent;
+            });
         });
-    });
-</script>
-</body>
-</html>
+    </script>
+
