@@ -74,15 +74,13 @@
             resize: none;
             text-align: center;
         }
-
         .bottomRight {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-around;
             flex: 0.48;
             margin-top: 7px;
         }
-
         .bottomRight input {
             padding: 10px;
             background-color: #CDCDCD;
@@ -91,20 +89,17 @@
             margin-bottom: 10px;
             text-align: center;
         }
-
         .like-section,
         .dislike-section {
             display: flex;
             align-items: center;
             justify-content: space-around;
         }
-
         .like-section img,
         .dislike-section img {
             height: 35.5px;
             border-radius: 5px;
         }
-
         .like-section input,
         .dislike-section input {
             padding: 10px;
@@ -114,23 +109,19 @@
             text-align: center;
             width: 80%;
         }
-
         form {
             display: flex;
             align-items: center;
         }
-
         form button {
             background: none;
             border: none;
             padding: 0;
             cursor: pointer;
         }
-
         form button img {
             height: 35.5px;
         }
-
         .boton-eliminar {
             text-decoration: none;
             padding: 8px 15px;
@@ -144,6 +135,23 @@
             text-align: center;
             width: 60%;
         }
+        .descripcion, .contenido {
+            resize: none;
+            white-space: normal;
+            overflow-wrap: break-word;
+            background-color: #CDCDCD;
+            border-radius: 15px;
+            margin: 10px 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            height: 150px;
+            line-height: 1.5;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
 </style>
 
 <div class="preguntaBlock">
@@ -152,7 +160,7 @@
     </div>
     <div class="bottomSection">
         <div class="bottomLeft">
-            <input type="text" name="descripcion" disabled class="descripcion" value="<?php echo $dataToView["data"]['pregunta']['descripcion'] ?? ''; ?>">
+            <textarea name="descripcion" disabled class="descripcion"><?php echo $dataToView["data"]['pregunta']['descripcion'] ?? ''; ?></textarea>
         </div>
         <div class="bottomRight">
             <input type="text" name="usuario" disabled class="usuario" value="<?php echo $dataToView["data"]['pregunta']['nombre'] ?? ''; ?>">
@@ -170,7 +178,7 @@
                 </div>
                 <div class="bottomSection">
                     <div class="bottomLeft">
-                        <input type="text" name="contenido" disabled class="contenido" value="<?php echo isset($respuesta['contenido']) ? $respuesta['contenido'] : 'Sin contenido'; ?>">
+                        <textarea name="contenido" disabled class="contenido"><?php echo isset($respuesta['contenido']) ? $respuesta['contenido'] : 'Sin contenido'; ?></textarea>
                     </div>
                     <div class="bottomRight">
                         <div class="like-section">
