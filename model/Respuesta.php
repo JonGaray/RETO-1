@@ -52,7 +52,6 @@
             return $stmt->fetch();
         }
         public function insertarRespuesta($param){
-            print_r($param);
             $idDeluser = $this->getIdbyNombre($_COOKIE["nombre_usuario"]);
             echo ($_COOKIE["nombre_usuario"]);
             $sql = "insert into " . $this->table . " (contenido, megusta, nomegusta, id_usuario, id_pregunta, fecha) values (?, ?, ?, ?, ?, ?)";

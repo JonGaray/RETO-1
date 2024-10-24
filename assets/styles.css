@@ -195,12 +195,16 @@ article{
     margin: 20px;
     border-radius: 20px;
     width: 50%;
-    height: 45vh;
+    height: 55vh;
     background-color: #364156;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+.archivoRespuesta{
+    margin-top: 20px;
+    color: #CDCDCD;
 }
 .parrafo-resp{
     font-size: 1.9em;

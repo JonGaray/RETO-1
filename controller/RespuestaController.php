@@ -29,9 +29,11 @@ class RespuestaController{
     }
     public function save(){
         $this->view = "nada";
+        if (isset($_FILES["archivo"]) && $_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
+            $contenidoArchivo = file_get_contents($_FILES["archivo"]["tmp_name"]);
+            $_POST["respuesta"] = $contenidoArchivo;
+        }
         $id = $this->model->insertarRespuesta($_POST);
-
-        // return $this->model->insertarRespuesta($_POST);
         $result = $this->model->getRespuestaById($id);
         $_POST["response"] = true;
         return $result;
