@@ -6,7 +6,7 @@
             <input type="text" class="id-hidden" name="id_preg" value="<?php echo $_GET["id"]?>">
 
             <div class="respuesta">
-                <input type="text" class="parrafo-resp" name="nombre" value="Titulo" disabled>
+                <p  class="parrafo-resp"> <?php echo $dataToView["data"]["titulo"]; ?></p>
                 <textarea name="respuesta" id="respuesta" cols="10" rows="10" class="area"></textarea>
 
             </div>
