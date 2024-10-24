@@ -31,4 +31,22 @@
             $stmt->execute([$id]);
             return $stmt->fetch();
         }
+
+        public function getPreuntabyId()
+        {
+            $sql= "SELECT p.titulo, p.descripcion, r.contenido
+                   FROM respuestas r
+                   INNER JOIN preguntas p ON r.id_pregunta = p.id
+                   WHERE r.id = 1";
+        }
+
+        public function insertarRespuesta(){
+
+        }
+        public function deleteRespuestaById($id){
+            if(is_null($id)) return false;
+            $sql = "DELETE FROM " . $this->table . " WHERE id = ?";
+            $stmt = $this->connection->prepare($sql);
+            return $stmt->execute([$id]);
+        }
     }

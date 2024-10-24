@@ -178,11 +178,16 @@ article{
     justify-content: center;
     align-items: center;
 }
+.general form{
+    width: 80%;
+    height: 50vh;
+
+}
 .general{
     margin: 20px;
     border-radius: 20px;
     width: 50%;
-    height: 60vh;
+    height: 41vh;
     background-color: #364156;
 
     display: flex;
@@ -195,19 +200,19 @@ article{
     display: flex;
     align-items: center;
     width: 80%;
-    height: 30%;
-    background-color: rgb(102, 118, 148);
+    height: 40%;
 
 }
 textarea{
     width: 90%;
     height: 60%;
     resize: none;
-    border-radius: 10px;
+    border-radius: 5px 10px 10px 10px;
 }
 .input-preg{
     border-radius: 20px;
     width: 70%;
+    height: 20%;
     margin-left: 25px;
 }
 .segundo{
@@ -230,12 +235,17 @@ textarea{
 .botones{
     width: 30%;
     height: 100%;
-    background-color: rgb(76, 75, 94);
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     gap: 20px;
 }
+.botones button{
+    width: 50%;
+    height: 10%;
+
+}
+/*Fin de responder pregunta*/
 
 
 .pagina-usuario{
