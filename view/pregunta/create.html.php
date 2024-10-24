@@ -83,10 +83,16 @@
         .annadirPregunta {
             width: 100%;
             padding: 10px 40px;
-            background-color: #CDCDCD;
-            border-radius: 15px;
-            border: none;
+            background-color: #393939;
+            border: 2px solid #CDCDCD;
+            border-radius: 10px;
             text-align: center;
+            color: #CDCDCD;
+            transition: background-color 0.5s ease;
+        }
+        .annadirPregunta:hover{
+            background-color: #CDCDCD;
+            color: #393939;
         }
         h3 {
             text-align: center;

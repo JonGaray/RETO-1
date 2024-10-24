@@ -134,6 +134,11 @@
             margin: 15px auto 0 auto;
             text-align: center;
             width: 60%;
+            transition: background-color 0.5s ease;
+        }
+        .boton-eliminar:hover {
+            background-color: red;
+            color: white;
         }
         .descripcion, .contenido {
             resize: none;
