@@ -114,7 +114,7 @@ class Pregunta{
     }
     public function getPreguntasByUsuarioId($param){
             
-        $sql = "SELECT titulo, descripcion FROM " .$this->table. " WHERE id_usuario = ?";
+        $sql = "SELECT titulo, descripcion, id FROM " .$this->table. " WHERE id_usuario = ?";
         $statement=$this->connection->prepare($sql);
         $statement->execute([$param]);
         return $statement->fetchAll();

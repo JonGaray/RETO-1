@@ -6,8 +6,8 @@
             <h3>RESPUESTAS</h3>
             <?php if(!empty($dataToView["data"]["respuestas"])): foreach($dataToView["data"]["respuestas"] as $respuesta):?>
             <div class="div-respuesta">
-                <div class="respuesta">
-                   <?php echo $respuesta["contenido"] ?>
+                <div class="respuesta-usuario">
+                   <p><?php echo $respuesta["contenido"] ?></p>
                 </div>
                 <div class="likes">
                     <img class="img-like" src="assets/Images/like.png" alt=""><?php echo $respuesta["megusta"] ?>
@@ -43,5 +43,6 @@
             <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil</a>
             <a class="link-acciones-usuario" href="#">Mostrar respuestas</a>
             <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listPreguntas">Mostrar preguntas</a>
+            <a class="link-acciones-usuario" href="#">Crear usuario</a>
         </div>
 </div>

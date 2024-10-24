@@ -56,4 +56,20 @@ class UsuarioController{
 
         return ["usuario"=>$usuario,"preguntas"=>$preguntas];
     }
+
+    public function deletePregunta(){
+        $this->view = "usuario_preguntas";
+        if (isset($_POST["id"])) {
+            $result = $this->modelPreguntas->deletePreguntaById($_POST["id"]);
+            if ($result) {
+                header("Location: index.php?controller=usuario&action=listPreguntas");
+                exit();
+            } else {
+                echo "Error al eliminar la pregunta.";
+            }
+        } else {
+            echo "ID no proporcionado para la eliminación.";
+            return false;
+        }
+    }
 }
