@@ -62,7 +62,7 @@
         document.getElementById('cerrar-sesion-text').addEventListener('click', function(event) {
             eliminarCookie('nombre_usuario');
             eliminarCookie('rol_usuario');
-            location.reload();
+            location.replace("index.php");
         });
     </script>
 </header>
