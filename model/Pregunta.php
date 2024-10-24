@@ -16,6 +16,20 @@ class Pregunta{
         $statement->execute();
         return $statement->fetchAll();
     }
+    public function getPreguntasPaginadas($limit, $offset){
+        $sql = "SELECT p.id, p.titulo, p.descripcion, p.categoria, u.nombre FROM ". $this->table ." p JOIN usuarios u ON p.id_usuario = u.id ORDER BY p.id DESC LIMIT ? OFFSET ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindValue(1, $limit, PDO::PARAM_INT);
+        $statement->bindValue(2, $offset, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+    public function contarPreguntas(){
+        $sql = "SELECT COUNT(*) as total FROM " . $this->table;
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        return $statement->fetch()['total'];
+    }
     public function deletePreguntaById($id){
         if(is_null($id)) return false;
         $sql = "DELETE FROM " . $this->table . " WHERE id = ?";

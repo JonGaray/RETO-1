@@ -14,9 +14,35 @@ class PreguntaController extends BaseController
         $this->page_title = "";
         $this->model = new Pregunta();
     }
-    public function list(){
+    public function list() {
+        include_once "view/layout/header.php";
         $this->page_title = "Listado de Preguntas";
-        return $this->model->getPreguntas();
+        $this->view = "list";
+
+        // Obtener la página actual desde GET, si no está definida, usar 1
+        $paginaActual = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $limite = 9;
+        $offset = ($paginaActual - 1) * $limite;
+        $totalPreguntas = $this->model->contarPreguntas();
+        $totalPaginas = ceil($totalPreguntas / $limite);
+        $preguntas = $this->model->getPreguntasPaginadas($limite, $offset);
+        $dataToView = [
+            "data" => $preguntas ?? [],
+            "paginaActual" => $paginaActual,
+            "totalPaginas" => $totalPaginas
+        ];
+
+        // Renderizar la vista
+        $this->renderView('pregunta/list.html', $dataToView);
+    }
+
+    // Función renderView para cargar la vista con los datos pasados
+    private function renderView($view, $dataToView = []) {
+        // Extrae las variables del array para que sean accesibles como variables normales en la vista
+        extract($dataToView);
+
+        // Cargar el archivo de vista
+        require_once 'view/' . $view . '.php';
     }
     public function create(){
         $this->page_title = "Crear Pregunta";
@@ -34,10 +60,6 @@ class PreguntaController extends BaseController
         $this->view = "detalle";
         $pregunta = $this->model->getPreguntaById($_GET["id"]);
         $respuestas = $this->model->getRespuestasByIdPregunta($_GET["id"]);
-        /*if (empty($dataToView["data"]['respuestas'])) {
-            return $dataToView["data"]['pregunta'];
-        }
-        return $dataToView;*/
         return ["pregunta"=>$pregunta,"respuestas"=>$respuestas];
     }
     public function delete(){
