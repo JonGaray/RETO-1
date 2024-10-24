@@ -7,7 +7,7 @@
 
         .preguntaBlock {
             background-color: #364156;
-            padding: 20px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 5px 5px 10px #dff8eb56;
             width: 60%;
@@ -16,7 +16,7 @@
 
         .respuestaBlock {
             background-color: #364156;
-            padding: 20px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 5px 5px 10px #dff8eb56;
             width: 60%;
@@ -146,16 +146,15 @@
             overflow-wrap: break-word;
             background-color: #CDCDCD;
             border-radius: 15px;
-            margin: 10px 10px;
+            margin: 0 auto;
             text-align: center;
             display: flex;
             justify-content: center;
-            align-items: center;
             padding: 10px;
-            height: 150px;
+            height: 100%;
+            width: 100%;
             line-height: 1.5;
             border: 1px solid #ccc;
-            box-sizing: border-box;
         }
 </style>
 
