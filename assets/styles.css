@@ -195,7 +195,15 @@ article{
 }
 .parrafo-resp{
     font-size: 1.9em;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    border:0;
+    background-color: #364156;
+    text-align: center;
+    color: black;
+
+}
+.id-hidden{
+    visibility: hidden;
 }
 .area{
     width: 100%;

@@ -8,7 +8,7 @@ class RespuestaController{
 
     public function __construct()
     {
-        $this->view = "nada";
+        $this->view = "";
         $this->page_title = "";
         $this->model = new Respuesta();
     }
@@ -26,16 +26,14 @@ class RespuestaController{
         $this->view = "list";
 
     }
-    public function responderPregunta(){
-        echo "Método responderPregunta invocado";
-        echo "<pre>";
-        print_r($_GET);
-        echo "</pre>";
-
-
+    public function save(){
         $this->view = "nada";
-        echo $_GET["id"];
-        return $this->model->insertarRespuesta($_GET);
+        $id = $this->model->insertarRespuesta($_POST);
+
+        // return $this->model->insertarRespuesta($_POST);
+        $result = $this->model->getRespuestaById($id);
+        $_POST["response"] = true;
+        return $result;
     }
     public function delete(){
         $this->view = "";
