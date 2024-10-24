@@ -42,6 +42,7 @@
     }
     .preguntaBottomLeft{
         flex: 1;
+
     }
     .preguntaBottomLeft input{
         width: 100%;
@@ -139,6 +140,7 @@
         margin-bottom: 20px;
     }
     .descripcion {
+        width: 90%;
         resize: none;
         white-space: normal;
         overflow-wrap: break-word;

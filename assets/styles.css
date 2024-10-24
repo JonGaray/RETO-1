@@ -67,23 +67,32 @@ border-radius: 25px;
     width: 100%;
     height: auto;
 }
-.linea-nav{
+.linea-nav {
     width: 1px;
     height: 30px;
-    transform: rotate(180deg);
+    background-color: white;
+
 }
-.div-sesion{
+.div-sesion {
     display: flex;
     justify-content: center;
+    flex-direction: row;
     align-items: center;
-    width: 120px;
+    width: auto;
     height: 30px;
-}
-.persona{
-    width: 20%;
-    height: auto;
+    padding: 0 10px;
 }
 
+.persona {
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.cerrar-sesion {
+    color: white;
+    font-size: 14px;
+}
 /* aqui empiezo a modifiar el footer */
 footer{
     background-color: #364156;
