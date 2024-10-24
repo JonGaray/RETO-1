@@ -18,8 +18,6 @@ class PreguntaController extends BaseController
         include_once "view/layout/header.php";
         $this->page_title = "Listado de Preguntas";
         $this->view = "list";
-
-        // Obtener la página actual desde GET, si no está definida, usar 1
         $paginaActual = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $limite = 9;
         $offset = ($paginaActual - 1) * $limite;
@@ -31,16 +29,12 @@ class PreguntaController extends BaseController
             "paginaActual" => $paginaActual,
             "totalPaginas" => $totalPaginas
         ];
-
         // Renderizar la vista
         $this->renderView('pregunta/list.html', $dataToView);
     }
-
-    // Función renderView para cargar la vista con los datos pasados
     private function renderView($view, $dataToView = []) {
         // Extrae las variables del array para que sean accesibles como variables normales en la vista
         extract($dataToView);
-
         // Cargar el archivo de vista
         require_once 'view/' . $view . '.php';
     }
