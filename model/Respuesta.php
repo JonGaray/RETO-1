@@ -32,16 +32,39 @@
             return $stmt->fetch();
         }
 
-        public function getPreuntabyId()
-        {
-            $sql= "SELECT p.titulo, p.descripcion, r.contenido
-                   FROM respuestas r
-                   INNER JOIN preguntas p ON r.id_pregunta = p.id
-                   WHERE r.id = 1";
+        public function getPreguntaById($id){
+            $sql= "SELECT p.titulo, p.descripcion, r.contenido FROM respuestas r INNER JOIN preguntas p ON r.id_pregunta = p.id WHERE r.id = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$id]);
+            return $stmt->fetch();
         }
-
-        public function insertarRespuesta(){
-
+        public function getIdbyNombre($nombre){
+            $sql = "SELECT id FROM usuarios WHERE nombre = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$nombre]);
+            return $stmt->fetch();
+        }
+        public function getRespuestaById($id){
+            if (is_null($id)) return false;
+            $sql = "SELECT * FROM " . $this->table . " WHERE id = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$id]);
+            return $stmt->fetch();
+        }
+        public function insertarRespuesta($param){
+            print_r($param);
+            $idDeluser = $this->getIdbyNombre($_COOKIE["nombre_usuario"]);
+            echo ($_COOKIE["nombre_usuario"]);
+            $sql = "insert into " . $this->table . " (contenido, megusta, nomegusta, id_usuario, id_pregunta, fecha) values (?, ?, ?, ?, ?, ?)";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$param["respuesta"],0,0,$idDeluser["id"],$param["id_preg"], null]);
+            if ($stmt->rowCount() > 0) {
+                $id = $this->connection->lastInsertId();
+                header("Location: index.php?controller=pregunta&action=list");
+                return $id;
+            } else {
+                throw new Exception("Usuario no encontrado o no se pudo insertar la pregunta");
+            }
         }
         public function deleteRespuestaById($id){
             if(is_null($id)) return false;

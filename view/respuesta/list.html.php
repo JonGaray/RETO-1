@@ -1,20 +1,24 @@
 
 <article>
     <div class="general">
-        <form method="get" action="index.php?controller=respuesta&action=responderPregunta">
-
-        <div class="titulo"><input type="text" class="input-preg"></div>
+        <form method="post" action="index.php?controller=respuesta&action=save&id=<?php echo $_GET["id"]?>">
         <div class="segundo">
+            <input type="text" class="id-hidden" name="id_preg" value="<?php echo $_GET["id"]?>">
+
             <div class="respuesta">
-                <textarea name="" id="" cols="10" rows="10"></textarea>
+                <input type="text" class="parrafo-resp" name="nombre" value="Titulo" disabled>
+                <textarea name="respuesta" id="respuesta" cols="10" rows="10" class="area"></textarea>
+
             </div>
+
             <div class="botones">
-                <button class="btn btn-primary" type="submit">Aceptar</button>
-                <button class="btn btn-danger" type="reset">Cancelar</button>
+
+                <input class="btn btn-primary" type="submit" value="Enviar">
+                <input class="btn btn-danger" type="reset" value="Cancelar">
+
             </div>
         </div>
         </form>
-
     </div>
 </article>
 
