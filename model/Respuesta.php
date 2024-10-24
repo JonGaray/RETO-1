@@ -45,6 +45,7 @@
             return $stmt->fetch();
         }
         public function insertarRespuesta($param){
+
             echo $param["id"] . "<br>";
             echo $param["user"] . "<br>";
             echo $param["respuesta"] . "<br>";
@@ -53,7 +54,7 @@
 //            $stmt = $this->connection->prepare($sql);
 //            $stmt->execute([$param["respuesta"],0,0,$idDeluser,$param["id_pregunta"]]);
             header("Location:index.php?controller=pregunta&action=list");
-            return;
+            return 0;
         }
         public function deleteRespuestaById($id){
             if(is_null($id)) return false;

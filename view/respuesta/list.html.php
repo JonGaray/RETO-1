@@ -2,8 +2,6 @@
 <article>
     <div class="general">
         <form method="get" action="index.php?controller=respuesta&action=responderPregunta">
-
-
         <div class="segundo">
             <div class="respuesta">
                 <p class="parrafo-resp">Respuesta</p>
