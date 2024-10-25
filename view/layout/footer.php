@@ -1,6 +1,3 @@
-
-    <link rel="stylesheet" href="style.css">
-
 <footer>
     <div class="logo-copyright">
         <h1>AERGIBIDE</h1>

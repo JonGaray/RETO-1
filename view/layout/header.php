@@ -14,38 +14,7 @@
     <link rel="stylesheet" href="assets/estilos/usuario.css">
     <title>Document</title>
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        .div-buscar {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-        }
-        .buscar {
-            text-align: center;
-            padding: 5px;
-            flex: 1;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            margin-right: 5px;
-            min-width: 150px;
-        }
-        .lupa {
-            background: none;
-            border: none;
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-        }
-        .lupa img {
-            vertical-align: middle;
-            width: 30px;
-            height: 30px;
-        }
+
     </style>
 </head>
 <body>
