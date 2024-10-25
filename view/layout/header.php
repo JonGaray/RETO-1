@@ -48,7 +48,7 @@
                     <a id="imagen-redireccion" href="index.php?controller=usuario&action=listPreguntas">
                         <img src="assets/Images/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
                     </a>
-                    <h3> <?php echo $_COOKIE["nombre_usuario"]?></h3>
+                    <a href="index.php?controller=usuario&action=listPreguntas"> <?php echo $_COOKIE["nombre_usuario"]?> </a>
                 </div>
             </li>
         </ul>

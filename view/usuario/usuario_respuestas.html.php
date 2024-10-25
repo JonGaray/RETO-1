@@ -12,7 +12,7 @@
                 <div class="likes">
                     <img class="img-like" src="assets/Images/like.png" alt=""><?php echo $respuesta["megusta"] ?>
                     <img class="img-dislike" src="assets/Images/dislike.png" alt=""><?php echo $respuesta["nomegusta"] ?>
-                    <a class="ver-mas" href="#">Ver mas</a>
+                    <a class="btn-ver-mas" href="index.php?controller=pregunta&action=detalle&id=<?php echo $respuesta["id_pregunta"] ?>">Ver mas</a>
                     <form method="post" action="index.php?controller=usuario&action=deleteRespuesta">
                     <input type="hidden" id="id" name="id" value="<?php echo $respuesta["id"] ?>">
                         <button class="btn-eliminar-pregunta-usuario" type="submit">

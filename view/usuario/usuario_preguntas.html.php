@@ -13,7 +13,7 @@
                    <?php echo $preguntas["descripcion"] ?>
                 </div>
                 <div class="likes">
-                    <a class="ver-mas" href="#">Ver mas</a>
+                    <a class="ver-mas" href="index.php?controller=pregunta&action=detalle&id=<?php echo $preguntas["id"] ?>">Ver mas</a>
                     <form method="post" action="index.php?controller=usuario&action=deletePregunta">
                         <input type="hidden" id="id" name="id" value="<?php echo $preguntas["id"] ?>">
                         <button class="btn-eliminar-pregunta-usuario" type="submit">
