@@ -189,13 +189,13 @@ article{
 }
 .general form{
     width: 80%;
-    height: 50vh;
+    height: 55vh;
 }
 .general{
     margin: 20px;
     border-radius: 20px;
     width: 50%;
-    height: 55vh;
+    height: 60vh;
     background-color: #364156;
     display: flex;
     justify-content: center;
