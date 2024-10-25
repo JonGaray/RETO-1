@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/estilos/layout.css">
+    <link rel="stylesheet" href="assets/estilos/pregunta.css">
+    <link rel="stylesheet" href="assets/estilos/respuesta.css">
+    <link rel="stylesheet" href="assets/estilos/usuario.css">
     <title>Document</title>
     <style>
         *{
