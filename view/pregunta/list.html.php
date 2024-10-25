@@ -167,6 +167,24 @@
         border: 1px solid #ccc;
         box-sizing: border-box;
     }
+    .cambiarPagina{
+        text-decoration: none;
+        padding: 8px 15px;
+        border: 2px solid #CDCDCD;
+        border-radius: 10px;
+        color: #CDCDCD;
+        background-color: #393939;
+        display: flex;
+        margin: 15px auto 20px auto;
+        text-align: center;
+        width: 40%;
+        align-items: center;
+        transition: background-color 0.5s ease;
+    }
+    .cambiarPagina:hover{
+        background-color: #CDCDCD;
+        color: #393939;
+    }
 </style>
 
 <div>
@@ -209,11 +227,11 @@
 <!-- Botones de paginación -->
 <div class="paginacion">
     <?php if ($paginaActual > 1): ?>
-        <a href="index.php?controller=pregunta&action=list&page=<?php echo $paginaActual - 1; ?>" class="annadirPregunta">Anterior</a>
+        <a href="index.php?controller=pregunta&action=list&page=<?php echo $paginaActual - 1; ?>" class="cambiarPagina">Anterior</a>
     <?php endif; ?>
 
     <?php if ($paginaActual < $totalPaginas): ?>
-        <a href="index.php?controller=pregunta&action=list&page=<?php echo $paginaActual + 1; ?>" class="annadirPregunta">Siguiente</a>
+        <a href="index.php?controller=pregunta&action=list&page=<?php echo $paginaActual + 1; ?>" class="cambiarPagina">Siguiente</a>
     <?php endif; ?>
 </div>
 

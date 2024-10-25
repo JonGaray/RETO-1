@@ -19,7 +19,7 @@ class PreguntaController extends BaseController
         $this->page_title = "Listado de Preguntas";
         $this->view = "list";
         $paginaActual = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $limite = 9;
+        $limite = 6;
         $offset = ($paginaActual - 1) * $limite;
         $totalPreguntas = $this->model->contarPreguntas();
         $totalPaginas = ceil($totalPreguntas / $limite);
