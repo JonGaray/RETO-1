@@ -425,3 +425,13 @@ a{
 .btn-eliminar-pregunta-usuario{
     background-color: #cdcdcd;
 }
+
+.btn-ver-mas{
+    text-decoration: none;
+    color: #364156;
+    background-color: #cdcdcd;
+    padding: 0.4em 1em 0.4em 1em;
+    border: 2px solid #364156;
+    border-radius: 15px;
+    transition: background-color 0.5s ease;
+}

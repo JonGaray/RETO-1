@@ -11,7 +11,7 @@
         }
         public function getRespuestasByUsuarioId($param){
             
-            $sql = "SELECT contenido, megusta, nomegusta, id FROM " .$this->table. " WHERE id_usuario = ?";
+            $sql = "SELECT contenido, megusta, nomegusta, id, id_pregunta FROM " .$this->table. " WHERE id_usuario = ?";
             $statement=$this->connection->prepare($sql);
             $statement->execute([$param]);
             return $statement->fetchAll();
