@@ -8,27 +8,28 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+        align-items:last baseline;
         background-color: #393939;
         height: 100vh;
         width: 100%;
+        background-image: url(../../assets/Images/avion.jpg) ;
     }
     .inicioSesion{
+
         display: block;
         text-align: center;
-        background-color: #364156;
         padding-top: 50px;
         width: 50%;
         height: 60%;
-        box-shadow: 5px 5px 10px #dff8eb56;
         border-radius: 15px;
     }
     .inicioSesion h1{
-        color: #CDCDCD;
+        color: black;
         padding-top: 25px;
         padding-bottom: 25px;
     }
     .inicioSesion hr{
+        color: black;
         margin: 0 auto;
         width: 75%;
     }
@@ -36,6 +37,8 @@
         padding-top: 75px;
     }
     .loginNombre{
+        border: none;
+        outline: none;
         display: block;
         margin: 0 auto;
         margin-bottom: 25px;
@@ -48,6 +51,8 @@
         box-shadow: 5px 5px 10px #393939;
     }
     .loginContrasenna{
+        border: none;
+        outline: none;
         display: block;
         margin: 0 auto;
         margin-bottom: 25px;
@@ -60,6 +65,8 @@
         box-shadow: 5px 5px 10px #393939;
     }
     .loginEntrar{
+        border: none;
+        outline: none;
         display: block;
         margin: 0 auto;
         margin-bottom: 25px;
@@ -73,16 +80,14 @@
     }
 </style>
 <div class="superiorInicioSesion">
-<div class="inicioSesion">
-    <hr>
-    <h1>INICIO DE SESI&Oacute;N</h1>
-    <hr>
-    <form method="post" action="index.php?controller=usuario&action=login">
-        <div class="campos">
-            <input type="text" name="nombre" class="loginNombre" placeholder="Nombre">
-            <input type="password" name="contrasenna" class="loginContrasenna" placeholder="Contrase&ntilde;a">
-        </div>
-        <input type="submit" value="Entrar" name="submit" class="loginEntrar">
-    </form>
-</div>
+    <div class="inicioSesion">
+        <h1>INICIO DE SESI&Oacute;N</h1>
+        <form method="post" action="index.php?controller=usuario&action=login">
+            <div class="campos">
+                <input type="text" name="nombre" class="loginNombre" placeholder="Nombre">
+                <input type="password" name="contrasenna" class="loginContrasenna" placeholder="Contrase&ntilde;a">
+            </div>
+            <input type="submit" value="Entrar" name="submit" class="loginEntrar">
+        </form>
+    </div>
 </div>
