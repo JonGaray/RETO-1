@@ -71,9 +71,23 @@ class PreguntaController extends BaseController
             return false;
         }
     }
-    public function listCategoria(){
-        $this->page_title = "Listado de Preguntas";
-        $this->view ='listCategoria';
-        return $this->model->getPreguntaByCategoria($_POST["categoria"]);
+    public function listCategoria() {
+        include_once "view/layout/header.php";
+        $this->page_title = "Listado de Preguntas por Categoria";
+        $this->view = "listCategoria";
+        $paginaActual = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $limite = 6;
+        $categoria = isset($_COOKIE['categoria']) ? $_COOKIE['categoria'] : null;
+        $offset = ($paginaActual - 1) * $limite;
+        $totalPreguntas = $this->model->contarPreguntasByCategoria($categoria);
+        $totalPaginas = ceil($totalPreguntas / $limite);
+        $preguntas = $this->model->getPreguntasPaginadasByCategoria($limite, $offset, $categoria);
+        $dataToView = [
+            "data" => $preguntas ?? [],
+            "paginaActual" => $paginaActual,
+            "totalPaginas" => $totalPaginas
+        ];
+        // Renderizar la vista
+        $this->renderView('pregunta/listCategoria.html', $dataToView);
     }
 }

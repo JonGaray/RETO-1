@@ -24,15 +24,15 @@
         <hr class="hr-nav">
         <ul>
             <li>
-                <a href="index.php?controller=pregunta&action=list">Inicio</a>
+                <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()">Inicio</a>
             </li>
             <li>
                 <a href="">Guia de reparacion</a>
             </li>
             <li>
                 <div class="div-buscar" style="display: flex; align-items: center; width: 100%;">
-                    <form action="index.php?controller=pregunta&action=listCategoria" method="POST" style="display: flex; align-items: center; width: 100%;">
-                        <input type="text" name="categoria" class="buscar" placeholder="Buscar" required style="text-align: center; padding: 3px; flex: 1; border-radius: 5px; border: 1px solid #ccc;">
+                    <form action="index.php?controller=pregunta&action=listCategoria" method="post" onsubmit="crearCookieCategoria();">
+                        <input type="text" id="categoriaInput" name="categoria" class="buscar" placeholder="Buscar" required style="text-align: center; padding: 3px; flex: 1; border-radius: 5px; border: 1px solid #ccc;">
                         <button type="submit" class="lupa" style="background: none; border: none; cursor: pointer; padding-left: 5px;">
                             <img src="assets/Images/Lupa.png" alt="Lupita" class="lupa" style="vertical-align: middle; width: 32px; height: 32px;">
                         </button>
@@ -63,6 +63,13 @@
             eliminarCookie('rol_usuario');
             location.replace("index.php");
         });
+        function crearCookieCategoria() {
+            const categoriaInput = document.getElementById('categoriaInput').value;
+            document.cookie = "categoria=" + encodeURIComponent(categoriaInput) + "; path=/";
+        }
+        function deleteCookieCategoria() {
+            document.cookie = "categoria=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
     </script>
 </header>
 

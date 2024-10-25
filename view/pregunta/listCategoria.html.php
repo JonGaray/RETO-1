@@ -110,16 +110,48 @@
         text-align: center;
         width: 60%;
     }
+    .sin-respuesta{
+        text-decoration: none;
+        padding: 8px 15px;
+        border: 2px solid red;
+        border-radius: 10px;
+        color: red;
+        background-color: #393939;
+        display: block;
+        width: fit-content;
+        margin: 15px auto 0 auto;
+        text-align: center;
+        width: 60%;
+        margin-bottom: 20px;
+    }
+    .cambiarPagina{
+        text-decoration: none;
+        padding: 8px 15px;
+        border: 2px solid #CDCDCD;
+        border-radius: 10px;
+        color: #CDCDCD;
+        background-color: #393939;
+        display: flex;
+        margin: 15px auto 20px auto;
+        text-align: center;
+        width: 40%;
+        align-items: center;
+        transition: background-color 0.5s ease;
+    }
+    .cambiarPagina:hover{
+        background-color: #CDCDCD;
+        color: #393939;
+    }
 </style>
 
 <div>
-    <a href="index.php?controller=pregunta&action=create" class="annadirPregunta">¿Cual es tu pregunta?</a>
+    <a href="index.php?controller=pregunta&action=create" class="annadirPregunta">¿Cuál es tu pregunta?</a>
 </div>
 
 <div class="preguntaGrupo">
     <?php
-    if (count($dataToView["data"]) > 0){
-        foreach ($dataToView["data"] as $pregunta){
+    if (count($dataToView["data"]) > 0) {
+        foreach ($dataToView["data"] as $pregunta) {
             ?>
             <div class="preguntaBlock">
                 <div class="preguntaTopSection">
@@ -134,7 +166,7 @@
                         <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
                         <div class="enlaces">
                             <a href="index.php?controller=respuesta&action=responder&id=<?php echo $pregunta["pregunta_id"]; ?>">Responder</a>
-                            <a href="index.php?controller=pregunta&action=detalle&id=<?php echo $pregunta["pregunta_id"]; ?>">Ver m&aacute;s</a>
+                            <a href="index.php?controller=pregunta&action=detalle&id=<?php echo $pregunta["pregunta_id"]; ?>">Ver más</a>
                         </div>
                     </div>
                 </div>
@@ -147,10 +179,20 @@
             </div>
             <?php
         }
-    }else{
+    } else {
         ?>
-        <p>Actualmente no existen preguntas</p>
+        <div class="sin-respuesta">Actualmente no existen preguntas</div>
         <?php
     }
     ?>
+</div>
+<!-- Botones de paginación -->
+<div class="paginacion">
+    <?php if ($paginaActual > 1): ?>
+        <a href="index.php?controller=pregunta&action=listCategoria&page=<?php echo $paginaActual - 1; ?>" class="cambiarPagina">Anterior</a>
+    <?php endif; ?>
+
+    <?php if ($paginaActual < $totalPaginas): ?>
+        <a href="index.php?controller=pregunta&action=listCategoria&page=<?php echo $paginaActual + 1; ?>" class="cambiarPagina">Siguiente</a>
+    <?php endif; ?>
 </div>
