@@ -25,7 +25,7 @@
                     <?php if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){ ?>
                         <textarea name="contenido" disabled class="contenido"><?php echo $respuesta['contenido'] ; ?></textarea>
                         <?php }elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
-                            <img  src="<?php echo $respuesta["foto"] ?>" alt="">
+                            <img class="img-respuesta" src="<?php echo $respuesta["foto"] ?>" alt="">
                         <?php } ?>
                     </div>
                     <div class="bottomRight">

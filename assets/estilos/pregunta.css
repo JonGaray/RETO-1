@@ -359,6 +359,17 @@
     line-height: 1.5;
     border: 0.0625em solid #CDCDCD;
 }
+
+.answerBlock .bottomSection .bottomLeft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-respuesta{
+    max-height: 70%;
+    max-width: 60%;
+}
 @media (max-width: 768px) {
     .preguntaGrupo {
         grid-template-columns: 1fr;

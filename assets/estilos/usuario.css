@@ -217,6 +217,11 @@ a {
     background-color: #CDCDCD;
     color: #364156;
 }
+
+.img-respuesta-usuario{
+    max-width: 50%;
+    max-height: 60%;
+}
 @media (max-width: 768px) {
     .Registro {
         width: 80%;
