@@ -128,6 +128,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 1em;
 }
 .div-principal-respuestas h3 {
     grid-area: titulo;
@@ -185,6 +186,7 @@ a {
 .respuesta-usuario {
     background-color: #CDCDCD;
     overflow-wrap: anywhere;
+    margin-top: 1em;
 }
 .btn-eliminar-pregunta-usuario {
     background-color: #CDCDCD;
@@ -214,4 +216,38 @@ a {
 .btn-enviar-foto:hover {
     background-color: #CDCDCD;
     color: #364156;
+}
+@media (max-width: 768px) {
+    .Registro {
+        width: 80%;
+        padding: 1em;
+    }
+    .superiorRegistro {
+        height: auto;
+        padding: 1em;
+    }
+    .campos {
+        padding-top: 2em;
+    }
+    .registroNombre, .registroContrasenna, .registroCorreo, .registroEntrar {
+        font-size: 1em;
+        padding: 0.8em 1.5em;
+    }
+    .pagina-usuario {
+        grid-template-columns: 1fr;
+        padding: 1em;
+    }
+    .div-principal-respuestas {
+        padding: 1em;
+    }
+    .acciones-usuario {
+        padding: 1em;
+    }
+    .btn-anterior, .btn-siguiente, .link-acciones-usuario, .btn-ver-mas, .btn-enviar-foto {
+        padding: 0.4em 0.8em;
+        font-size: 0.9em;
+    }
+    .foto-perfil {
+        width: 8em;
+    }
 }

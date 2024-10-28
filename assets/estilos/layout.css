@@ -172,3 +172,62 @@ img {
     grid-area: rrss;
     padding-right: 2em;
 }
+@media (max-width: 768px) {
+    body {
+        height: auto;
+    }
+    .div-header {
+        flex-direction: column;
+        height: auto;
+        padding: 1em 0;
+    }
+    .hr-nav {
+        width: 80%;
+    }
+    .div-nav {
+        padding: 0.5em 0;
+    }
+    ul {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    .div-sesion {
+        flex-direction: column;
+        height: auto;
+    }
+    .buscar {
+        min-width: 70%;
+        margin-right: 0;
+    }
+    .lupa {
+        width: 2.5em;
+        height: 2.5em;
+    }
+    footer {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "logo"
+            "form"
+            "rrss";
+        padding: 1em;
+        height: auto;
+    }
+    .logo-copyright {
+        border-right: none;
+        margin: 0.5em 0;
+    }
+    .contacto {
+        border-right: none;
+        padding-right: 0;
+    }
+    .formulario-contacto {
+        width: 90%;
+    }
+    .btn-contacto {
+        width: 80%;
+    }
+    .rrss {
+        flex-direction: column;
+        padding-right: 0;
+    }
+}

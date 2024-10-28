@@ -359,3 +359,74 @@
     line-height: 1.5;
     border: 0.0625em solid #CDCDCD;
 }
+@media (max-width: 768px) {
+    .preguntaGrupo {
+        grid-template-columns: 1fr;
+        gap: 1em;
+        width: 95%;
+    }
+    .preguntaBlock {
+        margin: 1em 0;
+    }
+    .preguntaTopSection {
+        flex-direction: column;
+    }
+    .preguntaTopSection input {
+        width: auto;
+        padding: 0.5em;
+    }
+    .preguntaBottomSection {
+        flex-direction: column;
+    }
+    .preguntaBottomLeft {
+        margin-right: 0;
+    }
+    .preguntaBottomLeft input {
+        height: auto;
+    }
+    .preguntasBottomRight {
+        flex-direction: column;
+        margin-top: 0;
+    }
+    .crearPregunta {
+        width: 80%;
+        height: auto;
+    }
+    .preguntasBottomRight input {
+        margin-bottom: 1em;
+    }
+    .preguntasBottomRight .enlaces {
+        flex-direction: column;
+    }
+    .preguntasBottomRight .enlaces a {
+        width: 80%;
+    }
+    .boton-eliminar, .sin-respuesta, .cambiarPagina, .annadirPregunta {
+        width: 80%;
+    }
+    .descripcion {
+        height: auto;
+        padding: 1em;
+    }
+    .form-createPregunta {
+        grid-template-columns: 1fr;
+        width: 95%;
+        height: auto;
+    }
+    .createPreguntaBlock, .seccionCategoria {
+        margin-top: 1em;
+    }
+    .questionBlock, .answerBlock {
+        width: 90%;
+    }
+    .like-section, .dislike-section {
+        flex-direction: column;
+    }
+    .formInteraccion {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .formInteraccion button {
+        margin: 0.5em 0;
+    }
+}

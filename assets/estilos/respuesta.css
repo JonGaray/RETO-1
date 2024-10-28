@@ -81,3 +81,31 @@ input[type="reset"] {
     background-color: #CDCDCD;
     color: #393939;
 }
+@media (max-width: 768px) {
+    .general {
+        width: 90%;
+        height: auto;
+        margin: 0.5em;
+    }
+    .general form {
+        height: auto;
+    }
+    .parrafo-resp {
+        font-size: 1.5em;
+    }
+    .area {
+        font-size: 1.5em;
+    }
+    .respuesta {
+        width: 90%;
+    }
+    .botones {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    .botones input[type="submit"], input[type="reset"] {
+        height: auto;
+        padding: 1em;
+    }
+}
