@@ -1,4 +1,4 @@
-/*CSS list*/
+/*CSS list.html.php*/
 .preguntaGrupo{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -173,8 +173,8 @@
     background-color: #CDCDCD;
     color: #393939;
 }
-/*CSS listCategoria*/
-/*CSS create*/
+/*CSS listCategoria.html.php*/
+/*CSS create.html.php*/
 .annadirPregunta{
     margin: 100px auto 0 auto;
     width: 30%;
@@ -204,7 +204,6 @@
     margin: 20px auto;
 }
 .createPreguntaBlock{
-    /*height: 100%;*/
     margin-top: 25px;
     background-color: #364156;
     padding: 20px;
@@ -214,7 +213,6 @@
     position: relative;
 }
 .seccionCategoria {
-    /*height: 100%;*/
     margin-top: 25px;
     background-color: #364156;
     padding: 20px;
