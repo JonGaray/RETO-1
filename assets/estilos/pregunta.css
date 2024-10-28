@@ -247,3 +247,113 @@
 .annadirPregunta input{
     background-color: #CDCDCD;
 }
+/*CSS detalle.html.php*/
+.questionBlock {
+    background-color: #364156;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px #dff8eb56;
+    width: 60%;
+    margin: 20px auto;
+}
+.answerBlock {
+    background-color: #364156;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px #dff8eb56;
+    width: 60%;
+    margin: 20px auto;
+}
+.questionBlock .topSection, .answerBlock .topSection{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    width: 100%;
+}
+.questionBlock .topSection input, .answerBlock .topSection input{
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 15px;
+    text-align: center;
+    background-color: #CDCDCD;
+}
+.questionBlock .bottomSection, .answerBlock .bottomSection{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+.questionBlock .bottomLeft, .answerBlock .bottomLeft{
+    flex: 1;
+}
+.questionBlock .bottomLeft input, .answerBlock .bottomLeft input{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: #CDCDCD;
+    border-radius: 15px;
+    border: none;
+    resize: none;
+    text-align: center;
+}
+.questionBlock .bottomRight, .answerBlock .bottomRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 0.48;
+    margin-top: 7px;
+}
+.questionBlock .bottomRight input, .answerBlock .bottomRight input{
+    padding: 10px;
+    background-color: #CDCDCD;
+    border-radius: 15px;
+    border: none;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.like-section, .dislike-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.like-section img, .dislike-section img {
+    height: 35px;
+    border-radius: 5px;
+}
+.like-section input, .dislike-section input {
+    padding: 10px;
+    background-color: #CDCDCD;
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    width: 80%;
+}
+.formInteraccion {
+    display: flex;
+    align-items: center;
+}
+.formInteraccion button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.formInteraccion button img {
+    height: 35.5px;
+}
+.questionBlock .bottomSection .bottomLeft .descripcion, .answerBlock .bottomSection .bottomLeft .contenido {
+    resize: none;
+    white-space: normal;
+    overflow-wrap: break-word;
+    background-color: #CDCDCD;
+    border-radius: 15px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+}
