@@ -12,16 +12,21 @@
         background-color: #393939;
         height: 100vh;
         width: 100%;
-        background-image: url(../../assets/Images/avion.jpg);
+        background-image: url(assets/Images/avion.jpg);
         background-repeat: no-repeat;
     }
     .inicioSesion{
         display: block;
         text-align: center;
         padding-top: 20px;
-        width: 50%;
+        margin-right: 250px;
+        width: 30%;
         height: 60%;
         border-radius: 15px;
+        background-color: white;
+        backdrop-filter: blur(10px); /* Difuminado */
+        background-color: rgba(255, 255, 255, 0.3); /* Fondo semi-transparente */
+
     }
     .inicioSesion h1{
         color: black;
@@ -31,7 +36,6 @@
         padding-top: 75px;
     }
     .loginNombre{
-        opacity: 0.9;
         border: none;
         outline: none;
         display: block;
@@ -72,11 +76,12 @@
         background-color: #CDCDCD;
         border-radius: 15px;
         box-shadow: 5px 5px 10px #393939;
+        cursor: pointer;
     }
 </style>
 <div class="superiorInicioSesion">
     <div class="inicioSesion">
-        <h1>INICIO DE SESI&Oacute;N</h1>
+        <h1>INICIAR SESI&Oacute;N</h1>
         <form method="post" action="index.php?controller=usuario&action=login">
             <div class="campos">
                 <input type="text" name="nombre" class="loginNombre" placeholder="Nombre">
