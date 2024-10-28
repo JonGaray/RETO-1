@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="assets/estilos/respuesta.css">
     <link rel="stylesheet" href="assets/estilos/usuario.css">
     <title>Document</title>
-    <style>
-
-    </style>
 </head>
 <body>
 <header>

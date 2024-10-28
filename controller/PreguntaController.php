@@ -41,6 +41,7 @@ class PreguntaController extends BaseController
     public function create(){
         $this->page_title = "Crear Pregunta";
         $this->view ='create';
+        return $this->model->getCategorias();
     }
     public function save(){
         $this->page_title ='Crear Pregunta';

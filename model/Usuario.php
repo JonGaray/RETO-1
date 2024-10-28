@@ -78,4 +78,10 @@ class Usuario{
             throw new Exception("Inserción fallifa");
         }
     }
+
+    public function actualizarFotoPerfil($usuarioId, $rutaFoto) {
+        $sql = "UPDATE ".$this->table." SET foto = ? WHERE id = ?";
+        $statement = $this->connection->prepare($sql);
+        return $statement->execute([$rutaFoto, $usuarioId]);
+    }
 }

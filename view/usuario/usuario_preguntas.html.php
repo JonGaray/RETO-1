@@ -1,6 +1,12 @@
 <div class="pagina-usuario">
-        <div class="div-foto-perfil">
-           <img class="foto-perfil" src="assets/Images/blank-profile-picture-973460_1280.webp" alt="">
+<div class="div-foto-perfil">
+        <label for="foto">
+           <img class="foto-perfil" src="<?php echo $dataToView["data"]["usuario"]["foto"]!="" ? $dataToView["data"]["usuario"]["foto"] : 'assets/Images/blank-profile-picture-973460_1280.webp';?>" alt="">
+        </label>
+           <form method="post" enctype="multipart/form-data" action="index.php?controller=usuario&action=guardarFotoPerfilPreguntas">
+            <input style="display: none;" type="file" name="foto" id="foto">
+            <input type="submit" class="btn-enviar-foto">
+           </form>
         </div>
         <div class="div-principal-respuestas">
             <h3>PREGUNTAS</h3>
@@ -13,7 +19,7 @@
                    <?php echo $preguntas["descripcion"] ?>
                 </div>
                 <div class="likes">
-                    <a class="ver-mas" href="index.php?controller=pregunta&action=detalle&id=<?php echo $preguntas["id"] ?>">Ver mas</a>
+                    <a class="btn-ver-mas" href="index.php?controller=pregunta&action=detalle&id=<?php echo $preguntas["id"] ?>">Ver mas</a>
                     <form method="post" action="index.php?controller=usuario&action=deletePregunta">
                         <input type="hidden" id="id" name="id" value="<?php echo $preguntas["id"] ?>">
                         <button class="btn-eliminar-pregunta-usuario" type="submit">

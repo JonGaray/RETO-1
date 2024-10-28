@@ -30,6 +30,12 @@ class Pregunta{
         $statement->execute();
         return $statement->fetch()['total'];
     }
+    public function getCategorias(){
+        $sql = "SELECT DISTINCT categoria FROM " . $this->table;
+        $statement = $this->connection->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
     public function contarPreguntasByCategoria($categoria){
         $sql = "SELECT COUNT(*) as total FROM " . $this->table . " WHERE categoria = ?";
         $statement = $this->connection->prepare($sql);
