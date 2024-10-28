@@ -1,4 +1,4 @@
-/*CSS list*/
+/*CSS list.html.php*/
 .preguntaGrupo{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -36,6 +36,7 @@
 }
 .preguntaBottomLeft{
     flex: 1;
+    margin-right: 10px;
 }
 .preguntaBottomLeft input{
     width: 100%;
@@ -52,10 +53,10 @@
     flex-direction: column;
     justify-content: space-between;
     flex: 0.48;
-    margin-top: 7px;
+    margin-top: 10px;
 }
-.annadirPregunta{
-    margin: 15px auto;
+.crearPregunta{
+    margin: 20px auto;
     width: 30%;
     height: 5%;
     padding: 10px;
@@ -68,7 +69,7 @@
     justify-content: center;
     color: #393939;
 }
-.annadirPregunta a:visited{
+.crearPregunta a:visited{
     color: #393939;
     text-decoration: none;
 }
@@ -172,8 +173,25 @@
     background-color: #CDCDCD;
     color: #393939;
 }
-/*CSS listCategoria*/
-/*CSS create*/
+/*CSS listCategoria.html.php*/
+/*CSS create.html.php*/
+.annadirPregunta{
+    margin: 100px auto 0 auto;
+    width: 30%;
+    height: 10%;
+    padding: 10px;
+    background-color: #CDCDCD;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: #393939;
+    cursor: pointer;
+}
+.annadirPregunta a:visited{
+    color: #393939;
+    text-decoration: none;
+}
 .form-createPregunta{
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -186,7 +204,6 @@
     margin: 20px auto;
 }
 .createPreguntaBlock{
-    height: 100%;
     margin-top: 25px;
     background-color: #364156;
     padding: 20px;
@@ -196,7 +213,6 @@
     position: relative;
 }
 .seccionCategoria {
-    height: 100%;
     margin-top: 25px;
     background-color: #364156;
     padding: 20px;
@@ -205,10 +221,6 @@
     width: 100%;
     grid-column: 2;
     grid-row: 1;
-}
-.annadirPregunta:hover{
-    background-color: #CDCDCD;
-    color: #393939;
 }
 .seccionCategoria h3, .createPreguntaBlock h3{
     text-align: center;
@@ -219,7 +231,127 @@
     padding: 10px;
     margin: 10px;
     border-radius: 15px;
-    background-color: #CDCDCD;
+    background-color: #364156;
+    border: 2px solid #CDCDCD;
     text-align: center;
     cursor: pointer;
+    transition: background-color 0.5s ease;
+    color: #CDCDCD;
+}
+.seccionCategoria p:hover{
+    background-color: #CDCDCD;
+    color: #393939;
+}
+.annadirPregunta input{
+    background-color: #CDCDCD;
+}
+/*CSS detalle.html.php*/
+.questionBlock {
+    background-color: #364156;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px #dff8eb56;
+    width: 60%;
+    margin: 20px auto;
+}
+.answerBlock {
+    background-color: #364156;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px #dff8eb56;
+    width: 60%;
+    margin: 20px auto;
+}
+.questionBlock .topSection, .answerBlock .topSection{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    width: 100%;
+}
+.questionBlock .topSection input, .answerBlock .topSection input{
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 15px;
+    text-align: center;
+    background-color: #CDCDCD;
+}
+.questionBlock .bottomSection, .answerBlock .bottomSection{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+.questionBlock .bottomLeft, .answerBlock .bottomLeft{
+    flex: 1;
+}
+.questionBlock .bottomLeft input, .answerBlock .bottomLeft input{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: #CDCDCD;
+    border-radius: 15px;
+    border: none;
+    resize: none;
+    text-align: center;
+}
+.questionBlock .bottomRight, .answerBlock .bottomRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 0.48;
+    margin-top: 7px;
+}
+.questionBlock .bottomRight input, .answerBlock .bottomRight input{
+    padding: 10px;
+    background-color: #CDCDCD;
+    border-radius: 15px;
+    border: none;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.like-section, .dislike-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.like-section img, .dislike-section img {
+    height: 35px;
+    border-radius: 5px;
+}
+.like-section input, .dislike-section input {
+    padding: 10px;
+    background-color: #CDCDCD;
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    width: 80%;
+}
+.formInteraccion {
+    display: flex;
+    align-items: center;
+}
+.formInteraccion button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.formInteraccion button img {
+    height: 35.5px;
+}
+.questionBlock .bottomSection .bottomLeft .descripcion, .answerBlock .bottomSection .bottomLeft .contenido {
+    resize: none;
+    white-space: normal;
+    overflow-wrap: break-word;
+    background-color: #CDCDCD;
+    border-radius: 15px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    line-height: 1.5;
+    border: 1px solid #ccc;
 }

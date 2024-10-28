@@ -13,6 +13,9 @@
                 <input type="text" name="categoria" class="categoria" placeholder="Categoria"> <!-- Este campo se llenará con JS -->
             </div>
         </div>
+        <div class="annadirPregunta">
+            <input type="submit" value="Añadir pregunta" name="submit">
+        </div>
     </div>
     <div class="seccionCategoria">
         <h3>CATEGORIAS</h3>
@@ -21,9 +24,7 @@
         <p>Tren de aterrizaje</p>
         <p>Ventanas</p>
     </div>
-    <div>
-        <input type="submit" value="Añadir pregunta" name="submit" class="annadirPregunta">
-    </div>
+
 </form>
     <script>
         const form = document.querySelector('.form');
