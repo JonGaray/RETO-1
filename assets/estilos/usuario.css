@@ -124,6 +124,7 @@ a{
 }
 .papelera_usuario{
     width: 2em;
+    cursor: pointer;
 }
 .respuesta-usuario{
     background-color: #cdcdcd;
