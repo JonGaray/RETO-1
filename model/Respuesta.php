@@ -50,18 +50,31 @@
             $stmt->execute([$id]);
             return $stmt->fetch();
         }
-        public function insertarRespuesta($param){
+        public function insertarRespuesta($param, $file){
             $idDeluser = $this->getIdbyNombre($_COOKIE["nombre_usuario"]);
             echo ($_COOKIE["nombre_usuario"]);
-            $sql = "insert into " . $this->table . " (contenido, megusta, nomegusta, id_usuario, id_pregunta, fecha) values (?, ?, ?, ?, ?, ?)";
-            $stmt = $this->connection->prepare($sql);
-            $stmt->execute([$param["respuesta"],0,0,$idDeluser["id"],$param["id_preg"], null]);
-            if ($stmt->rowCount() > 0) {
-                $id = $this->connection->lastInsertId();
-                header("Location: index.php?controller=pregunta&action=list");
-                return $id;
-            } else {
-                throw new Exception("Usuario no encontrado o no se pudo insertar la pregunta");
+            if(isset($param["respuesta"])&& $param["respuesta"]!== ""){
+                $sql = "insert into " . $this->table . " (contenido, megusta, nomegusta, id_usuario, id_pregunta, fecha) values (?, ?, ?, ?, ?, ?)";
+                $stmt = $this->connection->prepare($sql);
+                $stmt->execute([$param["respuesta"],0,0,$idDeluser["id"],$param["id_preg"], null]);
+                if ($stmt->rowCount() > 0) {
+                    $id = $this->connection->lastInsertId();
+                    header("Location: index.php?controller=pregunta&action=list");
+                    return $id;
+                } else {
+                    throw new Exception("Usuario no encontrado o no se pudo insertar la pregunta");
+                }
+            } elseif(isset($file)){
+                $sql = "insert into " . $this->table . " (foto, megusta, nomegusta, id_usuario, id_pregunta, fecha) values (?, ?, ?, ?, ?, ?)";
+                $stmt = $this->connection->prepare($sql);
+                $stmt->execute([$file,0,0,$idDeluser["id"],$param["id_preg"], null]);
+                if ($stmt->rowCount() > 0) {
+                    $id = $this->connection->lastInsertId();
+                    header("Location: index.php?controller=pregunta&action=list");
+                    return $id;
+                } else {
+                    throw new Exception("Usuario no encontrado o no se pudo insertar la pregunta");
+                }
             }
         }
         public function deleteRespuestaById($id){
@@ -70,4 +83,5 @@
             $stmt = $this->connection->prepare($sql);
             return $stmt->execute([$id]);
         }
+        
     }

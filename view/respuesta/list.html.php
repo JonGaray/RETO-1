@@ -11,6 +11,10 @@
                         <label for="archivo">Subir archivo:</label>
                         <input type="file" name="archivo" id="archivo">
                     </div>
+                    <div class="archivoRespuesta">
+                        <label for="foto">Subir foto:</label>
+                        <input type="file" name="foto" id="foto">
+                    </div>
                 </div>
 
                 <div class="botones">

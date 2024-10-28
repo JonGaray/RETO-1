@@ -31,11 +31,35 @@ class RespuestaController{
         if (isset($_FILES["archivo"]) && $_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
             $contenidoArchivo = file_get_contents($_FILES["archivo"]["tmp_name"]);
             $_POST["respuesta"] = $contenidoArchivo;
+
+            $id = $this->model->insertarRespuesta($_POST, null);
+            $result = $this->model->getRespuestaById($id);
+            $_POST["response"] = true;
+            return $result;
+        } elseif(isset($_FILES['foto'])) {
+            // Ruta donde se guardarán las fotos
+            $target_dir = "assets/Images/respuestas/";
+            $target_file = $target_dir . basename($_FILES["foto"]["name"]);
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+            // Validar que sea una imagen
+            $check = getimagesize($_FILES["foto"]["tmp_name"]);
+            if($check !== false) {
+                if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
+                    // Actualizar la base de datos con la nueva ruta de la imagen
+                    $id =$this->model->insertarRespuesta($_POST, $target_file);
+                    $result = $this->model->getRespuestaById($id);
+                    $_POST["response"] = true;
+                    return $result;
+                    header("Location:index.php?controller=usuario&action=listPreguntas");
+                } else {
+                    echo "Error subiendo la imagen.";
+                }
+            } else {
+                echo "El archivo no es una imagen.";
+            }
         }
-        $id = $this->model->insertarRespuesta($_POST);
-        $result = $this->model->getRespuestaById($id);
-        $_POST["response"] = true;
-        return $result;
+        
     }
     public function delete(){
         $this->view = "";
@@ -51,5 +75,30 @@ class RespuestaController{
             echo "ID no proporcionado para la eliminación.";
             return false;
         }
+    }
+
+    public function guardarFotoRespuesta() {
+        if(isset($_FILES['foto'])) {
+            // Ruta donde se guardarán las fotos
+            $target_dir = "assets/Images/";
+            $target_file = $target_dir . basename($_FILES["foto"]["name"]);
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+            // Validar que sea una imagen
+            $check = getimagesize($_FILES["foto"]["tmp_name"]);
+            if($check !== false) {
+                if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
+                    // Actualizar la base de datos con la nueva ruta de la imagen
+                    $this->model->insertarRespuesta($_POST, $target_file);
+
+                    header("Location:index.php?controller=usuario&action=listPreguntas");
+                } else {
+                    echo "Error subiendo la imagen.";
+                }
+            } else {
+                echo "El archivo no es una imagen.";
+            }
+        }
+
     }
 }
