@@ -79,9 +79,14 @@
         cursor: pointer;
     }
     @media (max-width: 768px) {
+        .superiorInicioSesion{
+            margin: 0 auto;
+            background-position: center;
+        }
         .inicioSesion {
+            margin: 0 auto;
             width: 80%;
-            height: 30%;
+            height: auto;
             padding: 1em;
         }
         .campos {
@@ -97,6 +102,7 @@
         }
     }
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="superiorInicioSesion">
     <div class="inicioSesion">
         <h1>INICIAR SESI&Oacute;N</h1>
