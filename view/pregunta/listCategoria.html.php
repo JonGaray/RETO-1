@@ -3,10 +3,8 @@
 </div>
 
 <div class="preguntaGrupo">
-    <?php
-    if (count($dataToView["data"]) > 0) {
-        foreach ($dataToView["data"] as $pregunta) {
-            ?>
+    <?php if (count($dataToView["data"]) > 0) : ?>
+        <?php foreach ($dataToView["data"] as $pregunta) : ?>
             <div class="preguntaBlock">
                 <div class="preguntaTopSection">
                     <input type="text" name="titulo" class="titulo" disabled value="<?php echo $pregunta["titulo"]; ?>">
@@ -31,15 +29,13 @@
                     </form>
                 <?php } ?>
             </div>
-            <?php
-        }
-    } else {
-        ?>
-        <div class="sin-respuesta">Actualmente no existen preguntas</div>
-        <?php
-    }
-    ?>
+        <?php endforeach; ?>
+    <?php else: ?>
+    <div></div>
+        <div class="noAnswers">Actualmente no existen preguntas</div>
+    <?php endif; ?>
 </div>
+
 <!-- Botones de paginación -->
 <div class="paginacion">
     <?php if ($paginaActual > 1): ?>
