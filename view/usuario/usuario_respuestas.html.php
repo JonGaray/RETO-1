@@ -1,6 +1,10 @@
 <div class="pagina-usuario">
         <div class="div-foto-perfil">
-           <img class="foto-perfil" src="assets/Images/blank-profile-picture-973460_1280.webp" alt="">
+           <img class="foto-perfil" src="<?php echo $usuario->foto; ?>" alt="">
+           <form action="index.php?controller=usuario&action=guardarFotoPerfil">
+            <input type="file" name="foto" id="foto">
+            <input type="submit">
+           </form>
         </div>
         <div class="div-principal-respuestas">
             <h3>RESPUESTAS</h3>
