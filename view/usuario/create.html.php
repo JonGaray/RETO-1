@@ -95,7 +95,7 @@
             <h1>CREAR USUARIO</h1>
             <hr>
             <div class="campos">
-                <input type="text" name="nombre" class="registroNombre" placeholder="Nombre">
+                <input type="text" name="nombre" class="registroNombre" placeholder="Nombre" style="font-weight: bold">
                 <input type="password" name="contrasenna" class="registroContrasenna" placeholder="Contrase&ntilde;a">
                 <input type="correo" name="correo" class="registroCorreo" placeholder="Correo">
             </div>
