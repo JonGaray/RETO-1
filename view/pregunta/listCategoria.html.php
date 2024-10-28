@@ -32,7 +32,7 @@
         <?php endforeach; ?>
     <?php else: ?>
     <div></div>
-        <div class="noAnswers">Actualmente no existen preguntas</div>
+        <div class="noQuestion">Actualmente no existen preguntas</div>
     <?php endif; ?>
 </div>
 
