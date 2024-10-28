@@ -22,7 +22,11 @@
                 </div>
                 <div class="bottomSection">
                     <div class="bottomLeft">
-                        <textarea name="contenido" disabled class="contenido"><?php echo isset($respuesta['contenido']) ? $respuesta['contenido'] : 'Sin contenido'; ?></textarea>
+                    <?php if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){ ?>
+                        <textarea name="contenido" disabled class="contenido"><?php echo $respuesta['contenido'] ; ?></textarea>
+                        <?php }elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
+                            <img class="img-respuesta" src="<?php echo $respuesta["foto"] ?>" alt="">
+                        <?php } ?>
                     </div>
                     <div class="bottomRight">
                         <div class="like-section">

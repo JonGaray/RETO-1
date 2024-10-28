@@ -13,7 +13,11 @@
             <?php if(!empty($dataToView["data"]["respuestas"])): foreach($dataToView["data"]["respuestas"] as $respuesta):?>
             <div class="div-respuesta">
                 <div class="respuesta-usuario">
+                <?php if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){ ?>
                    <p><?php echo $respuesta["contenido"] ?></p>
+                   <?php }elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
+                            <img class="img-respuesta-usuario" src="<?php echo $respuesta["foto"] ?>" alt="">
+                        <?php } ?>
                 </div>
                 <div class="likes">
                     <img class="img-like" src="assets/Images/like.png" alt=""><?php echo $respuesta["megusta"] ?>
