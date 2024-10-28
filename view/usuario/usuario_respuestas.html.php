@@ -1,9 +1,11 @@
 <div class="pagina-usuario">
         <div class="div-foto-perfil">
-           <img class="foto-perfil" src="<?php echo $usuario->foto; ?>" alt="">
-           <form action="index.php?controller=usuario&action=guardarFotoPerfil">
-            <input type="file" name="foto" id="foto">
-            <input type="submit">
+        <label for="foto">
+           <img class="foto-perfil" src="<?php echo $dataToView["data"]["usuario"]["foto"]!="" ? $dataToView["data"]["usuario"]["foto"] : 'assets/Images/blank-profile-picture-973460_1280.webp';?>" alt="">
+        </label>
+           <form method="post" enctype="multipart/form-data" action="index.php?controller=usuario&action=guardarFotoPerfilRespuestas">
+            <input style="display: none;" type="file" name="foto" id="foto">
+            <input type="submit" class="btn-enviar-foto">
            </form>
         </div>
         <div class="div-principal-respuestas">

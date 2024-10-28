@@ -29,6 +29,7 @@ class UsuarioController{
         }
     }
     public function listRespuestas(){
+
         $this->view = "usuario_respuestas";
         $this->page_title = "Editar usuario";
         $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
@@ -112,8 +113,8 @@ class UsuarioController{
     return $result;
     }
 
-    public function guardarFotoPerfil() {
-        if(isset($_FILES['foto_perfil'])) {
+    public function guardarFotoPerfilRespuestas() {
+        if(isset($_FILES['foto'])) {
             // Ruta donde se guardarán las fotos
             $target_dir = "assets/Images/";
             $target_file = $target_dir . basename($_FILES["foto"]["name"]);
@@ -122,10 +123,35 @@ class UsuarioController{
             // Validar que sea una imagen
             $check = getimagesize($_FILES["foto"]["tmp_name"]);
             if($check !== false) {
-                if(move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $target_file)) {
+                if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
                     // Actualizar la base de datos con la nueva ruta de la imagen
-                    $this->model->actualizarFotoPerfil($_SESSION['usuario_id'], $target_file);
-                    header("Location: perfil.php");
+                    $this->model->actualizarFotoPerfil($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"], $target_file);
+
+                    header("Location:index.php?controller=usuario&action=listRespuestas");
+                } else {
+                    echo "Error subiendo la imagen.";
+                }
+            } else {
+                echo "El archivo no es una imagen.";
+            }
+        }
+    }
+
+    public function guardarFotoPerfilPreguntas() {
+        if(isset($_FILES['foto'])) {
+            // Ruta donde se guardarán las fotos
+            $target_dir = "assets/Images/";
+            $target_file = $target_dir . basename($_FILES["foto"]["name"]);
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+            // Validar que sea una imagen
+            $check = getimagesize($_FILES["foto"]["tmp_name"]);
+            if($check !== false) {
+                if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
+                    // Actualizar la base de datos con la nueva ruta de la imagen
+                    $this->model->actualizarFotoPerfil($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"], $target_file);
+
+                    header("Location:index.php?controller=usuario&action=listPreguntas");
                 } else {
                     echo "Error subiendo la imagen.";
                 }

@@ -407,3 +407,18 @@ a{
     background-color: #364156;
     color: #CDCDCD;
 }
+
+.btn-enviar-foto{
+    text-decoration: none;
+    color: #cdcdcd;
+    background-color: #363636;
+    padding: 0.4em 1em 0.4em 1em;
+    border: 2px solid #cdcdcd;
+    border-radius: 15px;
+    transition: background-color 0.5s ease;
+}
+
+.btn-enviar-foto:hover{
+    background-color: #cdcdcd;
+    color: #364156;
+}
