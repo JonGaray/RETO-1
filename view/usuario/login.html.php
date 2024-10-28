@@ -15,26 +15,30 @@
         background-image: url(assets/Images/avion.jpg);
         background-repeat: no-repeat;
         background-size: cover;
+        padding: 1em;
     }
     .inicioSesion {
         display: block;
         text-align: center;
         padding-top: 2em;
-        margin-right: auto;
         margin-left: auto;
+        margin-right: 20em;
         width: 30%;
         height: 60%;
         border-radius: 1em;
         background-color: rgba(255, 255, 255, 0.3);
         backdrop-filter: blur(10px);
+        overflow: auto;
     }
     .inicioSesion h1 {
         color: black;
         padding-top: 1.5em;
         font-size: 2em;
+        word-wrap: break-word;
     }
     .campos {
         padding-top: 5em;
+        max-width: 100%;
     }
     .loginNombre, .loginContrasenna {
         border: none;
@@ -72,7 +76,7 @@
         }
         .inicioSesion {
             margin: 0 auto;
-            width: 80%;
+            width: 100%;
             height: auto;
             padding: 1em;
         }
