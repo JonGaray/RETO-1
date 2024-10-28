@@ -10,7 +10,12 @@
             </div>
             <div class="preguntasBottomRight">
                 <input type="text" name="nombre" class="nombre" placeholder="Usuario" value="<?php echo isset($_COOKIE['nombre_usuario']) ? htmlspecialchars($_COOKIE['nombre_usuario']) : ''; ?>">
-                <input type="text" name="categoria" class="categoria" placeholder="Categoria"> <!-- Este campo se llenará con JS -->
+                <!-- Si el rol = usuario, no dejar crear categorias -->
+                <?php if (isset($_COOKIE['rol_usuario']) && $_COOKIE['rol_usuario'] === 'usuario'): ?>
+                    <input type="text" name="categoria" class="categoria" placeholder="Categoria" readonly>
+                <?php else: ?>
+                    <input type="text" name="categoria" class="categoria" placeholder="Categoria">
+                <?php endif; ?>
             </div>
         </div>
         <div class="annadirPregunta">
@@ -19,21 +24,24 @@
     </div>
     <div class="seccionCategoria">
         <h3>CATEGORIAS</h3>
-        <p>Motores</p>
-        <p>Alerones</p>
-        <p>Tren de aterrizaje</p>
-        <p>Ventanas</p>
+        <?php
+        foreach ($dataToView["data"] as $categoriaItem) {
+            echo '<p>' . htmlspecialchars($categoriaItem['categoria']) . '</p>';
+        }
+        ?>
     </div>
-
 </form>
-    <script>
-        const form = document.querySelector('.form');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('.form-createPregunta');
         const categoriaItems = form.querySelectorAll('.seccionCategoria p');
         const categoriaInput = form.querySelector('input[name="categoria"]');
-        categoriaItems.forEach(item => {
-            item.addEventListener('click', () => {
-                categoriaInput.value = item.textContent;
+        if (!categoriaInput.disabled) {
+            categoriaItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    categoriaInput.value = item.textContent;
+                });
             });
-        });
-    </script>
-
+        }
+    });
+</script>

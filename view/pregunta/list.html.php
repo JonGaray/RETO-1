@@ -1,7 +1,4 @@
-<div class="crearPregunta">
-    <a href="index.php?controller=pregunta&action=create">¿Cual es tu pregunta?</a>
-</div>
-
+<a href="index.php?controller=pregunta&action=create" class="crearPregunta">¿Cual es tu pregunta?</a>
 <div class="preguntaGrupo">
     <?php if (isset($data) && count($data) > 0): ?>
         <?php foreach ($data as $pregunta): ?>
