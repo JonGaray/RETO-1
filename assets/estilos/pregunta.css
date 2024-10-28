@@ -36,6 +36,7 @@
 }
 .preguntaBottomLeft{
     flex: 1;
+    margin-right: 10px;
 }
 .preguntaBottomLeft input{
     width: 100%;
@@ -52,10 +53,10 @@
     flex-direction: column;
     justify-content: space-between;
     flex: 0.48;
-    margin-top: 7px;
+    margin-top: 10px;
 }
-.annadirPregunta{
-    margin: 15px auto;
+.crearPregunta{
+    margin: 20px auto;
     width: 30%;
     height: 5%;
     padding: 10px;
@@ -68,7 +69,7 @@
     justify-content: center;
     color: #393939;
 }
-.annadirPregunta a:visited{
+.crearPregunta a:visited{
     color: #393939;
     text-decoration: none;
 }
@@ -174,6 +175,23 @@
 }
 /*CSS listCategoria*/
 /*CSS create*/
+.annadirPregunta{
+    margin: 100px auto 0 auto;
+    width: 30%;
+    height: 10%;
+    padding: 10px;
+    background-color: #CDCDCD;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: #393939;
+    cursor: pointer;
+}
+.annadirPregunta a:visited{
+    color: #393939;
+    text-decoration: none;
+}
 .form-createPregunta{
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -186,7 +204,7 @@
     margin: 20px auto;
 }
 .createPreguntaBlock{
-    height: 100%;
+    /*height: 100%;*/
     margin-top: 25px;
     background-color: #364156;
     padding: 20px;
@@ -196,7 +214,7 @@
     position: relative;
 }
 .seccionCategoria {
-    height: 100%;
+    /*height: 100%;*/
     margin-top: 25px;
     background-color: #364156;
     padding: 20px;
@@ -205,10 +223,6 @@
     width: 100%;
     grid-column: 2;
     grid-row: 1;
-}
-.annadirPregunta:hover{
-    background-color: #CDCDCD;
-    color: #393939;
 }
 .seccionCategoria h3, .createPreguntaBlock h3{
     text-align: center;
@@ -219,7 +233,17 @@
     padding: 10px;
     margin: 10px;
     border-radius: 15px;
-    background-color: #CDCDCD;
+    background-color: #364156;
+    border: 2px solid #CDCDCD;
     text-align: center;
     cursor: pointer;
+    transition: background-color 0.5s ease;
+    color: #CDCDCD;
+}
+.seccionCategoria p:hover{
+    background-color: #CDCDCD;
+    color: #393939;
+}
+.annadirPregunta input{
+    background-color: #CDCDCD;
 }

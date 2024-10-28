@@ -1,4 +1,4 @@
-<div class="annadirPregunta">
+<div class="crearPregunta">
     <a href="index.php?controller=pregunta&action=create">¿Cual es tu pregunta?</a>
 </div>
 
