@@ -1,0 +1,253 @@
+.superiorRegistro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #393939;
+    height: 70vh;
+    width: 100%;
+    color: #CDCDCD;
+}
+.Registro {
+    display: block;
+    text-align: center;
+    background-color: #364156;
+    padding-top: 3em;
+    width: 30%;
+    height: 80%;
+    box-shadow: 0.3em 0.3em 0.6em #DFF8EB56;
+    border-radius: 1em;
+    padding: 2em;
+}
+.Registro h1 {
+    color: #CDCDCD;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+.Registro hr {
+    margin: 0 auto;
+    width: 75%;
+    height: 0.1em;
+    background-color: #CDCDCD;
+}
+.campos {
+    padding-top: 4.5em;
+}
+.registroNombre, .registroContrasenna, .registroCorreo {
+    display: block;
+    margin: 0 auto 1.5em auto;
+    text-align: center;
+    padding: 1.25em 2.5em;
+    font-size: 1.25em;
+    font-weight: bold;
+    background-color: #CDCDCD;
+    border-radius: 1em;
+    box-shadow: 0.3em 0.3em 0.6em #393939;
+}
+.registroEntrar {
+    display: block;
+    margin: 0 auto 1.5em auto;
+    text-align: center;
+    padding: 1em 8.625em;
+    font-size: 1.25em;
+    font-weight: bold;
+    background-color: #CDCDCD;
+    border-radius: 1.5em;
+    box-shadow: 0.3em 0.3em 0.6em #393939;
+}
+/* Usuarios */
+.pagina-usuario {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 1.5fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1em;
+    grid-template-areas:
+    ". respuestas respuestas datos"
+    "acciones respuestas respuestas ."
+    "acciones respuestas respuestas .";
+    background-color: #393939;
+    padding: 3em;
+    text-align: center;
+}
+.foto-perfil {
+    border-radius: 50%;
+}
+.div-foto-perfil {
+    max-width: 100%;
+    max-height: 100%;
+}
+.div-principal-respuestas {
+    background-color: #364156;
+    grid-area: respuestas;
+    border-radius: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.1fr repeat(3, 1fr) 0.3fr;
+    grid-template-areas:
+    "titulo titulo"
+    ". ."
+    ". ."
+    ". ."
+    "botones botones";
+    padding: 1.7em;
+    gap: 1em;
+}
+.datos-usuario {
+    background-color: #364156;
+    grid-area: datos;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+}
+.acciones-usuario {
+    background-color: #364156;
+    grid-area: acciones;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em;
+}
+.botones-respuestas {
+    grid-area: botones;
+}
+.div-respuesta {
+    background-color: #CDCDCD;
+    max-width: 100%;
+    border-radius: 1em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.img-like, .img-dislike {
+    width: 2em;
+}
+.likes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1em;
+}
+.div-principal-respuestas h3 {
+    grid-area: titulo;
+    color: #CDCDCD;
+}
+.btn-anterior, .btn-siguiente {
+    text-decoration: none;
+    color: #CDCDCD;
+    background-color: #364156;
+    padding: 0.4em 1em;
+    border: 0.125em solid #CDCDCD;
+    border-radius: 1em;
+    transition: background-color 0.5s ease;
+}
+.btn-anterior:hover, .btn-siguiente:hover {
+    background-color: #CDCDCD;
+    color: #393939;
+}
+a {
+    text-decoration: none;
+}
+.ver-mas {
+    color: #393939;
+}
+.link-acciones-usuario {
+    background-color: #CDCDCD;
+    color: #393939;
+    padding: 0.5em 2em;
+    border-radius: 1em;
+}
+.form-datos-usuario {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em;
+    width: 100%;
+}
+.form-datos-usuario input {
+    margin: 0.6em 0;
+    border-style: none;
+    border-radius: 1em;
+    height: 2.5em;
+    text-align: center;
+}
+.form-datos-usuario input:disabled {
+    background-color: #CDCDCD;
+}
+.foto-perfil {
+    width: 12em;
+}
+.papelera_usuario {
+    width: 2em;
+    cursor: pointer;
+}
+.respuesta-usuario {
+    background-color: #CDCDCD;
+    overflow-wrap: anywhere;
+    margin-top: 1em;
+}
+.btn-eliminar-pregunta-usuario {
+    background-color: #CDCDCD;
+}
+.btn-ver-mas {
+    text-decoration: none;
+    color: #364156;
+    background-color: #CDCDCD;
+    padding: 0.4em 1em;
+    border: 0.125em solid #364156;
+    border-radius: 1em;
+    transition: background-color 0.5s ease;
+}
+.btn-ver-mas:hover {
+    background-color: #364156;
+    color: #CDCDCD;
+}
+.btn-enviar-foto {
+    text-decoration: none;
+    color: #CDCDCD;
+    background-color: #363636;
+    padding: 0.4em 1em;
+    border: 0.125em solid #CDCDCD;
+    border-radius: 1em;
+    transition: background-color 0.5s ease;
+}
+.btn-enviar-foto:hover {
+    background-color: #CDCDCD;
+    color: #364156;
+}
+@media (max-width: 768px) {
+    .Registro {
+        width: 80%;
+        padding: 1em;
+    }
+    .superiorRegistro {
+        height: auto;
+        padding: 1em;
+    }
+    .campos {
+        padding-top: 2em;
+    }
+    .registroNombre, .registroContrasenna, .registroCorreo, .registroEntrar {
+        font-size: 1em;
+        padding: 0.8em 1.5em;
+    }
+    .pagina-usuario {
+        grid-template-columns: 1fr;
+        padding: 1em;
+    }
+    .div-principal-respuestas {
+        padding: 1em;
+    }
+    .acciones-usuario {
+        padding: 1em;
+    }
+    .btn-anterior, .btn-siguiente, .link-acciones-usuario, .btn-ver-mas, .btn-enviar-foto {
+        padding: 0.4em 0.8em;
+        font-size: 0.9em;
+    }
+    .foto-perfil {
+        width: 8em;
+    }
+}

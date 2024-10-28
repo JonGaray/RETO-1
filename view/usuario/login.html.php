@@ -78,6 +78,24 @@
         box-shadow: 5px 5px 10px #393939;
         cursor: pointer;
     }
+    @media (max-width: 768px) {
+        .inicioSesion {
+            width: 80%;
+            height: 30%;
+            padding: 1em;
+        }
+        .campos {
+            padding-top: 2em;
+        }
+        .loginNombre, .loginContrasenna {
+            padding: 15px 20px;
+            font-size: 1.2em;
+        }
+        .loginEntrar {
+            padding: 10px;
+            font-size: 1.2em;
+        }
+    }
 </style>
 <div class="superiorInicioSesion">
     <div class="inicioSesion">
