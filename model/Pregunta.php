@@ -30,6 +30,12 @@ class Pregunta{
         $statement->execute();
         return $statement->fetch()['total'];
     }
+    public function contarPreguntasByCategoria($categoria){
+        $sql = "SELECT COUNT(*) as total FROM " . $this->table . " WHERE categoria = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->execute([$categoria]);
+        return $statement->fetch()['total'];
+    }
     public function deletePreguntaById($id){
         if(is_null($id)) return false;
         $sql = "DELETE FROM " . $this->table . " WHERE id = ?";
@@ -49,6 +55,15 @@ class Pregunta{
         $stmt = $this->connection->prepare($sql);
         $stmt-> execute([$categoria]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function getPreguntasPaginadasByCategoria($limit, $offset, $categoria){
+        $sql = "SELECT preguntas.id AS pregunta_id, titulo, descripcion, categoria, u.nombre FROM ". $this->table ." JOIN usuarios u ON id_usuario = u.id WHERE preguntas.categoria = ? ORDER BY preguntas.id DESC LIMIT ? OFFSET ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindValue(1, $categoria, PDO::PARAM_STR);
+        $statement->bindValue(2, $limit, PDO::PARAM_INT);
+        $statement->bindValue(3, $offset, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchAll();
     }
     public function save($param) {
         $titulo = $descripcion = $categoria = "";

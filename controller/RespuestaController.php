@@ -25,10 +25,9 @@ class RespuestaController{
     public function responder(){
         $this->view = "list";
         return $this->model->getPreguntaById($_GET["id"]);
-
     }
     public function save(){
-        $this->view = "nada";
+        $this->view = "";
         if (isset($_FILES["archivo"]) && $_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
             $contenidoArchivo = file_get_contents($_FILES["archivo"]["tmp_name"]);
             $_POST["respuesta"] = $contenidoArchivo;

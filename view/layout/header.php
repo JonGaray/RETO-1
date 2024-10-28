@@ -8,7 +8,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/estilos/layout.css">
+    <link rel="stylesheet" href="assets/estilos/pregunta.css">
+    <link rel="stylesheet" href="assets/estilos/respuesta.css">
+    <link rel="stylesheet" href="assets/estilos/usuario.css">
     <title>Document</title>
 </head>
 <body>
@@ -16,43 +19,42 @@
 
     <div class="div-header">
         <h1>Aergibide</h1> <h3 class="eslogan">Expertos en mantenerte en el cielo</h3>
-
     </div>
 
     <div class="div-nav">
-    <nav>
-        <hr class="hr-nav">
-        <ul>
-            <li>
-                <a href="index.php?controller=pregunta&action=list">Inicio</a>
-            </li>
-            <li>
-                <a href="">Guia de reparacion</a>
-            </li>
-            <li>
-                <div class="div-buscar" style="display: flex; align-items: center; width: 100%;">
-                    <form action="index.php?controller=pregunta&action=listCategoria" method="POST" style="display: flex; align-items: center; width: 100%;">
-                        <input type="text" name="categoria" class="buscar" placeholder="Buscar" required style="text-align: center; padding: 3px; flex: 1; border-radius: 5px; border: 1px solid #ccc;">
-                        <button type="submit" class="lupa" style="background: none; border: none; cursor: pointer; padding-left: 5px;">
-                            <img src="assets/Images/Lupa.png" alt="Lupita" class="lupa" style="vertical-align: middle; width: 32px; height: 32px;">
-                        </button>
-                    </form>
-                </div>
-            </li>
-            <li>
-                <hr class="linea-nav">
-            </li>
-            <li>
-                <div class="div-sesion">
-                    <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;">Cerrar sesión</a>
-                    <a id="imagen-redireccion" href="index.php?controller=usuario&action=listPreguntas">
-                        <img src="assets/Images/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
-                    </a>
-                    <h3> <?php echo $_COOKIE["nombre_usuario"]?></h3>
-                </div>
-            </li>
-        </ul>
-    </nav>
+        <nav>
+            <hr class="hr-nav">
+            <ul>
+                <li>
+                    <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()">Inicio</a>
+                </li>
+                <li>
+                    <a href="">Guia de reparacion</a>
+                </li>
+                <li>
+                    <div class="div-buscar">
+                        <form action="index.php?controller=pregunta&action=listCategoria" method="post" onsubmit="crearCookieCategoria();">
+                            <input type="text" id="categoriaInput" name="categoria" class="buscar" placeholder="Buscar" required>
+                            <button type="submit" class="lupa">
+                                <img src="assets/Images/Lupa.png" alt="Lupita">
+                            </button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <hr class="linea-nav">
+                </li>
+                <li>
+                    <div class="div-sesion">
+                        <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;">Cerrar sesión</a>
+                        <a id="imagen-redireccion" href="index.php?controller=usuario&action=listPreguntas">
+                            <img src="assets/Images/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
+                        </a>
+                        <a href="index.php?controller=usuario&action=listPreguntas"> <?php echo $_COOKIE["nombre_usuario"]?> </a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </div>
     <script>
         function eliminarCookie(nombre) {
@@ -63,6 +65,12 @@
             eliminarCookie('rol_usuario');
             location.replace("index.php");
         });
+        function crearCookieCategoria() {
+            const categoriaInput = document.getElementById('categoriaInput').value;
+            document.cookie = "categoria=" + encodeURIComponent(categoriaInput) + "; path=/";
+        }
+        function deleteCookieCategoria() {
+            document.cookie = "categoria=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
     </script>
 </header>
-

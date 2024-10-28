@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     border: 0;
-
 }
 body{
     background-color: #393939;
@@ -49,29 +48,14 @@ ul{
 li{
     list-style: none;
 }
-
 ul a{
     text-decoration: none;
     color: white;
-}
-
-.div-buscar{
-    display: flex;
-    width: 40%;
-    height: 20px;
-}
-.buscar{
-border-radius: 25px;
-}
-.lupa{
-    width: 100%;
-    height: auto;
 }
 .linea-nav {
     width: 1px;
     height: 30px;
     background-color: white;
-
 }
 .div-sesion {
     display: flex;
@@ -82,23 +66,48 @@ border-radius: 25px;
     height: 30px;
     padding: 0 10px;
 }
-
 .persona {
     width: 20px;
     height: auto;
     margin-right: 5px;
 }
-
 .cerrar-sesion {
     color: white;
     font-size: 14px;
+}
+.div-buscar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.buscar {
+    text-align: center;
+    padding: 5px;
+    flex: 1;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+    min-width: 150px;
+}
+.lupa {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+.lupa img {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
 }
 /* aqui empiezo a modifiar el footer */
 footer{
     background-color: #364156;
     display: grid;
     grid-template-columns: 1fr 1fr 2fr 1fr;
-    grid-template-areas: 
+    grid-template-areas:
     "logo form form rrss";
     gap: 2em;
     padding: 1em;
@@ -106,7 +115,6 @@ footer{
     color: white;
     letter-spacing: .1em;
 }
-
 .logo-copyright{
     grid-area: logo;
     border-right: 1px solid white;
@@ -114,21 +122,16 @@ footer{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    
 }
-
 .logo-copyright p{
     font-size: .5em;
 }
-
-
 .contacto{
     grid-area: form;
     margin: 1em;
     border-right: 1px solid white;
     padding-right: 4em;
 }
-
 .formulario-contacto{
     display: flex;
     flex-direction: column;
@@ -137,7 +140,6 @@ footer{
     margin-top: .3em;
     border-radius: 10%;
 }
-
 .rrss{
     display: flex;
     align-items: center;
@@ -145,42 +147,34 @@ footer{
     grid-area: rrss;
     padding-right: 2em;
 }
-
 .formulario-contacto input{
     height: 2em;
 }
-
 .formulario-contacto textarea{
     resize: none;
 }
-
 .formulario-contacto textarea, .correo-contacto{
     background-color: #cdcdcd;
     border: none;
     border-radius: .3em;
     width: 100%;
 }
-
 .btn-contacto{
     width: 50%;
     background-color: #cdcdcd;
     border: none;
     border-radius: .3em;
 }
-
 .formulario-contacto textarea::placeholder, .formulario-contacto input::placeholder{
     padding-left: .2em;
 }
-
 img{
     max-width: 100%;
     max-height: 100%;
 }
-
 .instagram, .twitter, .facebook{
     height: 3em;
 }
-
 /*Modificando la parte de respuesta*/
 article{
     display: flex;
@@ -189,13 +183,13 @@ article{
 }
 .general form{
     width: 80%;
-    height: 50vh;
+    height: 55vh;
 }
 .general{
     margin: 20px;
     border-radius: 20px;
     width: 50%;
-    height: 55vh;
+    height: 60vh;
     background-color: #364156;
     display: flex;
     justify-content: center;
@@ -213,7 +207,6 @@ article{
     background-color: #364156;
     text-align: center;
     color: #CDCDCD;
-
 }
 .id-hidden{
     visibility: hidden;
@@ -226,8 +219,7 @@ article{
     font-size: 1.9em;
     background-color: #adadad;
     border: 1px solid white;
- }
-
+}
 .segundo{
     width: 100%;
     height: 100%;
@@ -236,7 +228,6 @@ article{
     align-items: center;
     flex-direction: column;
 }
-
 .respuesta{
     width: 70%;
     height: 100%;
@@ -253,7 +244,7 @@ article{
     justify-content: center;
     align-items: center;
     gap: 20px;
- }
+}
 .botones input[type="submit"], input[type="reset"]{
     width: 100%;
     height: 40%;;
@@ -268,8 +259,6 @@ article{
     color: #393939;
 }
 /*Fin de responder pregunta*/
-
-
 .pagina-usuario{
     max-width: 100%;
     height: 100vh;
@@ -285,17 +274,13 @@ article{
     padding: 3em;
     text-align: center;
 }
-
 .foto-perfil{
     border-radius: 100%;
 }
-
-
 .div-foto-perfil{
     max-width: 100%;
     max-height: 100%;
 }
-
 .div-principal-respuestas{
     background-color: #364156;
     grid-area: respuestas;
@@ -312,13 +297,11 @@ article{
     padding: 1.7em;
     gap: 1em;
 }
-
 .datos-usuario{
     background-color: #364156;
     grid-area: datos;
     border-radius: 15px;
 }
-
 .acciones-usuario{
     background-color: #364156;
     grid-area: acciones;
@@ -328,11 +311,9 @@ article{
     justify-content: space-between;
     padding: 2em;
 }
-
 .botones-respuestas{
     grid-area: botones;
 }
-
 .div-respuesta{
     background-color: #cdcdcd;
     max-width: 100%;
@@ -342,26 +323,21 @@ article{
     flex-direction: column;
     justify-content: space-between;
 }
-
 .img-like{
     width: 2em;
 }
-
 .img-dislike{
     width: 2em;
 }
-
 .likes{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-
 .div-principal-respuestas h3{
     grid-area: titulo;
     color: #cdcdcd;
 }
-
 .btn-anterior, .btn-siguiente{
     text-decoration: none;
     color: #CDCDCD;
@@ -382,21 +358,18 @@ a{
 .ver-mas{
     color: #393939;
 }
-
 .link-acciones-usuario{
     background-color: #cdcdcd;
     color: #393939;
     padding: 0.5em 2em 0.5em 2em;
     border-radius: 15px;
 }
-
 .form-datos-usuario{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 2em;
 }
-
 .form-datos-usuario input{
     margin: 0.6em 0;
     border-style: none;
@@ -404,28 +377,22 @@ a{
     height: 2.5em;
     text-align: center;
 }
-
 .form-datos-usuario input:disabled{
     background-color: #adadad;
 }
-
 .foto-perfil{
     width: 12em;
 }
-
 .papelera_usuario{
     width: 2em;
 }
-
 .respuesta-usuario{
     background-color: #cdcdcd;
     overflow-wrap: anywhere;
 }
-
 .btn-eliminar-pregunta-usuario{
     background-color: #cdcdcd;
 }
-
 .btn-ver-mas{
     text-decoration: none;
     color: #364156;

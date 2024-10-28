@@ -10,7 +10,6 @@
             $this->connection = $dbObj->conection_db;
         }
         public function getRespuestasByUsuarioId($param){
-            
             $sql = "SELECT contenido, megusta, nomegusta, id, id_pregunta FROM " .$this->table. " WHERE id_usuario = ?";
             $statement=$this->connection->prepare($sql);
             $statement->execute([$param]);
@@ -33,10 +32,10 @@
         }
 
         public function getPreguntaById($id){
-            $sql= "SELECT p.titulo, p.descripcion, r.contenido FROM respuestas r INNER JOIN preguntas p ON r.id_pregunta = p.id WHERE p.id = ?";
+            $sql= "SELECT p.titulo, p.descripcion FROM preguntas p WHERE p.id = ?";
             $stmt = $this->connection->prepare($sql);
             $stmt->execute([$id]);
-            return $stmt->fetch();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
         }
         public function getIdbyNombre($nombre){
             $sql = "SELECT id FROM usuarios WHERE nombre = ?";
