@@ -1,6 +1,6 @@
 <div class="questionBlock">
     <div class="topSection">
-        <input type="text" name="titulo" class="titulo" disabled value="<?php echo $dataToView["data"]['pregunta']['titulo'] ?? ''; ?>">
+        <input type="text" name="titulo" class="titulo" disabled value="<?php echo $dataToView["data"]['pregunta']['titulo'] ?? ''; ?>" style="font-weight: bold">
     </div>
     <div class="bottomSection">
         <div class="bottomLeft">

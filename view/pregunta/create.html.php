@@ -2,7 +2,7 @@
     <div class="createPreguntaBlock">
         <h3>NUEVA PREGUNTA</h3>
         <div class="preguntaTopSection">
-            <input type="text" name="titulo" class="titulo" placeholder="Título">
+            <input type="text" name="titulo" class="titulo" placeholder="Título" style="font-weight: bold">
         </div>
         <div class="preguntaBottomSection">
             <div class="preguntaBottomLeft">

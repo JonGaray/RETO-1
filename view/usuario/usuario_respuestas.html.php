@@ -28,10 +28,6 @@
                 </div>
             </div>
             <?php endforeach; else: ?> <p>hola</p>;<?php endif; ?>
-            <div class="botones-respuestas">
-                <a class="btn-anterior" href="#">Anterior</a>
-                <a class="btn-siguiente" href="#">Siguiente</a>
-            </div>
         </div>
         <div class="datos-usuario">
             <form class="form-datos-usuario" action="index.php?controller=usuario&action=updateUsuarioRespuestas" method="post">

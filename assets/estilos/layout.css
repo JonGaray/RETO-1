@@ -271,7 +271,6 @@ img{
 a{
     text-decoration: none;
 }
-
 .ver-mas{
     color: #393939;
 }
@@ -320,12 +319,10 @@ a{
     border-radius: 15px;
     transition: background-color 0.5s ease;
 }
-
 .btn-ver-mas:hover{
     background-color: #364156;
     color: #CDCDCD;
 }
-
 .btn-enviar-foto{
     text-decoration: none;
     color: #cdcdcd;
@@ -335,7 +332,6 @@ a{
     border-radius: 15px;
     transition: background-color 0.5s ease;
 }
-
 .btn-enviar-foto:hover{
     background-color: #cdcdcd;
     color: #364156;

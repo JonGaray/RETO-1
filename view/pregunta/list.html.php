@@ -4,7 +4,7 @@
         <?php foreach ($data as $pregunta): ?>
             <div class="preguntaBlock">
                 <div class="preguntaTopSection">
-                    <input type="text" name="titulo" class="titulo" disabled value="<?php echo $pregunta['titulo']; ?>">
+                    <input type="text" name="titulo" class="titulo" disabled value="<?php echo $pregunta['titulo']; ?>" style="font-weight: bold">
                 </div>
                 <div class="preguntaBottomSection">
                     <div class="preguntaBottomLeft">
