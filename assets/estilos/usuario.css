@@ -85,7 +85,6 @@
 /*Usuarios*/
 .pagina-usuario{
     max-width: 100%;
-    height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1.5fr 1.5fr;
     grid-template-rows: 1fr 1fr 1fr ;
@@ -125,6 +124,8 @@
     background-color: #364156;
     grid-area: datos;
     border-radius: 15px;
+    display: flex;
+    justify-content: center;
 }
 .acciones-usuario{
     background-color: #364156;
@@ -193,6 +194,7 @@ a{
     flex-direction: column;
     justify-content: space-between;
     padding: 2em;
+    width: 100%;
 }
 .form-datos-usuario input{
     margin: 0.6em 0;
