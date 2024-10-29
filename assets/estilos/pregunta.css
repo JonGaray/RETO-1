@@ -260,6 +260,9 @@
     width: 60%;
     margin: 1.25em auto;
 }
+.respuestas{
+    min-height: 20.8vh;
+}
 .questionBlock .topSection, .answerBlock .topSection {
     display: flex;
     justify-content: center;
