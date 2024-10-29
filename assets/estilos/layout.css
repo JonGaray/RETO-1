@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     border: 0;
+    color: black;
 }
 /* Body */
 body {
@@ -22,11 +23,11 @@ body {
     height: 10%;
     background-color: #364156;
 }
-.eslogan {
+.eslogan, .div-header h1 {
+    color: #CDCDCD;
 }
 .hr-nav {
     margin: 0 auto;
-    margin-bottom: 0.9375em;
     width: 50%;
 }
 .div-nav {
@@ -111,6 +112,9 @@ footer {
     height: 40vh;
     color: white;
     letter-spacing: 0.1em;
+}
+footer h1, footer h2, footer p{
+    color: #CDCDCD;
 }
 .logo-copyright {
     grid-area: logo;
@@ -202,6 +206,9 @@ img {
     .lupa {
         width: 2.5em;
         height: 2.5em;
+    }
+    .linea-nav{
+        display: none;
     }
     footer {
         grid-template-columns: 1fr;

@@ -12,7 +12,6 @@
     display: block;
     text-align: center;
     background-color: #364156;
-    padding-top: 3em;
     width: 30%;
     height: 80%;
     box-shadow: 0.3em 0.3em 0.6em #DFF8EB56;
@@ -147,7 +146,7 @@
     background-color: #CDCDCD;
     color: #393939;
 }
-a {
+.acciones-usuario a {
     text-decoration: none;
 }
 .ver-mas {

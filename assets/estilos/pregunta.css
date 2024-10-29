@@ -93,7 +93,6 @@
     color: #CDCDCD;
     background-color: #364156;
     display: flex;
-    width: fit-content;
     margin: 0.9375em auto 0 auto;
     text-align: center;
     width: 60%;
@@ -112,7 +111,6 @@
     color: red;
     background-color: #364156;
     display: block;
-    width: fit-content;
     margin: 0.9375em auto 0 auto;
     text-align: center;
     width: 60%;
@@ -130,11 +128,9 @@
     color: red;
     background-color: #393939;
     display: block;
-    width: fit-content;
-    margin: 0.9375em auto 0 auto;
+    margin: 0.9375em auto 1.25em auto;
     text-align: center;
     width: 60%;
-    margin-bottom: 1.25em;
 }
 .descripcion {
     width: 90%;
