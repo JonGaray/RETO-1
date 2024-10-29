@@ -134,7 +134,7 @@ class Pregunta{
             foreach ($dataToView as $respuesta) {
                 $respuestas[] = [
                     'id' => $respuesta['respuesta_id'],
-                    'contenido' => htmlspecialchars($respuesta['respuesta_contenido']),
+                    'contenido' => ($respuesta['respuesta_contenido']),
                     'megusta' => $respuesta['respuesta_megusta'],
                     'nomegusta' => $respuesta['respuesta_nomegusta'],
                     'usuario_id_respuesta' => $respuesta['usuario_id_respuesta'],
