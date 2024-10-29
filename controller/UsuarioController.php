@@ -172,7 +172,7 @@ class UsuarioController{
     public function guardarFotoPerfilRespuestas() {
         if(isset($_FILES['foto'])) {
             // Ruta donde se guardarán las fotos
-            $target_dir = "assets/Images/";
+            $target_dir = "assets/Images/fotos-perfil/";
             $target_file = $target_dir . basename($_FILES["foto"]["name"]);
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -196,7 +196,7 @@ class UsuarioController{
     public function guardarFotoPerfilPreguntas() {
         if(isset($_FILES['foto'])) {
             // Ruta donde se guardarán las fotos
-            $target_dir = "assets/Images/";
+            $target_dir = "assets/Images/fotos-perfil/";
             $target_file = $target_dir . basename($_FILES["foto"]["name"]);
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
