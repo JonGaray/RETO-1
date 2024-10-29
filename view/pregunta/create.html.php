@@ -9,7 +9,7 @@
                 <input type="text" name="descripcion" class="descripcion" placeholder="Descripción">
             </div>
             <div class="preguntasBottomRight">
-                <input type="text" name="nombre" class="nombre" placeholder="Usuario" value="<?php echo isset($_COOKIE['nombre_usuario']) ? htmlspecialchars($_COOKIE['nombre_usuario']) : ''; ?>">
+                <input type="text" name="nombre" class="nombre" placeholder="Usuario" value="- <?php echo isset($_COOKIE['nombre_usuario']) ? htmlspecialchars($_COOKIE['nombre_usuario']) : ''; ?> -">
                 <!-- Si el rol = usuario, no dejar crear categorias -->
                 <?php if (isset($_COOKIE['rol_usuario']) && $_COOKIE['rol_usuario'] === 'usuario'): ?>
                     <input type="text" name="categoria" class="categoria" placeholder="Categoria" readonly>

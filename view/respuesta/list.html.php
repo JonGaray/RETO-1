@@ -5,7 +5,7 @@
                 <input type="text" class="id-hidden" name="id_preg" value="<?php echo $_GET["id"]?>">
 
                 <div class="respuesta">
-                    <p  class="parrafo-resp"> <?php echo $dataToView["data"]["titulo"]; ?></p>
+                    <p  class="parrafo-resp">¿ <?php echo $dataToView["data"]["titulo"]; ?> ?</p>
                     <textarea name="respuesta" id="respuesta" cols="10" rows="10" class="area"></textarea>
                     <div class="archivoRespuesta">
                         <label for="archivo">Subir archivo:</label>
@@ -19,7 +19,7 @@
 
                 <div class="botones">
                     <input class="btn btn-primary" type="submit" value="Enviar">
-                    <input class="btn btn-danger" type="reset" value="Cancelar">
+                    <input class="btn btn-danger" type="button" value="Cancelar" onclick="window.location.href='index.php?controller=pregunta&action=list'">
                 </div>
             </div>
         </form>

@@ -13,7 +13,7 @@
             <?php if(!empty($dataToView["data"]["preguntas"])): foreach($dataToView["data"]["preguntas"] as $preguntas):?>
             <div class="div-respuesta">
                 <div class="titulo_pregunta">
-                    <h2><?php echo $preguntas["titulo"]?></h2>
+                    <h2>¿ <?php echo $preguntas["titulo"]?> ?</h2>
                 </div>
                 <div class="respuesta-usuario">
                    <?php echo $preguntas["descripcion"] ?>
