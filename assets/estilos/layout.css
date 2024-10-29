@@ -149,7 +149,6 @@ footer h1, footer h2, footer p{
 }
 .formulario-contacto textarea, .correo-contacto {
     background-color: #CDCDCD;
-    border: none;
     border-radius: 0.3em;
     width: 100%;
 }

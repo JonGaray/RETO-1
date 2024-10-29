@@ -31,7 +31,7 @@
             <?php endforeach; else: ?> <p>hola</p>;<?php endif; ?>
         </div>
         <div class="datos-usuario">
-            <form class="form-datos-usuario" action="index.php?controller=usuario&action=updateUsuarioPreguntas" method="post">
+            <form id="formDatosUsuario" class="form-datos-usuario" action="index.php?controller=usuario&action=updateUsuarioPreguntas" method="post">
                 <input name="id" id="id" type="hidden" value="<?php echo $dataToView["data"]["usuario"]["id"] ?>">
                 <input name="nombre" id="nombre" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["nombre"] ?>" placeholder="nombre" disabled>
                 <input name="correo" id="correo" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["correo"]  ?>" placeholder="correo" disabled>
@@ -56,3 +56,4 @@
             <?php } ?>
         </div>
 </div>
+<script src="assets/JS/validaciones.js"></script>

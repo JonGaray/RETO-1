@@ -16,7 +16,28 @@ formBuscar.addEventListener("submit",function(realizarBusqueda){
 });
 /*Validaciones Formulario*/
 document.addEventListener("DOMContentLoaded", function (){
-    const
+    const formContacto = document.getElementById("formContacto");
+    formContacto.addEventListener("submit", function (contactar){
+        const correoInput = document.querySelector(".correo-contacto");
+        const descripcionInput = document.querySelector(".descripcion-contacto");
+        let error = false;
+        if (correoInput.value.trim() === ""){
+            correoInput.classList.add("invalid");
+            correoInput.setAttribute("placehorder", "El correo es obligatorio");
+            error = true;
+        }else{
+            correoInput.classList.remove("invalid");
+        }
+        if (descripcionInput.value.trim() === ""){
+            descripcionInput.classList.add("invalid");
+            descripcionInput.setAttribute("placeholder", "La descripcion es necesaria");
+            error = true;
+        }else{
+            descripcionInput.classList.remove("invalid");
+        }if (error){
+            contactar.preventDefault();
+        }
+    });
 });
 /*Validaciones Crear Pregunta*/
 document.addEventListener("DOMContentLoaded", function() {
@@ -49,6 +70,40 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         if (error) {
             crearPregunta.preventDefault();
+        }
+    });
+});
+/*Validaciones Editar Perfil Usuario*/
+document.addEventListener("DOMContentLoaded", function (){
+    const formDatosUsuarioPreguntas = document.getElementById("formDatosUsuario")
+    formDatosUsuarioPreguntas.addEventListener("submit", function (editarDatos){
+        const nombreInput = document.getElementById("nombre");
+        const correoInput = document.getElementById("correo");
+        const contrasennaInput = document.getElementById("contrasenna");
+        let error = false;
+        if (nombreInput.value.trim() === ""){
+            nombreInput.classList.add("invalid");
+            nombreInput.setAttribute("placeholder", "Nombre obligatorio");
+            error = true;
+        }else{
+            nombreInput.classList.remove("invalid");
+        }
+        if (correoInput.value.trim() === ""){
+            correoInput.classList.add("invalid");
+            correoInput.setAttribute("placeholder", "Correo obligatorio");
+            error = true;
+        }else{
+            correoInput.classList.remove("invalid");
+        }
+        if (contrasennaInput.value.trim() === ""){
+            contrasennaInput.classList.add("invalid");
+            contrasennaInput.setAttribute("placeholder", "Contraseña obligatorio");
+            error = true;
+        }else{
+            contrasennaInput.classList.remove("invalid");
+        }
+        if (error){
+        editarDatos.preventDefault();
         }
     });
 });
