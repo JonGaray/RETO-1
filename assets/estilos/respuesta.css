@@ -5,13 +5,13 @@ article {
 }
 .general form {
     width: 80%;
-    height: 55vh;
+    min-height: 55vh;
 }
 .general {
     margin: 1.25em;
     border-radius: 1.25em;
     width: 50%;
-    height: 60vh;
+    min-height: 40vh;
     background-color: #364156;
     display: flex;
     justify-content: center;
@@ -66,6 +66,7 @@ article {
     justify-content: center;
     align-items: center;
     gap: 1.25em;
+    margin: 1em 0 1em 0;
 }
 .botones input[type="submit"], input[type="reset"] {
     width: 100%;

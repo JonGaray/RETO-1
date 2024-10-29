@@ -1,4 +1,4 @@
-<form class="form-createPregunta" action="index.php?controller=pregunta&action=save" method="post">
+<form class="form-createPregunta" action="index.php?controller=pregunta&action=save" method="post" id="form-createPregunta">
     <div class="createPreguntaBlock">
         <h3>NUEVA PREGUNTA</h3>
         <div class="preguntaTopSection">
@@ -45,3 +45,4 @@
         }
     });
 </script>
+<script src="assets/JS/validaciones.js"></script>

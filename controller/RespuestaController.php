@@ -31,7 +31,6 @@ class RespuestaController{
         if (isset($_FILES["archivo"]) && $_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
             $contenidoArchivo = file_get_contents($_FILES["archivo"]["tmp_name"]);
             $_POST["respuesta"] = $contenidoArchivo;
-
             $id = $this->model->insertarRespuesta($_POST, null);
             $result = $this->model->getRespuestaById($id);
             $_POST["response"] = true;
@@ -41,7 +40,6 @@ class RespuestaController{
             $target_dir = "assets/Images/respuestas/";
             $target_file = $target_dir . basename($_FILES["foto"]["name"]);
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
             // Validar que sea una imagen
             $check = getimagesize($_FILES["foto"]["tmp_name"]);
             if($check !== false) {
@@ -59,7 +57,6 @@ class RespuestaController{
                 echo "El archivo no es una imagen.";
             }
         }
-        
     }
     public function delete(){
         $this->view = "";
