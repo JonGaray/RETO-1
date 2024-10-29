@@ -4,14 +4,14 @@
         <?php foreach ($data as $pregunta): ?>
             <div class="preguntaBlock">
                 <div class="preguntaTopSection">
-                    <input type="text" name="titulo" class="titulo" disabled value="<?php echo $pregunta['titulo']; ?>" style="font-weight: bold">
+                    <input type="text" name="titulo" class="titulo" disabled value="¿ <?php echo $pregunta['titulo']; ?> ?" style="font-weight: bold">
                 </div>
                 <div class="preguntaBottomSection">
                     <div class="preguntaBottomLeft">
                         <textarea name="descripcion" disabled class="descripcion"><?php echo $pregunta['descripcion']; ?></textarea>
                     </div>
                     <div class="preguntasBottomRight">
-                        <input type="text" name="usuario" disabled class="usuario" value="<?php echo $pregunta['nombre']; ?>">
+                        <input type="text" name="usuario" disabled class="usuario" value="- <?php echo $pregunta['nombre']; ?> -">
                         <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta['categoria']; ?>">
                         <div class="enlaces">
                             <a href="index.php?controller=respuesta&action=responder&id=<?php echo $pregunta['id']; ?>&user=<?php echo $pregunta['nombre']; ?>">Responder</a>

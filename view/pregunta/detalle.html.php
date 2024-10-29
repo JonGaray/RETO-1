@@ -1,13 +1,13 @@
 <div class="questionBlock">
     <div class="topSection">
-        <input type="text" name="titulo" class="titulo" disabled value="<?php echo $dataToView["data"]['pregunta']['titulo'] ?? ''; ?>" style="font-weight: bold">
+        <input type="text" name="titulo" class="titulo" disabled value="¿ <?php echo $dataToView["data"]['pregunta']['titulo'] ?? ''; ?> ?" style="font-weight: bold">
     </div>
     <div class="bottomSection">
         <div class="bottomLeft">
             <textarea name="descripcion" disabled class="descripcion"><?php echo $dataToView["data"]['pregunta']['descripcion'] ?? ''; ?></textarea>
         </div>
         <div class="bottomRight">
-            <input type="text" name="usuario" disabled class="usuario" value="<?php echo $dataToView["data"]['pregunta']['nombre'] ?? ''; ?>">
+            <input type="text" name="usuario" disabled class="usuario" value="- <?php echo $dataToView["data"]['pregunta']['nombre'] ?? ''; ?> -">
             <input type="text" name="categoria" disabled class="categoria" value="<?php echo $dataToView["data"]['pregunta']['categoria'] ?? ''; ?>">
         </div>
     </div>
