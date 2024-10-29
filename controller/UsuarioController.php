@@ -2,9 +2,6 @@
 require_once "model/Usuario.php";
 require_once "model/Respuesta.php";
 require_once "model/Pregunta.php";
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-require 'vendor/autoload.php'; // Asegúrate de que Composer ha instalado PHPMailer correctamente.
 
 
 
@@ -38,7 +35,7 @@ class UsuarioController{
         $this->page_title = "Editar usuario";
         $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
         $respuestas = $this->modelRespuestas->getRespuestasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
-        
+
         return ["usuario"=>$usuario,"respuestas"=>$respuestas];
     }
     public function updateUsuarioPreguntas(){
@@ -109,65 +106,13 @@ class UsuarioController{
         $this->view = "create";
     }
     public function save(){
-    $this->page_title = "";
-    $this->view = "create";
-    $id = $this->model->save($_POST);
-    $result = $this->model->getUserById($id);
-    $_GET["response"] = true;
-    return $result;
+        $this->page_title = "";
+        $this->view = "create";
+        $id = $this->model->save($_POST);
+        $result = $this->model->getUserById($id);
+        $_GET["response"] = true;
+        return $result;
     }
-
-    public function enviarMail() {
-        // Verifica que se haya accedido correctamente
-        if (isset($_GET['controller']) && $_GET['controller'] === 'Usuario' &&
-            isset($_GET['action']) && $_GET['action'] === 'enviarMail') {
-
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-                // Captura y sanitiza los datos del formulario
-                $correo = filter_input(INPUT_POST, 'correo-contacto', FILTER_SANITIZE_EMAIL);
-                $descripcion = htmlspecialchars($_POST['descripcion-contacto']);
-
-                // Crea una instancia de PHPMailer
-                $mail = new PHPMailer(true);
-                try {
-                    // Habilita la depuración de SMTP
-                    $mail->SMTPDebug = 2; // Cambiar a 0 en producción para desactivar los mensajes de depuración
-                    $mail->isSMTP();
-                    $mail->Host = 'smtp.gmail.com';
-                    $mail->SMTPAuth = true;
-                    $mail->Username = 'aergibide@gmail.com'; // Cambia a tu dirección de Gmail
-                    $mail->Password = 'uhrb vnth qtuj lfea'; // Cambia a la contraseña de aplicación generada en Gmail
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Usar 'ssl' si 'ENCRYPTION_SMTPS' falla
-                    $mail->Port = 587;
-
-                    // Configuración del remitente y destinatario
-                    $mail->setFrom('aergibide@gmail.com', 'Formulario de Contacto'); // Usa tu dirección Gmail aquí
-                    $mail->addAddress('aergibide@gmail.com'); // Cambia a la dirección de destino deseada
-                    $mail->addReplyTo($correo);
-
-                    // Contenido del correo
-                    $mail->isHTML(true);
-                    $mail->Subject = 'Nuevo mensaje de contacto';
-                    $mail->Body = "Correo del remitente: $correo<br><br>Mensaje:<br>$descripcion";
-
-                    // Enviar el correo
-                    $mail->send();
-                    echo "Correo enviado con éxito.";
-                } catch (Exception $e) {
-                    echo "Error al enviar el correo: {$mail->ErrorInfo}";
-                }
-            } else {
-                echo "Método de solicitud no válido.";
-            }
-        } else {
-            echo "Acceso no permitido.";
-        }
-
-        // Redirigir al usuario después de enviar el correo
-        header("Location: index.php?controller=pregunta&action=list");
-        exit();
-}
 
     public function guardarFotoPerfilRespuestas() {
         if(isset($_FILES['foto'])) {

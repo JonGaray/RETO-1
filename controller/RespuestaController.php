@@ -52,4 +52,24 @@ class RespuestaController{
             return false;
         }
     }
+    public function vistaPDF()
+    {
+        $this->view = "vistaPDF";
+        return $this->model->getPDF();
+
+    }
+    public function descargarPDF()
+    {
+
+         $this->model->descargarPDF($_GET["id"]);
+
+
+    }
+    public function subirPDF()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo'])) {
+            $this->model->insertarPDF($_POST['nombre'], $_FILES['archivo']);
+        }
+        $this->view = "subirPDF";
+    }
 }
