@@ -1,6 +1,6 @@
 <article>
     <div class="general">
-        <form method="post" action="index.php?controller=respuesta&action=save&id=<?php echo $_GET["id"]?>" enctype="multipart/form-data">
+        <form class="formResponderPregunta" method="post" action="index.php?controller=respuesta&action=save&id=<?php echo $_GET["id"]?>" enctype="multipart/form-data">
             <div class="segundo">
                 <input type="text" class="id-hidden" name="id_preg" value="<?php echo $_GET["id"]?>">
 
@@ -9,11 +9,11 @@
                     <textarea name="respuesta" id="respuesta" cols="10" rows="10" class="area"></textarea>
                     <div class="archivoRespuesta">
                         <label for="archivo">Subir archivo:</label>
-                        <input type="file" name="archivo" id="archivo">
+                        <input type="file" name="archivo" id="archivo" class="archivo">
                     </div>
                     <div class="archivoRespuesta">
                         <label for="foto">Subir foto:</label>
-                        <input type="file" name="foto" id="foto">
+                        <input type="file" name="foto" id="foto" class="foto">
                     </div>
                 </div>
 
@@ -25,4 +25,5 @@
         </form>
     </div>
 </article>
+<script src="assets/JS/validaciones.js"></script>
 

@@ -43,7 +43,6 @@
     padding: 0.625em;
     background-color: #CDCDCD;
     border-radius: 0.9375em;
-    border: none;
     resize: none;
     text-align: center;
 }
@@ -67,6 +66,7 @@
     display: flex;
     justify-content: center;
     color: #393939;
+    text-decoration: none;
 }
 .crearPregunta a:visited {
     color: #393939;
@@ -76,7 +76,6 @@
     padding: 0.625em;
     background-color: #CDCDCD;
     border-radius: 0.9375em;
-    border: none;
     margin-bottom: 0.625em;
     text-align: center;
 }
@@ -147,7 +146,6 @@
     padding: 0.625em;
     height: 9.375em;
     line-height: 1.5;
-    border: 0.0625em solid #CDCDCD;
     box-sizing: border-box;
 }
 .cambiarPagina {
@@ -355,13 +353,11 @@
     line-height: 1.5;
     border: 0.0625em solid #CDCDCD;
 }
-
 .answerBlock .bottomSection .bottomLeft{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .img-respuesta{
     max-height: 70%;
     max-width: 60%;

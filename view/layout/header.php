@@ -33,8 +33,8 @@
                 </li>
                 <li>
                     <div class="div-buscar">
-                        <form action="index.php?controller=pregunta&action=listCategoria" method="post" onsubmit="crearCookieCategoria();">
-                            <input type="text" id="categoriaInput" name="categoria" class="buscar" placeholder="Buscar" required>
+                        <form id="formBuscar" action="index.php?controller=pregunta&action=listCategoria" method="post" onsubmit="crearCookieCategoria();">
+                            <input type="text" id="categoriaInput" name="categoria" class="buscar" placeholder="Buscar">
                             <button type="submit" class="lupa">
                                 <img src="assets/Images/Lupa.png" alt="Lupita">
                             </button>
@@ -73,4 +73,5 @@
             document.cookie = "categoria=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         }
     </script>
+    <script src="assets/JS/validaciones.js"></script>
 </header>

@@ -102,7 +102,7 @@
                 <input type="text" name="nombre" class="loginNombre" placeholder="Nombre">
                 <input type="password" name="contrasenna" class="loginContrasenna" placeholder="Contrase&ntilde;a">
             </div>
-            <input type="submit" value="Entrar" name="submit" class="loginEntrar" >
+            <input type="submit" value="Entrar" name="submit" class="loginEntrar">
         </form>
     </div>
 </div>

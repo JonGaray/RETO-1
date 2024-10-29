@@ -26,40 +26,43 @@ class RespuestaController{
         $this->view = "list";
         return $this->model->getPreguntaById($_GET["id"]);
     }
-    public function save(){
+    public function save() {
         $this->view = "";
-        if (isset($_FILES["archivo"]) && $_FILES["archivo"]["error"] === UPLOAD_ERR_OK){
+        // Si se ha subido un archivo (tipo texto)
+        if (isset($_FILES["archivo"]) && $_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
             $contenidoArchivo = file_get_contents($_FILES["archivo"]["tmp_name"]);
             $_POST["respuesta"] = $contenidoArchivo;
-
             $id = $this->model->insertarRespuesta($_POST, null);
             $result = $this->model->getRespuestaById($id);
             $_POST["response"] = true;
             return $result;
-        } elseif(isset($_FILES['foto'])) {
+        } elseif (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
             // Ruta donde se guardarán las fotos
             $target_dir = "assets/Images/respuestas/";
             $target_file = $target_dir . basename($_FILES["foto"]["name"]);
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-            // Validar que sea una imagen
+            // Validar que el archivo sea una imagen
             $check = getimagesize($_FILES["foto"]["tmp_name"]);
-            if($check !== false) {
-                if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
-                    // Actualizar la base de datos con la nueva ruta de la imagen
-                    $id =$this->model->insertarRespuesta($_POST, $target_file);
+            if ($check !== false) {
+                if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
+                    // Insertar respuesta en la base de datos con la ruta de la imagen
+                    $id = $this->model->insertarRespuesta($_POST, $target_file);
                     $result = $this->model->getRespuestaById($id);
                     $_POST["response"] = true;
                     return $result;
-                    header("Location:index.php?controller=usuario&action=listPreguntas");
                 } else {
                     echo "Error subiendo la imagen.";
                 }
             } else {
                 echo "El archivo no es una imagen.";
             }
+        } else {
+            $id = $this->model->insertarRespuesta($_POST, null);
+            $result = $this->model->getRespuestaById($id);
+            $_POST["response"] = true;
+            header("Location:index.php?controller=respuesta&action=responder&id=".($_POST["id_preg"]));
+            return $result;
         }
-        
     }
     public function delete(){
         $this->view = "";
