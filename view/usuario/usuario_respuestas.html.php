@@ -31,7 +31,8 @@
                     </form>
                 </div>
             </div>
-            <?php endforeach; else: ?> <p>hola</p>;<?php endif; ?>
+            <?php endforeach; else: ?>
+            <?php endif; ?>
         </div>
         <div class="datos-usuario">
             <form id="formDatosUsuario" class="form-datos-usuario" action="index.php?controller=usuario&action=updateUsuarioRespuestas" method="post">
