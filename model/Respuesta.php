@@ -14,12 +14,17 @@
             $dbObj = new Db();
             $this->connection = $dbObj->conection_db;
         }
+ 
 
         public function getRespuestasByUsuarioId($param)
         {
             $sql = "SELECT contenido, megusta, nomegusta, id, id_pregunta FROM " . $this->table . " WHERE id_usuario = ?";
             $statement = $this->connection->prepare($sql);
-            $statement->execute([$param]);
+ 
+        public function getRespuestasByUsuarioId($param){
+            $sql = "SELECT contenido, megusta, nomegusta, id, id_pregunta, foto FROM " .$this->table. " WHERE id_usuario = ?";
+            $statement=$this->connection->prepare($sql);
+             $statement->execute([$param]);
             return $statement->fetchAll();
         }
 
@@ -65,6 +70,7 @@
             $stmt->execute([$id]);
             return $stmt->fetch();
         }
+   
 
         public function insertarRespuesta($param)
         {
@@ -79,6 +85,35 @@
                 return $id;
             } else {
                 throw new Exception("Usuario no encontrado o no se pudo insertar la pregunta");
+}
+          }
+ 
+        public function insertarRespuesta($param, $file){
+            $idDeluser = $this->getIdbyNombre($_COOKIE["nombre_usuario"]);
+            echo ($_COOKIE["nombre_usuario"]);
+            if(isset($param["respuesta"])&& $param["respuesta"]!== ""){
+                $sql = "insert into " . $this->table . " (contenido, megusta, nomegusta, id_usuario, id_pregunta, fecha) values (?, ?, ?, ?, ?, ?)";
+                $stmt = $this->connection->prepare($sql);
+                $stmt->execute([$param["respuesta"],0,0,$idDeluser["id"],$param["id_preg"], null]);
+                if ($stmt->rowCount() > 0) {
+                    $id = $this->connection->lastInsertId();
+                    header("Location: index.php?controller=pregunta&action=list");
+                    return $id;
+                } else {
+                    throw new Exception("Usuario no encontrado o no se pudo insertar la pregunta");
+                }
+            } elseif(isset($file)){
+                $sql = "insert into " . $this->table . " (foto, megusta, nomegusta, id_usuario, id_pregunta, fecha) values (?, ?, ?, ?, ?, ?)";
+                $stmt = $this->connection->prepare($sql);
+                $stmt->execute([$file,0,0,$idDeluser["id"],$param["id_preg"], null]);
+                if ($stmt->rowCount() > 0) {
+                    $id = $this->connection->lastInsertId();
+                    header("Location: index.php?controller=pregunta&action=list");
+                    return $id;
+                } else {
+                    throw new Exception("Usuario no encontrado o no se pudo insertar la pregunta");
+                }
+
             }
         }
 
@@ -89,6 +124,7 @@
             $stmt = $this->connection->prepare($sql);
             return $stmt->execute([$id]);
         }
+
 
         public function insertarPDF($nombre, $archivo)
         {
@@ -157,4 +193,6 @@
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         }
+    }
+        
     }

@@ -1,19 +1,21 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     border: 0;
+    color: black;
 }
-body{
+/* Body */
+body {
     background-color: #393939;
     height: 100vh;
     width: 100%;
 }
-/*Aqui estoy modificando el header con el titulo de la empresa y su eslogan*/
-.div-header{
+/* CSS header.php */
+.div-header {
     color: white;
-    padding-bottom: 10px;
-    gap: 20px;
+    padding-bottom: 0.625em;
+    gap: 1.25em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,40 +23,37 @@ body{
     height: 10%;
     background-color: #364156;
 }
-.eslogan{
+.eslogan, .div-header h1 {
+    color: #CDCDCD;
 }
-/*Aqui dejo de modificar el header*/
-/*hr*/
-.hr-nav{
+.hr-nav {
     margin: 0 auto;
-    margin-bottom: 15px;
     width: 50%;
 }
-/*Aqui estoy modificando el nav*/
-.div-nav{
+.div-nav {
     color: white;
     margin: 0 auto;
     width: 100%;
     background-color: #364156;
-    padding-top: 15px;
-    padding-bottom: 25px;
+    padding-top: 0.9375em;
+    padding-bottom: 1.5625em;
 }
-ul{
+ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px
+    gap: 1.25em;
 }
-li{
+li {
     list-style: none;
 }
-ul a{
+ul a {
     text-decoration: none;
     color: white;
 }
 .linea-nav {
-    width: 1px;
-    height: 30px;
+    width: 0.0625em;
+    height: 1.875em;
     background-color: white;
 }
 .div-sesion {
@@ -63,17 +62,17 @@ ul a{
     flex-direction: row;
     align-items: center;
     width: auto;
-    height: 30px;
-    padding: 0 10px;
+    height: 1.875em;
+    padding: 0 0.625em;
 }
 .persona {
-    width: 20px;
+    width: 1.25em;
     height: auto;
-    margin-right: 5px;
+    margin-right: 0.3125em;
 }
 .cerrar-sesion {
     color: white;
-    font-size: 14px;
+    font-size: 0.875em;
 }
 .div-buscar {
     display: flex;
@@ -83,256 +82,164 @@ ul a{
 }
 .buscar {
     text-align: center;
-    padding: 5px;
+    padding: 0.3125em;
     flex: 1;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-right: 5px;
-    min-width: 150px;
+    border-radius: 0.3125em;
+    border: 0.0625em solid #CDCDCD;
+    margin-right: 0.3125em;
+    min-width: 9.375em;
 }
 .lupa {
     background: none;
     border: none;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 1.875em;
+    height: 1.875em;
 }
 .lupa img {
     vertical-align: middle;
-    width: 30px;
-    height: 30px;
+    width: 1.875em;
+    height: 1.875em;
 }
-/* aqui empiezo a modifiar el footer */
-footer{
+/* CSS footer.php */
+footer {
     background-color: #364156;
     display: grid;
     grid-template-columns: 1fr 1fr 2fr 1fr;
-    grid-template-areas:
-    "logo form form rrss";
+    grid-template-areas: "logo form form rrss";
     gap: 2em;
     padding: 1em;
     height: 40vh;
     color: white;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
 }
-.logo-copyright{
+footer h1, footer h2, footer p{
+    color: #CDCDCD;
+}
+.logo-copyright {
     grid-area: logo;
-    border-right: 1px solid white;
+    border-right: 0.0625em solid white;
     margin: 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
-.logo-copyright p{
-    font-size: .5em;
+.logo-copyright p {
+    font-size: 0.5em;
 }
-.contacto{
+.contacto {
     grid-area: form;
     margin: 1em;
-    border-right: 1px solid white;
+    border-right: 0.0625em solid white;
     padding-right: 4em;
 }
-.formulario-contacto{
+.formulario-contacto {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .7em;
-    margin-top: .3em;
+    gap: 0.7em;
+    margin-top: 0.3em;
     border-radius: 10%;
 }
-.rrss{
+.formulario-contacto input {
+    height: 2em;
+}
+.formulario-contacto textarea {
+    resize: none;
+}
+.formulario-contacto textarea, .correo-contacto {
+    background-color: #CDCDCD;
+    border-radius: 0.3em;
+    width: 100%;
+}
+.btn-contacto {
+    width: 50%;
+    background-color: #CDCDCD;
+    border: none;
+    border-radius: 0.3em;
+}
+.formulario-contacto textarea::placeholder, .formulario-contacto input::placeholder {
+    padding-left: 0.2em;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.instagram, .twitter, .facebook {
+    height: 3em;
+}
+.rrss {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     grid-area: rrss;
     padding-right: 2em;
 }
-.formulario-contacto input{
-    height: 2em;
+.invalid{
+    border: 2px solid red;
 }
-.formulario-contacto textarea{
-    resize: none;
+.invalid::placeholder{
+    color: red;
 }
-.formulario-contacto textarea, .correo-contacto{
-    background-color: #cdcdcd;
-    border: none;
-    border-radius: .3em;
-    width: 100%;
-}
-.btn-contacto{
-    width: 50%;
-    background-color: #cdcdcd;
-    border: none;
-    border-radius: .3em;
-}
-.formulario-contacto textarea::placeholder, .formulario-contacto input::placeholder{
-    padding-left: .2em;
-}
-img{
-    max-width: 100%;
-    max-height: 100%;
-}
-.instagram, .twitter, .facebook{
-    height: 3em;
-}
-/*Usuario*/
-.pagina-usuario{
-    max-width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.5fr 1.5fr;
-    grid-template-rows: 1fr 1fr 1fr ;
-    gap: 1em;
-    grid-template-areas: 
-    ". respuestas respuestas datos"
-    "acciones respuestas respuestas ."
-    "acciones respuestas respuestas .";
-    background-color: #393939;
-    padding: 3em;
-    text-align: center;
-}
-.foto-perfil{
-    border-radius: 100%;
-}
-.div-foto-perfil{
-    max-width: 100%;
-    max-height: 100%;
-}
-.div-principal-respuestas{
-    background-color: #364156;
-    grid-area: respuestas;
-    border-radius: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.1fr repeat(3, 1fr) 0.3fr;
-    grid-template-areas: 
-    "titulo titulo"
-    ". ."
-    ". ."
-    ". ."
-    "botones botones";
-    padding: 1.7em;
-    gap: 1em;
-}
-.datos-usuario{
-    background-color: #364156;
-    grid-area: datos;
-    border-radius: 15px;
-}
-.acciones-usuario{
-    background-color: #364156;
-    grid-area: acciones;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 2em;
-}
-.botones-respuestas{
-    grid-area: botones;
-}
-.div-respuesta{
-    background-color: #cdcdcd;
-    max-width: 100%;
-    border-radius: 15px;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.img-like{
-    width: 2em;
-}
-.img-dislike{
-    width: 2em;
-}
-.likes{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.div-principal-respuestas h3{
-    grid-area: titulo;
-    color: #cdcdcd;
-}
-.btn-anterior, .btn-siguiente{
-    text-decoration: none;
-    color: #CDCDCD;
-    background-color: #364156;
-    padding: 0.4em 1em 0.4em 1em;
-    border: 2px solid #CDCDCD;
-    border-radius: 15px;
-    transition: background-color 0.5s ease;
-}
-.btn-anterior:hover, .btn-siguiente:hover{
-    background-color: #CDCDCD;
-    color: #393939;
-}
-a{
-    text-decoration: none;
-}
-.ver-mas{
-    color: #393939;
-}
-.link-acciones-usuario{
-    background-color: #cdcdcd;
-    color: #393939;
-    padding: 0.5em 2em 0.5em 2em;
-    border-radius: 15px;
-}
-.form-datos-usuario{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 2em;
-}
-.form-datos-usuario input{
-    margin: 0.6em 0;
-    border-style: none;
-    border-radius: 15px;
-    height: 2.5em;
-    text-align: center;
-}
-.form-datos-usuario input:disabled{
-    background-color: #adadad;
-}
-.foto-perfil{
-    width: 12em;
-}
-.papelera_usuario{
-    width: 2em;
-    cursor: pointer;
-}
-.respuesta-usuario{
-    background-color: #cdcdcd;
-    overflow-wrap: anywhere;
-}
-.btn-eliminar-pregunta-usuario{
-    background-color: #cdcdcd;
-}
-.btn-ver-mas{
-    text-decoration: none;
-    color: #364156;
-    background-color: #cdcdcd;
-    padding: 0.4em 1em 0.4em 1em;
-    border: 2px solid #364156;
-    border-radius: 15px;
-    transition: background-color 0.5s ease;
-}
-.btn-ver-mas:hover{
-    background-color: #364156;
-    color: #CDCDCD;
-}
-.btn-enviar-foto{
-    text-decoration: none;
-    color: #cdcdcd;
-    background-color: #363636;
-    padding: 0.4em 1em 0.4em 1em;
-    border: 2px solid #cdcdcd;
-    border-radius: 15px;
-    transition: background-color 0.5s ease;
-}
-.btn-enviar-foto:hover{
-    background-color: #cdcdcd;
-    color: #364156;
+@media (max-width: 768px) {
+    body {
+        height: auto;
+    }
+    .div-header {
+        flex-direction: column;
+        height: auto;
+        padding: 1em 0;
+    }
+    .hr-nav {
+        width: 80%;
+    }
+    .div-nav {
+        padding: 0.5em 0;
+    }
+    ul {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    .div-sesion {
+        flex-direction: column;
+        height: auto;
+    }
+    .buscar {
+        min-width: 70%;
+        margin-right: 0;
+    }
+    .lupa {
+        width: 2.5em;
+        height: 2.5em;
+    }
+    .linea-nav{
+        display: none;
+    }
+    footer {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "logo"
+            "form"
+            "rrss";
+        padding: 1em;
+        height: auto;
+    }
+    .logo-copyright {
+        border-right: none;
+        margin: 0.5em 0;
+    }
+    .contacto {
+        border-right: none;
+        padding-right: 0;
+    }
+    .formulario-contacto {
+        width: 90%;
+    }
+    .btn-contacto {
+        width: 80%;
+    }
+    .rrss {
+        flex-direction: column;
+        padding-right: 0;
+    }
 }

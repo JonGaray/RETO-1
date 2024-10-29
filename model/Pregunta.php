@@ -104,6 +104,7 @@ class Pregunta{
         r.megusta AS respuesta_megusta,
         r.nomegusta AS respuesta_nomegusta,
         r.id_usuario AS respuesta_id_usuario,
+        r.foto AS respuesta_foto,
         u_preguntador.id AS usuario_id_preguntador,
         u_preguntador.nombre AS usuario_nombre_preguntador,
         u_preguntador.correo AS usuario_correo_preguntador,
@@ -133,10 +134,11 @@ class Pregunta{
             foreach ($dataToView as $respuesta) {
                 $respuestas[] = [
                     'id' => $respuesta['respuesta_id'],
-                    'contenido' => htmlspecialchars($respuesta['respuesta_contenido']),
+                    'contenido' => ($respuesta['respuesta_contenido']),
                     'megusta' => $respuesta['respuesta_megusta'],
                     'nomegusta' => $respuesta['respuesta_nomegusta'],
                     'usuario_id_respuesta' => $respuesta['usuario_id_respuesta'],
+                    'foto' => $respuesta['respuesta_foto'],
                     'usuario_nombre_respuesta' => htmlspecialchars($respuesta['usuario_nombre_respuesta']),
                     'usuario_correo_respuesta' => htmlspecialchars($respuesta['usuario_correo_respuesta']),
                 ];

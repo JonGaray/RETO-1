@@ -13,7 +13,11 @@
             <?php if(!empty($dataToView["data"]["respuestas"])): foreach($dataToView["data"]["respuestas"] as $respuesta):?>
             <div class="div-respuesta">
                 <div class="respuesta-usuario">
+                <?php if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){ ?>
                    <p><?php echo $respuesta["contenido"] ?></p>
+                   <?php }elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
+                            <img class="img-respuesta-usuario" src="<?php echo $respuesta["foto"] ?>" alt="">
+                        <?php } ?>
                 </div>
                 <div class="likes">
                     <img class="img-like" src="assets/Images/like.png" alt=""><?php echo $respuesta["megusta"] ?>
@@ -27,10 +31,11 @@
                     </form>
                 </div>
             </div>
-            <?php endforeach; else: ?> <p>hola</p>;<?php endif; ?>
+            <?php endforeach; else: ?>
+            <?php endif; ?>
         </div>
         <div class="datos-usuario">
-            <form class="form-datos-usuario" action="index.php?controller=usuario&action=updateUsuarioRespuestas" method="post">
+            <form id="formDatosUsuario" class="form-datos-usuario" action="index.php?controller=usuario&action=updateUsuarioRespuestas" method="post">
                 <input name="id" id="id" type="hidden" value="<?php echo $dataToView["data"]["usuario"]["id"] ?>">
                 <input name="nombre" id="nombre" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["nombre"] ?>" placeholder="nombre" disabled>
                 <input name="correo" id="correo" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["correo"]  ?>" placeholder="correo" disabled>
@@ -53,3 +58,4 @@
             <a class="link-acciones-usuario" href="#">Crear usuario</a>
         </div>
 </div>
+<script src="assets/JS/validaciones.js"></script>
