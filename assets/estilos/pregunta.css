@@ -435,4 +435,10 @@
     .formInteraccion button {
         margin: 0.5em 0;
     }
+    .form-createPregunta{
+        display: block;
+    }
+    .annadirPregunta{
+        margin: 0 auto;
+    }
 }
