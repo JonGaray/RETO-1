@@ -14,6 +14,10 @@ formBuscar.addEventListener("submit",function(realizarBusqueda){
         realizarBusqueda.preventDefault();
     }
 });
+/*Validaciones Formulario*/
+document.addEventListener("DOMContentLoaded", function (){
+    const
+});
 /*Validaciones Crear Pregunta*/
 document.addEventListener("DOMContentLoaded", function() {
     const formCrearPregunta = document.getElementById("form-createPregunta");
@@ -45,26 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         if (error) {
             crearPregunta.preventDefault();
-        }
-    });
-});
-/*Validaciones Responder Pregunta*/
-document.addEventListener("DOMContentLoaded",function (){
-    const formResponderPregunta = document.getElementById("formResponderPregunta");
-    formResponderPregunta.addEventListener("submit", function (responderPregunta){
-        const respuestaInput = document.querySelector(".area");
-        const documentoInput = document.querySelector(".archivo");
-        const  fotoInput = documentoInput.querySelector(".foto");
-        let error = false;
-        if (respuestaInput.value.trim() === "" || documentoInput.value.trim() === "" || fotoInput.value.trim() === ""){
-            respuestaInput.classList.add("invalid");
-            respuestaInput.setAttribute("placeholder", "Debes introducir texto, un archivo o una foto");
-            error = true;
-        }else{
-            respuestaInput.classList.remove("invalid");
-        }
-        if (error){
-            responderPregunta.preventDefault();
         }
     });
 });
