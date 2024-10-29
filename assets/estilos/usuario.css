@@ -229,31 +229,44 @@
     max-width: 50%;
     max-height: 60%;
 }
+/* Para pantallas pequeñas (menores a 768px) */
 @media (max-width: 768px) {
-    .Registro {
-        width: 80%;
-        padding: 1em;
-    }
-    .superiorRegistro {
-        height: auto;
-        padding: 1em;
-    }
-    .campos {
-        padding-top: 2em;
-    }
-    .registroNombre, .registroContrasenna, .registroCorreo, .registroEntrar {
-        font-size: 1em;
-        padding: 0.8em 1.5em;
-    }
     .pagina-usuario {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         padding: 1em;
     }
-    .div-principal-respuestas {
-        padding: 1em;
+    .div-foto-perfil {
+        order: 1;
+        display: block;
+        justify-content: center;
+        margin-bottom: 1em;
     }
     .acciones-usuario {
+        order: 2;
         padding: 1em;
+        margin-bottom: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .acciones-usuario a{
+        margin: 1em 0;
+    }
+    .datos-usuario {
+        order: 3;
+        margin-bottom: 1em;
+        padding: 1em;
+        display: flex;
+        justify-content: center;
+    }
+    .div-principal-respuestas {
+        order: 4;
+        padding: 1em;
+        background-color: #364156;
+        border-radius: 1em;
+        display: flex;
+        flex-direction: column;
     }
     .btn-anterior, .btn-siguiente, .link-acciones-usuario, .btn-ver-mas, .btn-enviar-foto {
         padding: 0.4em 0.8em;
