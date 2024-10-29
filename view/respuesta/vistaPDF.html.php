@@ -35,7 +35,7 @@
     <?php foreach ($dataToView["data"] as $pdf): ?>
     <div class="table-header">
         <span class="column">Nombre: <?php echo    $pdf["nombre_documento"]?></span>
-        <span class="column"> <a href="index.php?controller=respuesta&action=descargarPDF&id=<?php echo $pdf["id_documento"]?>"><img src="../../assets/Images/download.png" ></span></a>
+        <span class="column"> <a href="index.php?controller=respuesta&action=descargarPDF&id=<?php echo $pdf["id_documento"]?>"><img src="assets/Images/download.png" ></span></a>
         <span class="column"><?php echo $pdf["nombre_usuario"]?></span>
     </div>
         <?php endforeach; ?>
