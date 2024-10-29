@@ -29,7 +29,7 @@
                     <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()">Inicio</a>
                 </li>
                 <li>
-                    <a href="">Guia de reparacion</a>
+                    <a href="index.php?controller=respuesta&action=vistaPDF">Guia de reparacion</a>
                 </li>
                 <li>
                     <div class="div-buscar">
