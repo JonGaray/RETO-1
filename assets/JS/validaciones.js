@@ -107,3 +107,37 @@ document.addEventListener("DOMContentLoaded", function (){
         }
     });
 });
+/*Validaciones Crear Usuario*/
+document.addEventListener("DOMContentLoaded", function (){
+    const formCrearUsuario = document.getElementById("form_registro")
+    formCrearUsuario.addEventListener("submit", function (crearUsuario){
+        const nombreInput = document.querySelector(".registroNombre");
+        const correoInput = document.querySelector(".registroCorreo");
+        const contrasennaInput = document.querySelector(".registroContrasenna");
+        let error = false;
+        if (nombreInput.value.trim() === ""){
+            nombreInput.classList.add("invalid");
+            nombreInput.setAttribute("placeholder", "Nombre obligatorio");
+            error = true;
+        }else{
+            nombreInput.classList.remove("invalid");
+        }
+        if (correoInput.value.trim() === ""){
+            correoInput.classList.add("invalid");
+            correoInput.setAttribute("placeholder", "Correo obligatorio");
+            error = true;
+        }else{
+            correoInput.classList.remove("invalid");
+        }
+        if (contrasennaInput.value.trim() === ""){
+            contrasennaInput.classList.add("invalid");
+            contrasennaInput.setAttribute("placeholder", "Contraseña obligatorio");
+            error = true;
+        }else{
+            contrasennaInput.classList.remove("invalid");
+        }
+        if (error){
+            crearUsuario.preventDefault();
+        }
+    });
+});
