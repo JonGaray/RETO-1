@@ -87,10 +87,7 @@ class RespuestaController{
     }
     public function descargarPDF()
     {
-
          $this->model->descargarPDF($_GET["id"]);
-
-
     }
     public function subirPDF()
     {
@@ -98,8 +95,8 @@ class RespuestaController{
             $this->model->insertarPDF($_POST['nombre'], $_FILES['archivo']);
         }
         $this->view = "subirPDF";
- 
 
+    }
     public function guardarFotoRespuesta() {
         if(isset($_FILES['foto'])) {
             // Ruta donde se guardarán las fotos
