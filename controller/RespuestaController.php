@@ -99,7 +99,7 @@ class RespuestaController{
         }
         $this->view = "subirPDF";
  
-
+    }
     public function guardarFotoRespuesta() {
         if(isset($_FILES['foto'])) {
             // Ruta donde se guardarán las fotos
