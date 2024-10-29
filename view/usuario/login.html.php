@@ -91,19 +91,13 @@
             padding: 0.75em;
             font-size: 1.2em;
         }
-        .invalid{
-            border: 2px solid red;
-        }
-        .invalid::placeholder{
-            color: red;
-        }
     }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="superiorInicioSesion">
     <div class="inicioSesion">
         <h1>INICIAR SESI&Oacute;N</h1>
-        <form id="loginForm" method="post" action="index.php?controller=usuario&action=login">
+        <form method="post" action="index.php?controller=usuario&action=login">
             <div class="campos">
                 <input type="text" name="nombre" class="loginNombre" placeholder="Nombre">
                 <input type="password" name="contrasenna" class="loginContrasenna" placeholder="Contrase&ntilde;a">

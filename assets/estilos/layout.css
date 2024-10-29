@@ -176,6 +176,12 @@ img {
     grid-area: rrss;
     padding-right: 2em;
 }
+.invalid{
+    border: 2px solid red;
+}
+.invalid::placeholder{
+    color: red;
+}
 @media (max-width: 768px) {
     body {
         height: auto;
