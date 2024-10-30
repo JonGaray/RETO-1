@@ -58,4 +58,3 @@
             <a class="link-acciones-usuario" href="#">Crear usuario</a>
         </div>
 </div>
-<script src="assets/JS/validaciones.js"></script>

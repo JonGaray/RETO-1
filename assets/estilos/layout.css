@@ -180,6 +180,7 @@ img {
 }
 .invalid::placeholder{
     color: red;
+    text-align: center;
 }
 @media (max-width: 768px) {
     body {

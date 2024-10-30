@@ -25,5 +25,3 @@
         </form>
     </div>
 </article>
-<script src="assets/JS/validaciones.js"></script>
-

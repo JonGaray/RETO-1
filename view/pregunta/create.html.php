@@ -45,4 +45,3 @@
         }
     });
 </script>
-<script src="assets/JS/validaciones.js"></script>

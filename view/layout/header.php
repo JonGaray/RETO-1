@@ -16,11 +16,9 @@
 </head>
 <body>
 <header>
-
     <div class="div-header">
         <h1>Aergibide</h1> <h3 class="eslogan">Expertos en mantenerte en el cielo</h3>
     </div>
-
     <div class="div-nav">
         <nav>
             <hr class="hr-nav">
@@ -73,5 +71,4 @@
             document.cookie = "categoria=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         }
     </script>
-    <script src="assets/JS/validaciones.js"></script>
 </header>

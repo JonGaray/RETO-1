@@ -57,4 +57,3 @@
             <?php } ?>
         </div>
 </div>
-<script src="assets/JS/validaciones.js"></script>
