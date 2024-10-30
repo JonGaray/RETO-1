@@ -60,7 +60,6 @@ class RespuestaController{
             $id = $this->model->insertarRespuesta($_POST, null);
             $result = $this->model->getRespuestaById($id);
             $_POST["response"] = true;
-            header("Location:index.php?controller=respuesta&action=responder&id=".($_POST["id_preg"]));
             return $result;
         }
     }
