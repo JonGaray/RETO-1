@@ -11,19 +11,19 @@ body {
     height: 100vh;
     width: 100%;
 }
-/* CSS header.php */
-.div-header {
+/* Header */
+.div-header, .div-nav {
     color: white;
-    padding-bottom: 0.625em;
-    gap: 1.25em;
+    background-color: #364156;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 10%;
-    background-color: #364156;
 }
-.eslogan, .div-header h1 {
+.div-header {
+    padding-bottom: 0.625em;
+    height: 10%;
+}
+.eslogan, .div-header h1, footer h1, footer h2, footer p {
     color: #CDCDCD;
 }
 .hr-nav {
@@ -31,12 +31,9 @@ body {
     width: 50%;
 }
 .div-nav {
-    color: white;
     margin: 0 auto;
+    padding: 0.9375em 0 1.5625em;
     width: 100%;
-    background-color: #364156;
-    padding-top: 0.9375em;
-    padding-bottom: 1.5625em;
 }
 ul {
     display: flex;
@@ -59,15 +56,11 @@ ul a {
 .div-sesion {
     display: flex;
     justify-content: center;
-    flex-direction: row;
     align-items: center;
-    width: auto;
-    height: 1.875em;
     padding: 0 0.625em;
 }
 .persona {
     width: 1.25em;
-    height: auto;
     margin-right: 0.3125em;
 }
 .cerrar-sesion {
@@ -78,7 +71,6 @@ ul a {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 100%;
 }
 .buscar {
     text-align: center;
@@ -98,10 +90,10 @@ ul a {
 }
 .lupa img {
     vertical-align: middle;
-    width: 1.875em;
-    height: 1.875em;
+    width: 100%;
+    height: auto;
 }
-/* CSS footer.php */
+/* Footer */
 footer {
     background-color: #364156;
     display: grid;
@@ -112,9 +104,6 @@ footer {
     height: 40vh;
     color: white;
     letter-spacing: 0.1em;
-}
-footer h1, footer h2, footer p{
-    color: #CDCDCD;
 }
 .logo-copyright {
     grid-area: logo;
@@ -141,16 +130,16 @@ footer h1, footer h2, footer p{
     margin-top: 0.3em;
     border-radius: 10%;
 }
+.formulario-contacto input, .formulario-contacto textarea, .correo-contacto {
+    background-color: #CDCDCD;
+    border-radius: 0.3em;
+    width: 100%;
+}
 .formulario-contacto input {
     height: 2em;
 }
 .formulario-contacto textarea {
     resize: none;
-}
-.formulario-contacto textarea, .correo-contacto {
-    background-color: #CDCDCD;
-    border-radius: 0.3em;
-    width: 100%;
 }
 .btn-contacto {
     width: 50%;
@@ -175,13 +164,14 @@ img {
     grid-area: rrss;
     padding-right: 2em;
 }
-.invalid{
+.invalid {
     border: 2px solid red;
 }
-.invalid::placeholder{
+.invalid::placeholder {
     color: red;
     text-align: center;
 }
+/* Media */
 @media (max-width: 768px) {
     body {
         height: auto;
@@ -213,7 +203,7 @@ img {
         width: 2.5em;
         height: 2.5em;
     }
-    .linea-nav{
+    .linea-nav {
         display: none;
     }
     footer {
