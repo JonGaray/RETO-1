@@ -118,7 +118,10 @@ class RespuestaController{
                 echo "El archivo no es una imagen.";
             }
         }
-
- 
+    }
+    public function deletePDF()
+    {
+        $this->view = "vistaPDF";
+        $this->model->eliminarPDF($_GET["id"]);
     }
 }
