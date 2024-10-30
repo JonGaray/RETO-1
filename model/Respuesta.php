@@ -128,4 +128,11 @@
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
+        public function eliminarPDF($id)
+        {
+            $sql = "delete from reparacion where id_documento = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$id]);
+            header("Location: index.php?controller=respuesta&action=vistaPDF");
+        }
 }
