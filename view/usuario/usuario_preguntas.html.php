@@ -51,12 +51,6 @@
 </div>
 <script>
     function habilitarInputs() {
-        var inputs = document.getElementsByClassName("deshabilitado");
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].disabled = false;
-        }
-
-        // Mostrar el div de datos-usuario
         var datosUsuarioDiv = document.querySelector('.datos-usuario');
         if (datosUsuarioDiv) {
             datosUsuarioDiv.classList.add('visible');
