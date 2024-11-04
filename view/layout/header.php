@@ -32,7 +32,7 @@
                 <li>
                     <div class="div-buscar">
                         <form id="formBuscar" action="index.php?controller=pregunta&action=listCategoria" method="post" onsubmit="crearCookieCategoria();">
-                            <input type="text" id="categoriaInput" name="categoria" class="buscar" placeholder="Buscar">
+                            <input type="text" id="categoriaInput" name="categoria" class="buscar" placeholder="Buscar categoria">
                             <button type="submit" class="lupa">
                                 <img src="assets/Images/Lupa.png" alt="Lupita">
                             </button>

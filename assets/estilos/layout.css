@@ -25,6 +25,7 @@ body {
 }
 .eslogan, .div-header h1, footer h1, footer h2, footer p {
     color: #CDCDCD;
+    margin-left: 40px;
 }
 .hr-nav {
     margin: 0 auto;
@@ -154,8 +155,9 @@ img {
     max-width: 100%;
     max-height: 100%;
 }
-.instagram, .twitter, .facebook {
-    height: 3em;
+.logotipo-footer {
+
+
 }
 .rrss {
     display: flex;
