@@ -23,7 +23,7 @@
                     <form method="post" action="index.php?controller=usuario&action=deletePregunta">
                         <input type="hidden" id="id" name="id" value="<?php echo $preguntas["id"] ?>">
                         <button class="btn-eliminar-pregunta-usuario" type="submit">
-                            <img class="papelera_usuario" src="assets/Images/papelera.png" alt="">
+                            <img class="papelera_usuario" src="assets/Images/Iconos/papelera.png" alt="">
                         </button>
                     </form>
                 </div>
@@ -41,11 +41,11 @@
             </form>
         </div>
         <div class="acciones-usuario">
-            <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil<img src="assets/Images/edit.png"></a>
-            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listRespuestas">Mostrar respuestas <img src="assets/Images/respuesta.png"> </a>
-            <a class="link-acciones-usuario" href="#">Mostrar preguntas <img src="assets/Images/pregunta.png"> </a>
+            <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil<img src="assets/Images/Iconos/edit.png"></a>
+            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listRespuestas">Mostrar respuestas <img src="assets/Images/Iconos/respuesta.png"> </a>
+            <a class="link-acciones-usuario" href="#">Mostrar preguntas <img src="assets/Images/Iconos/pregunta.png"> </a>
             <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
-                <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario <img src="assets/Images/adduser.png"> </a>
+                <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario <img src="assets/Images/Iconos/adduser.png"> </a>
             <?php } ?>
         </div>
 </div>
