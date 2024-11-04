@@ -61,7 +61,7 @@
                     if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){ ?>
                         <textarea name="contenido" disabled class="contenido"><?php echo $respuesta['contenido'] ; ?></textarea>
                         <?php }elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
-                            <img class="img-respuesta" src="<?php echo $dataToView["data"]['imagen'] ?>" alt="">
+                            <img class="img-respuesta" src="<?php echo $respuesta["foto"] ?>" alt="">
                         <?php } ?>
                     </div>
                     <div class="bottomRight">
