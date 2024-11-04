@@ -87,8 +87,6 @@
 .preguntasBottomRight .enlaces a {
     text-decoration: none;
     padding: 0.5em 0.9375em;
-    border: 0.125em solid #CDCDCD;
-    border-radius: 0.625em;
     color: #CDCDCD;
     background-color: #364156;
     display: flex;
