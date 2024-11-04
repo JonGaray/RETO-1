@@ -108,6 +108,15 @@
     border-radius: 1em;
     display: flex;
     justify-content: center;
+    visibility: hidden; /* Oculto inicialmente */
+    opacity: 0; /* Completamente transparente */
+    transition: visibility 0s, opacity 0.5s ease; /* Transición suave para mostrarlo */
+}
+
+/* Clase que lo hará visible cuando sea necesario */
+.datos-usuario.visible {
+    visibility: visible; /* Visible */
+    opacity: 1; /* Completamente opaco */
 }
 .acciones-usuario {
     background-color: #364156;

@@ -37,20 +37,12 @@
         <div class="datos-usuario">
             <form id="formDatosUsuario" class="form-datos-usuario" action="index.php?controller=usuario&action=updateUsuarioRespuestas" method="post">
                 <input name="id" id="id" type="hidden" value="<?php echo $dataToView["data"]["usuario"]["id"] ?>">
-                <input name="nombre" id="nombre" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["nombre"] ?>" placeholder="nombre" disabled>
-                <input name="correo" id="correo" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["correo"]  ?>" placeholder="correo" disabled>
-                <input name="contrasenna" id="contrasenna" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["contrasenna"]  ?>" placeholder="contraseña" disabled>
-                <input class="deshabilitado" type="submit" value="Guardar" disabled>
+                <input name="nombre" id="nombre" type="text" value="<?php echo $dataToView["data"]["usuario"]["nombre"] ?>" placeholder="nombre">
+                <input name="correo" id="correo" type="text" value="<?php echo $dataToView["data"]["usuario"]["correo"]  ?>" placeholder="correo">
+                <input name="contrasenna" id="contrasenna" type="text" value="<?php echo $dataToView["data"]["usuario"]["contrasenna"]  ?>" placeholder="contraseña">
+                <input type="submit" value="Guardar">
             </form>
         </div>
-        <script>
-            function habilitarInputs() {
-            var inputs = document.getElementsByClassName("deshabilitado");
-            for (var i = 0; i < inputs.length; i++) {
-                inputs[i].disabled = false;
-            }
-        }
-        </script>
         <div class="acciones-usuario">
             <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil</a>
             <a class="link-acciones-usuario" href="#">Mostrar respuestas</a>
@@ -60,3 +52,17 @@
             <?php } ?>
         </div>
 </div>
+<script>
+    function habilitarInputs() {
+        var inputs = document.getElementsByClassName("deshabilitado");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = false;
+        }
+
+        // Mostrar el div de datos-usuario
+        var datosUsuarioDiv = document.querySelector('.datos-usuario');
+        if (datosUsuarioDiv) {
+            datosUsuarioDiv.classList.add('visible');
+        }
+    }
+</script>
