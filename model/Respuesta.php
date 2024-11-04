@@ -174,4 +174,12 @@
                 return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             }
+
+            public function getImagenByIdPregunta($id){
+                $sql = "SELECT foto FROM ".$this->table." WHERE id_pregunta = ?";
+                    $stmt = $this->connection->prepare($sql);
+                    $stmt->execute([$id]);
+                    $imagen=$stmt->fetch();
+                    return $imagen;
+            }
     }

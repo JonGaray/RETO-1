@@ -37,25 +37,11 @@ class RespuestaController{
             $_POST["response"] = true;
             return $result;
         } elseif (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
-            // Ruta donde se guardarán las fotos
-            $target_dir = "assets/Images/respuestas/";
-            $target_file = $target_dir . basename($_FILES["foto"]["name"]);
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-            // Validar que el archivo sea una imagen
-            $check = getimagesize($_FILES["foto"]["tmp_name"]);
-            if ($check !== false) {
-                if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
-                    // Insertar respuesta en la base de datos con la ruta de la imagen
-                    $id = $this->model->insertarRespuesta($_POST, $target_file);
-                    $result = $this->model->getRespuestaById($id);
-                    $_POST["response"] = true;
-                    return $result;
-                } else {
-                    echo "Error subiendo la imagen.";
-                }
-            } else {
-                echo "El archivo no es una imagen.";
-            }
+            $imageData = file_get_contents($_FILES['foto']['tmp_name']);
+            $id = $this->model->insertarRespuesta($_POST, $imageData);
+            $result = $this->model->getRespuestaById($id);
+            $_POST["response"] = true;
+            return $result;
         } else {
             $id = $this->model->insertarRespuesta($_POST, null);
             $result = $this->model->getRespuestaById($id);

@@ -22,10 +22,11 @@
                 </div>
                 <div class="bottomSection">
                     <div class="bottomLeft">
-                    <?php if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){ ?>
+                    <?php 
+                    if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){ ?>
                         <textarea name="contenido" disabled class="contenido"><?php echo $respuesta['contenido'] ; ?></textarea>
                         <?php }elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
-                            <img class="img-respuesta" src="<?php echo $respuesta["foto"] ?>" alt="">
+                            <img class="img-respuesta" src="<?php echo $dataToView["data"]['imagen'] ?>" alt="">
                         <?php } ?>
                     </div>
                     <div class="bottomRight">
