@@ -34,7 +34,7 @@
                         <form id="formBuscar" action="index.php?controller=pregunta&action=listCategoria" method="post" onsubmit="crearCookieCategoria();">
                             <input type="text" id="categoriaInput" name="categoria" class="buscar" placeholder="Buscar categoria">
                             <button type="submit" class="lupa">
-                                <img src="assets/Images/Lupa.png" alt="Lupita">
+                                <img src="assets/Images/Iconos/Lupa.png" alt="Lupita">
                             </button>
                         </form>
                     </div>
@@ -46,7 +46,7 @@
                     <div class="div-sesion">
                         <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;">Cerrar sesión</a>
                         <a id="imagen-redireccion" href="index.php?controller=usuario&action=listPreguntas">
-                            <img src="assets/Images/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
+                            <img src="assets/Images/Iconos/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
                         </a>
                         <a href="index.php?controller=usuario&action=listPreguntas"> <?php echo $_COOKIE["nombre_usuario"]?> </a>
                     </div>
