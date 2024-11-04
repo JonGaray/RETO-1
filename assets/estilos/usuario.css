@@ -66,13 +66,14 @@
 .pagina-usuario {
     max-width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
     gap: 1em;
     grid-template-areas:
-    ". respuestas respuestas datos"
-    "acciones respuestas respuestas ."
-    "acciones respuestas respuestas .";
+    ". respuestas respuestas"
+    "datos respuestas respuestas"
+    "acciones respuestas respuestas"
+    "acciones respuestas respuestas";
     background-color: #393939;
     padding: 3em;
     text-align: center;
@@ -116,7 +117,6 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 2em;
-    max-height: 50%;
 }
 .botones-respuestas {
     grid-area: botones;
