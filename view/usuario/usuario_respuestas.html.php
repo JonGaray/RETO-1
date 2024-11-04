@@ -44,11 +44,11 @@
             </form>
         </div>
         <div class="acciones-usuario">
-            <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil</a>
-            <a class="link-acciones-usuario" href="#">Mostrar respuestas</a>
-            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listPreguntas">Mostrar preguntas</a>
+            <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil <img src="assets/Images/edit.png"></a>
+            <a class="link-acciones-usuario" href="#">Mostrar respuestas <img src="assets/Images/respuesta.png"></a>
+            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listPreguntas">Mostrar preguntas <img src="assets/Images/pregunta.png"></a>
             <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
-                <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario</a>
+                <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario <img src="assets/Images/adduser.png"> </a>
             <?php } ?>
         </div>
 </div>
