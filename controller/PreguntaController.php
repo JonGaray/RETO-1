@@ -60,7 +60,7 @@ class PreguntaController extends BaseController
         $respuestas = $this->model->getRespuestasByIdPregunta($_GET["id"]);
         $imagen = $this->modelRespuestas->getImagenByIdPregunta($_GET["id"]);
       
-        if ($imagen["foto"] && !empty($imagen["foto"])) {
+        if ( !empty($imagen["foto"])) {
             $finfo = finfo_open(FILEINFO_MIME_TYPE);
             $imageType = finfo_buffer($finfo, $imagen["foto"]); // Detecta el tipo MIME a partir del contenido
             finfo_close($finfo);
@@ -71,7 +71,11 @@ class PreguntaController extends BaseController
 
             
         }
-        return ["pregunta"=>$pregunta,"respuestas"=>$respuestas, "imagen"=>$base64Image];
+        if(!empty($base64Image) && $base64Image !== ""){
+            return ["pregunta"=>$pregunta,"respuestas"=>$respuestas, "imagen"=>$base64Image];
+        }else{
+            return ["pregunta"=>$pregunta,"respuestas"=>$respuestas];
+        }
     }
     public function delete(){
         $this->view = "";
