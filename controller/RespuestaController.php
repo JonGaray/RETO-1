@@ -12,15 +12,34 @@ class RespuestaController{
         $this->page_title = "";
         $this->model = new Respuesta();
     }
-    public function updatemegusta(){
+    public function updatemegusta() {
         $this->view = "";
-        header("Location:index.php?controller=pregunta&action=detalle&id=".($_POST["pregunta_id"]));
-        return $this->model->updatemegusta($_GET["id"]);
+        $preguntaId = $_POST["pregunta_id"];
+        $respuestaId = $_GET["id"];
+
+        // Verificamos si el usuario está marcando o desmarcando el checkbox
+        $accion = isset($_POST['megusta']) ? "add" : "remove";
+
+        // Llamamos al modelo para actualizar
+        $this->model->toggleMegusta($respuestaId, $accion);
+
+        // Redirigimos de vuelta a la pregunta
+        header("Location: index.php?controller=pregunta&action=detalle&id=" . $preguntaId);
     }
-    public function updatenomegusta(){
+
+    public function updatenomegusta() {
         $this->view = "";
-        header("Location:index.php?controller=pregunta&action=detalle&id=".($_POST["pregunta_id"]));
-        return $this->model->updatenomegusta($_GET["id"]);
+        $preguntaId = $_POST["pregunta_id"];
+        $respuestaId = $_GET["id"];
+
+        // Verificamos si el usuario está marcando o desmarcando el checkbox
+        $accion = isset($_POST['nomegusta']) ? "add" : "remove";
+
+        // Llamamos al modelo para actualizar
+        $this->model->toggleNomegusta($respuestaId, $accion);
+
+        // Redirigimos de vuelta a la pregunta
+        header("Location: index.php?controller=pregunta&action=detalle&id=" . $preguntaId);
     }
     public function responder(){
         $this->view = "list";

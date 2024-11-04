@@ -16,19 +16,34 @@
             $statement->execute([$param]);
             return $statement->fetchAll();
         }
-        public function updatemegusta($id){
+        public function toggleMegusta($id, $accion) {
             if (is_null($id)) return false;
-            $sql = "UPDATE " . $this->table . " SET megusta = megusta + 1 WHERE id = ?";
+
+            // Dependiendo de la acción (add o remove) actualizamos
+            if ($accion == "add") {
+                $sql = "UPDATE " . $this->table . " SET megusta = megusta + 1 WHERE id = ?";
+            } else {
+                $sql = "UPDATE " . $this->table . " SET megusta = megusta - 1 WHERE id = ? AND megusta > 0";
+            }
+
             $stmt = $this->connection->prepare($sql);
             $stmt->execute([$id]);
-            return $stmt->fetch();
+            return $stmt->rowCount(); // Devolvemos el número de filas afectadas
         }
-        public function updatenomegusta($id){
+
+        public function toggleNomegusta($id, $accion) {
             if (is_null($id)) return false;
-            $sql = "UPDATE " . $this->table . " SET nomegusta = nomegusta + 1 WHERE id = ?";
+
+            // Dependiendo de la acción (add o remove) actualizamos
+            if ($accion == "add") {
+                $sql = "UPDATE " . $this->table . " SET nomegusta = nomegusta + 1 WHERE id = ?";
+            } else {
+                $sql = "UPDATE " . $this->table . " SET nomegusta = nomegusta - 1 WHERE id = ? AND nomegusta > 0";
+            }
+
             $stmt = $this->connection->prepare($sql);
             $stmt->execute([$id]);
-            return $stmt->fetch();
+            return $stmt->rowCount(); // Devolvemos el número de filas afectadas
         }
         public function getPreguntaById($id){
             $sql = "SELECT p.titulo, p.descripcion FROM preguntas p WHERE p.id = ?";
