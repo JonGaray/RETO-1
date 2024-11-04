@@ -1,3 +1,119 @@
+/*Parte de guis de reparacion*/
+.vistaPDF{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.subirDocu{
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    background-color: #393939;
+    border-radius: 15px;
+    border: 1px solid white;
+}
+.subirDocu:hover{
+    transition: 0.5s;
+    color: black;
+    background-color: white;
+}
+
+.table-header {
+    background-color: #364156;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #E0E0E0;
+    font-size: 16px;
+    font-weight: normal;
+    width: 40%;
+    margin: 20px auto;
+    border-radius: 15px;
+}
+
+.table-header .column {
+    flex: 1;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+.table-header p {
+    color: white;
+}
+.boton-eliminarPDF {
+    text-decoration: none;
+    padding: 0.5em 0.9375em;
+    border: 0.125em solid red;
+    border-radius: 0.625em;
+    color: red;
+    background-color: #364156;
+    display: block;
+    margin: 0.9375em auto 0 auto;
+    text-align: center;
+    width: 100%;
+    transition: background-color 0.5s ease;
+}
+.boton-eliminarPDF:hover {
+    background-color: red;
+    color: white;
+}
+/*Fin de la guia*/
+.container {
+    background-color: #3a4a6b;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    text-align: center;
+    margin: 2em;
+}
+/* Estilos del título */
+.container h2 {
+    background-color: #d3d3d3;
+    padding: 10px;
+    border-radius: 4px;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+/* Estilos de los inputs */
+.container input[type="text"],
+.container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #d3d3d3;
+    color: #555;
+}
+
+/* Estilos de los botones */
+.container .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.container button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #d3d3d3;
+    color: #333;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.container button:hover {
+    background-color: #bcbcbc;
+}
+
 article {
     display: flex;
     justify-content: center;
@@ -40,7 +156,6 @@ article {
     border-radius: 0.3125em 0.625em 0.625em 0.625em;
     font-size: 1.9em;
     background-color: #CDCDCD;
-    border: 0.0625em solid white;
 }
 .segundo {
     width: 100%;

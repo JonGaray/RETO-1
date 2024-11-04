@@ -141,3 +141,22 @@ document.addEventListener("DOMContentLoaded", function (){
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const formResponderPregunta = document.querySelector(".formResponderPregunta");
+    formResponderPregunta.addEventListener("submit", function (event) {
+        const textareaInput = document.querySelector(".area");
+        const archivoInput = document.querySelector("#archivo");
+        const fotoInput = document.querySelector("#foto");
+        let error = false;
+        if (textareaInput.value.trim() === "" && archivoInput.files.length === 0 && fotoInput.files.length === 0) {
+            textareaInput.classList.add("invalid");
+            textareaInput.setAttribute("placeholder", "Es obligatorio añadir contenido, una foto o un archivo");
+            error = true;
+        } else {
+            textareaInput.classList.remove("invalid");
+        }
+        if (error) {
+            event.preventDefault();
+        }
+    });
+});

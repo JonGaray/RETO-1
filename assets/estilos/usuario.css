@@ -66,13 +66,14 @@
 .pagina-usuario {
     max-width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
     gap: 1em;
     grid-template-areas:
-    ". respuestas respuestas datos"
-    "acciones respuestas respuestas ."
-    "acciones respuestas respuestas .";
+    ". respuestas respuestas"
+    "datos respuestas respuestas"
+    "acciones respuestas respuestas"
+    "acciones respuestas respuestas";
     background-color: #393939;
     padding: 3em;
     text-align: center;
@@ -107,6 +108,13 @@
     border-radius: 1em;
     display: flex;
     justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+.datos-usuario.visible {
+    visibility: visible;
+    opacity: 1;
 }
 .acciones-usuario {
     background-color: #364156;
@@ -116,7 +124,6 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 2em;
-    max-height: 50%;
 }
 .botones-respuestas {
     grid-area: botones;
@@ -158,6 +165,14 @@
 }
 .acciones-usuario a {
     text-decoration: none;
+    background-color: #364156;
+    border: 2px solid #CDCDCD;
+    color: #CDCDCD;
+    transition: background-color 0.5s ease;
+}
+.acciones-usuario a:hover{
+    background-color: #CDCDCD;
+    color: #393939;
 }
 .ver-mas {
     color: #393939;
@@ -168,6 +183,11 @@
     padding: 0.5em 2em;
     border-radius: 1em;
 }
+.link-acciones-usuario img{
+    height: 1.5em;
+    width: 1.5em;
+    float: right;
+}
 .form-datos-usuario {
     display: flex;
     flex-direction: column;
@@ -175,14 +195,16 @@
     padding: 2em;
     width: 100%;
 }
-.form-datos-usuario input {
+.form-datos-usuario input{
     margin: 0.6em 0;
     border-radius: 1em;
     height: 2.5em;
     text-align: center;
 }
-.form-datos-usuario input:disabled {
+.form-datos-usuario input[type="text"] {
+    border: 2px solid yellow;
     background-color: #CDCDCD;
+    color: #393939;
 }
 .foto-perfil {
     width: 12em;
@@ -229,31 +251,53 @@
     max-width: 50%;
     max-height: 60%;
 }
+.guardarDatos{
+    background-color: #364156;
+    border: 2px solid #CDCDCD;
+    color: #CDCDCD;
+    transition: background-color 0.5s ease;
+}
+.guardarDatos:hover{
+    background-color: #CDCDCD;
+    color: #393939;
+}
 @media (max-width: 768px) {
-    .Registro {
-        width: 80%;
-        padding: 1em;
-    }
-    .superiorRegistro {
-        height: auto;
-        padding: 1em;
-    }
-    .campos {
-        padding-top: 2em;
-    }
-    .registroNombre, .registroContrasenna, .registroCorreo, .registroEntrar {
-        font-size: 1em;
-        padding: 0.8em 1.5em;
-    }
     .pagina-usuario {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         padding: 1em;
     }
-    .div-principal-respuestas {
-        padding: 1em;
+    .div-foto-perfil {
+        order: 1;
+        display: block;
+        justify-content: center;
+        margin-bottom: 1em;
     }
     .acciones-usuario {
+        order: 2;
         padding: 1em;
+        margin-bottom: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .acciones-usuario a{
+        margin: 1em 0;
+    }
+    .datos-usuario {
+        order: 3;
+        margin-bottom: 1em;
+        padding: 1em;
+        display: flex;
+        justify-content: center;
+    }
+    .div-principal-respuestas {
+        order: 4;
+        padding: 1em;
+        background-color: #364156;
+        border-radius: 1em;
+        display: flex;
+        flex-direction: column;
     }
     .btn-anterior, .btn-siguiente, .link-acciones-usuario, .btn-ver-mas, .btn-enviar-foto {
         padding: 0.4em 0.8em;

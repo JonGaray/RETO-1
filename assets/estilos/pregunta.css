@@ -260,6 +260,9 @@
     width: 60%;
     margin: 1.25em auto;
 }
+.respuestas{
+    min-height: 20.8vh;
+}
 .questionBlock .topSection, .answerBlock .topSection {
     display: flex;
     justify-content: center;
@@ -431,5 +434,11 @@
     }
     .formInteraccion button {
         margin: 0.5em 0;
+    }
+    .form-createPregunta{
+        display: block;
+    }
+    .annadirPregunta{
+        margin: 0 auto;
     }
 }

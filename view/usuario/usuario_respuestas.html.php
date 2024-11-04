@@ -37,25 +37,26 @@
         <div class="datos-usuario">
             <form id="formDatosUsuario" class="form-datos-usuario" action="index.php?controller=usuario&action=updateUsuarioRespuestas" method="post">
                 <input name="id" id="id" type="hidden" value="<?php echo $dataToView["data"]["usuario"]["id"] ?>">
-                <input name="nombre" id="nombre" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["nombre"] ?>" placeholder="nombre" disabled>
-                <input name="correo" id="correo" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["correo"]  ?>" placeholder="correo" disabled>
-                <input name="contrasenna" id="contrasenna" class="deshabilitado" type="text" value="<?php echo $dataToView["data"]["usuario"]["contrasenna"]  ?>" placeholder="contraseña" disabled>
-                <input class="deshabilitado" type="submit" value="Guardar" disabled>
+                <input name="nombre" id="nombre" type="text" value="<?php echo $dataToView["data"]["usuario"]["nombre"] ?>" placeholder="nombre">
+                <input name="correo" id="correo" type="text" value="<?php echo $dataToView["data"]["usuario"]["correo"]  ?>" placeholder="correo">
+                <input name="contrasenna" id="contrasenna" type="text" value="<?php echo $dataToView["data"]["usuario"]["contrasenna"]  ?>" placeholder="contraseña">
+                <input class="guardarDatos" type="submit" value="Guardar">
             </form>
         </div>
-        <script>
-            function habilitarInputs() {
-            var inputs = document.getElementsByClassName("deshabilitado");
-            for (var i = 0; i < inputs.length; i++) {
-                inputs[i].disabled = false;
-            }
-        }
-        </script>
         <div class="acciones-usuario">
             <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil</a>
             <a class="link-acciones-usuario" href="#">Mostrar respuestas</a>
             <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listPreguntas">Mostrar preguntas</a>
-            <a class="link-acciones-usuario" href="#">Crear usuario</a>
+            <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
+                <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario</a>
+            <?php } ?>
         </div>
 </div>
-<script src="assets/JS/validaciones.js"></script>
+<script>
+    function habilitarInputs() {
+        var datosUsuarioDiv = document.querySelector('.datos-usuario');
+        if (datosUsuarioDiv) {
+            datosUsuarioDiv.classList.add('visible');
+        }
+    }
+</script>
