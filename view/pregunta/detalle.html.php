@@ -71,7 +71,7 @@
                                 <label for="megusta-<?php echo $respuesta['id']; ?>" class="custom-checkbox">
                                     <input type="checkbox" id="megusta-<?php echo $respuesta['id']; ?>" name="megusta" <?php echo ($respuesta['megusta']) ? 'checked' : ''; ?> onchange="this.form.submit()">
                                     <span class="checkbox-icon">
-                                        <img src="assets/Images/megusta.png" alt="Me gusta">
+                                        <img src="assets/Images/Iconos/megusta.png" alt="Me gusta">
                                     </span>
                                 </label>
                             </form>
@@ -83,7 +83,7 @@
                                 <label for="nomegusta-<?php echo $respuesta['id']; ?>" class="custom-checkbox">
                                     <input type="checkbox" id="nomegusta-<?php echo $respuesta['id']; ?>" name="nomegusta" <?php echo ($respuesta['nomegusta']) ? 'checked' : ''; ?> onchange="this.form.submit()">
                                     <span class="checkbox-icon">
-                                        <img src="assets/Images/nomegusta.png" alt="No me gusta">
+                                        <img src="assets/Images/Iconos/nomegusta.png" alt="No me gusta">
                                     </span>
                                 </label>
                             </form>

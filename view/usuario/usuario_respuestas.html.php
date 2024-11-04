@@ -20,13 +20,13 @@
                         <?php } ?>
                 </div>
                 <div class="likes">
-                    <img class="img-like" src="assets/Images/like.png" alt=""><?php echo $respuesta["megusta"] ?>
-                    <img class="img-dislike" src="assets/Images/dislike.png" alt=""><?php echo $respuesta["nomegusta"] ?>
+                    <img class="img-like" src="assets/Images/Iconos/like.png" alt=""><?php echo $respuesta["megusta"] ?>
+                    <img class="img-dislike" src="assets/Images/Iconos/dislike.png" alt=""><?php echo $respuesta["nomegusta"] ?>
                     <a class="btn-ver-mas" href="index.php?controller=pregunta&action=detalle&id=<?php echo $respuesta["id_pregunta"] ?>">Ver mas</a>
                     <form method="post" action="index.php?controller=usuario&action=deleteRespuesta">
                     <input type="hidden" id="id" name="id" value="<?php echo $respuesta["id"] ?>">
                         <button class="btn-eliminar-pregunta-usuario" type="submit">
-                            <img class="papelera_usuario" src="assets/Images/papelera.png" alt="">
+                            <img class="papelera_usuario" src="assets/Images/Iconos/papelera.png" alt="">
                         </button>
                     </form>
                 </div>
@@ -44,11 +44,11 @@
             </form>
         </div>
         <div class="acciones-usuario">
-            <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil</a>
-            <a class="link-acciones-usuario" href="#">Mostrar respuestas</a>
-            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listPreguntas">Mostrar preguntas</a>
+            <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil <img src="assets/Images/Iconos/edit.png"></a>
+            <a class="link-acciones-usuario" href="#">Mostrar respuestas <img src="assets/Images/Iconos/respuesta.png"></a>
+            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listPreguntas">Mostrar preguntas <img src="assets/Images/Iconos/pregunta.png"></a>
             <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
-                <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario</a>
+                <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario <img src="assets/Images/Iconos/adduser.png"> </a>
             <?php } ?>
         </div>
 </div>
