@@ -187,4 +187,9 @@ class UsuarioController{
         $guia= $this->model->listGuia();
         return ["usuario"=>$usuario,"respuestas"=>$respuestas, "guia"=>$guia];
     }
+
+    public function eliminarPDFusu()
+    {
+        $this->modelRespuestas->eliminarPDFUsu($_POST["id"]);
+    }
 }
