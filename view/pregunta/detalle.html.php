@@ -1,37 +1,5 @@
 <style>
-    .custom-checkbox {
-        display: inline-block;
-        position: relative;
-        cursor: pointer;
-    }
 
-    .custom-checkbox input[type="checkbox"] {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
-
-    .custom-checkbox .checkbox-icon {
-        width: 24px;
-        height: 24px;
-        display: inline-block;
-    }
-    .custom-checkbox img {
-        width: 100%;
-        height: 100%;
-        transition: opacity 0.2s ease;
-    }
-    .custom-checkbox input[type="checkbox"]:not(:checked) + .checkbox-icon img {
-        opacity: 0.5;
-    }
-    .custom-checkbox input[type="checkbox"]:checked + .checkbox-icon img {
-        opacity: 1;
-    }
-    .custom-checkbox:hover img {
-        opacity: 0.8;
-    }
 </style>
 <div class="questionBlock">
     <div class="topSection">
@@ -47,21 +15,25 @@
         </div>
     </div>
 </div>
-
 <div class="respuestas">
     <?php if (!empty($dataToView["data"]['respuestas']["respuestas"])): ?>
-        <?php foreach ($dataToView["data"]['respuestas']['respuestas'] as $respuesta): ?>
+        <?php foreach ($dataToView["data"]['respuestas']['respuestas'] as $index => $respuesta): ?>
             <div class="answerBlock">
                 <div class="topSection">
                     <input type="text" name="usuario" class="usuario" disabled value="<?php echo isset($respuesta['usuario_nombre_respuesta']) ? $respuesta['usuario_nombre_respuesta'] : 'Desconocido'; ?>">
                 </div>
                 <div class="bottomSection">
                     <div class="bottomLeft">
-                    <?php 
-                    if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){ ?>
-                        <textarea name="contenido" disabled class="contenido"><?php echo $respuesta['contenido'] ; ?></textarea>
-                        <?php }elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
-                            <img class="img-respuesta" src="<?php echo $dataToView["data"]['imagen'] ?>" alt="">
+                        <?php
+                        if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){
+                            // Asignar ids únicos basados en el índice o en el id de respuesta.
+                            $textareaId = "contenido-" . $index;
+                            $previewId = "preview-" . $index;
+                            ?>
+                            <textarea name="contenido" disabled class="contenido" id="<?php echo $textareaId; ?>"><?php echo $respuesta['contenido']; ?></textarea>
+                            <div id="<?php echo $previewId; ?>"></div>
+                        <?php } elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
+                            <img class="img-respuesta" src="<?php echo $respuesta["foto"] ?>" alt="">
                         <?php } ?>
                     </div>
                     <div class="bottomRight">
@@ -71,7 +43,7 @@
                                 <label for="megusta-<?php echo $respuesta['id']; ?>" class="custom-checkbox">
                                     <input type="checkbox" id="megusta-<?php echo $respuesta['id']; ?>" name="megusta" <?php echo ($respuesta['megusta']) ? 'checked' : ''; ?> onchange="this.form.submit()">
                                     <span class="checkbox-icon">
-                                        <img src="assets/Images/megusta.png" alt="Me gusta">
+                                        <img src="assets/Images/Iconos/megusta.png" alt="Me gusta">
                                     </span>
                                 </label>
                             </form>
@@ -83,7 +55,7 @@
                                 <label for="nomegusta-<?php echo $respuesta['id']; ?>" class="custom-checkbox">
                                     <input type="checkbox" id="nomegusta-<?php echo $respuesta['id']; ?>" name="nomegusta" <?php echo ($respuesta['nomegusta']) ? 'checked' : ''; ?> onchange="this.form.submit()">
                                     <span class="checkbox-icon">
-                                        <img src="assets/Images/nomegusta.png" alt="No me gusta">
+                                        <img src="assets/Images/Iconos/nomegusta.png" alt="No me gusta">
                                     </span>
                                 </label>
                             </form>
@@ -107,4 +79,34 @@
         </div>
     <?php endif; ?>
 </div>
-
+<script>
+    function extractYouTubeID(url) {
+        const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+        const match = url.match(regex);
+        return match ? match[1] : null;
+    }
+    function previewYouTubeVideos() {
+        const textareas = document.querySelectorAll('textarea.contenido');
+        textareas.forEach(textarea => {
+            const videoURL = textarea.value;
+            const videoID = extractYouTubeID(videoURL);
+            const previewDiv = document.getElementById('preview-' + textarea.id.split('-')[1]);
+            if (previewDiv) {
+                previewDiv.innerHTML = '';
+                if (videoID) {
+                    textarea.style.display = "none";
+                    const iframe = document.createElement('iframe');
+                    iframe.src = `https://www.youtube.com/embed/${videoID}`;
+                    iframe.setAttribute('frameborder', '0');
+                    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                    iframe.setAttribute('allowfullscreen', 'true');
+                    previewDiv.appendChild(iframe);
+                    iframe.style.display = "block";
+                } else {
+                    textarea.style.display = "block";
+                }
+            }
+        });
+    }
+    document.addEventListener('DOMContentLoaded', previewYouTubeVideos);
+</script>

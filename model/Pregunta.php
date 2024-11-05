@@ -131,22 +131,37 @@ class Pregunta{
                 'usuario_nombre_pregunta' => htmlspecialchars($dataToView[0]['usuario_nombre_preguntador']),
                 'usuario_correo_pregunta' => htmlspecialchars($dataToView[0]['usuario_correo_preguntador']),
             ];
-            foreach ($dataToView as $respuesta) {
+                foreach ($dataToView as $respuesta) {
+                    $foto = $respuesta['respuesta_foto'];
+                    $fotoBase64 = null;
+        
+                    // Si hay datos de imagen, procesarlos
+                    if ($foto) {
+                        // Detecta el tipo MIME de la imagen
+                        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                        $imageType = finfo_buffer($finfo, $foto);
+                        finfo_close($finfo);
+        
+                        // Convierte la imagen en base64 y aplica el formato
+                        $fotoBase64 = 'data:' . $imageType . ';base64,' . base64_encode($foto);
+                    }
                 $respuestas[] = [
                     'id' => $respuesta['respuesta_id'],
                     'contenido' => ($respuesta['respuesta_contenido']),
                     'megusta' => $respuesta['respuesta_megusta'],
                     'nomegusta' => $respuesta['respuesta_nomegusta'],
                     'usuario_id_respuesta' => $respuesta['usuario_id_respuesta'],
-                    'foto' => $respuesta['respuesta_foto'],
+                    'foto' => $fotoBase64,
                     'usuario_nombre_respuesta' => htmlspecialchars($respuesta['usuario_nombre_respuesta']),
                     'usuario_correo_respuesta' => htmlspecialchars($respuesta['usuario_correo_respuesta']),
                 ];
             }
         }
+        
         return [
             'pregunta' => $pregunta,
             'respuestas' => $respuestas,
+            
         ];
     }
     public function getPreguntasByUsuarioId($param){

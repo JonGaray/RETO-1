@@ -17,24 +17,24 @@
 <body>
 <header>
     <div class="div-header">
-        <h1>Aergibide</h1> <h3 class="eslogan">Expertos en mantenerte en el cielo</h3>
+        <h1 style="margin: 0">Aergibide</h1> <h3 class="eslogan">Expertos en mantenerte en el cielo</h3>
     </div>
     <div class="div-nav">
         <nav>
             <hr class="hr-nav">
             <ul>
                 <li>
-                    <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()">Inicio</a>
+                    <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()"><img src="assets/Images/Iconos/home.png" class="iconoHeader"></a>
                 </li>
                 <li>
-                    <a href="index.php?controller=respuesta&action=vistaPDF">Guia de reparacion</a>
+                    <a href="index.php?controller=respuesta&action=vistaPDF"><img src="assets/Images/Iconos/guia.png" class="iconoHeader"></a>
                 </li>
                 <li>
                     <div class="div-buscar">
                         <form id="formBuscar" action="index.php?controller=pregunta&action=listCategoria" method="post" onsubmit="crearCookieCategoria();">
                             <input type="text" id="categoriaInput" name="categoria" class="buscar" placeholder="Buscar categoria">
                             <button type="submit" class="lupa">
-                                <img src="assets/Images/Lupa.png" alt="Lupita">
+                                <img src="assets/Images/Iconos/Lupa.png" alt="Lupita">
                             </button>
                         </form>
                     </div>
@@ -43,13 +43,10 @@
                     <hr class="linea-nav">
                 </li>
                 <li>
-                    <div class="div-sesion">
-                        <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;">Cerrar sesión</a>
-                        <a id="imagen-redireccion" href="index.php?controller=usuario&action=listPreguntas">
-                            <img src="assets/Images/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
-                        </a>
-                        <a href="index.php?controller=usuario&action=listPreguntas"> <?php echo $_COOKIE["nombre_usuario"]?> </a>
-                    </div>
+                    <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;"><img src="assets/Images/Iconos/logout.png" class="iconoHeader"></a>
+                </li>
+                <li>
+                    <a href="index.php?controller=usuario&action=listPreguntas"><img src="assets/Images/Iconos/Persona.png" alt="Personita" class="iconoHeader"></a>
                 </li>
             </ul>
         </nav>
