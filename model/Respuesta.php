@@ -112,7 +112,8 @@
                 header("Location: index.php?controller=respuesta&action=vistaPDF");
             }
         }
-        public function descargarPDF($id){
+        public function descargarPDF($id)
+        {
             try {
                 // Consulta para obtener el PDF en binario y el nombre del archivo
                 $sql = "SELECT nombre ,documento FROM reparaciones WHERE id_documento = ?";
@@ -133,27 +134,6 @@
                 } else {
                     throw new Exception("Archivo no encontrado.");
                 }
-            } catch (Exception $e) {
-                echo "Error al descargar el archivo: " . $e->getMessage();
-            }
-        }
-        public function descargarPDFById($id){
-            try {
-                // Consulta para obtener el PDF en binario y el nombre del archivo
-                $sql = "SELECT nombre ,documento FROM reparaciones WHERE id_usuario = ?";
-                $stmt = $this->connection->prepare($sql);
-                $stmt->execute([$id[0]]);
-                // Verificar si se encontró el archivo
-
-                    $documento = $stmt->fetchALL(PDO::FETCH_ASSOC);
-                    $nombreArchivo = $documento['nombre'] . ".pdf";
-                    $pdfData = $documento['archivo'];
-                    // Enviar los encabezados para descargar el archivo
-                    header("Content-Type: application/pdf");
-                    header("Content-Disposition: attachment; filename=\"$nombreArchivo\"");
-                    header("Content-Length: " . strlen($pdfData));
-                    // Imprimir el contenido del archivo PDF
-                    return $pdfData;
             } catch (Exception $e) {
                 echo "Error al descargar el archivo: " . $e->getMessage();
             }
