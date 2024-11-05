@@ -16,14 +16,13 @@
                     <h2> <?php echo $preguntas["nombre"]?> </h2>
                 </div>
                     <div class="boton-descargar">
-                        <span class="column"> <a href="index.php?controller=respuesta&action=descargarPDF&id=<?php echo $preguntas["id_documento"]?>"><img src="assets/Images/download.png" ></span></a>
+                        <span class="column"> <a href="index.php?controller=respuesta&action=descargarPDF&id=<?php echo $preguntas["id_documento"]?>"><img class="descargarUsu" src="assets/Images/Iconos/download.png" ></span></a>
                     </div>
                 <div class="likes">
-                    <a class="btn-ver-mas" href="index.php?controller=pregunta&action=detalle&id=<?php echo $preguntas["id_documento"] ?>">Ver mas</a>
-                    <form method="post" action="index.php?controller=usuario&action=deletePregunta">
-                        <input type="hidden" id="id" name="id" value="<?php echo $preguntas["nombre"] ?>">
+                    <form method="post" action="index.php?controller=usuario&action=eliminarPDFusu&id=<?php echo $preguntas["id_documento"] ?>">
+                        <input type="hidden" id="id" name="id" value="<?php echo $preguntas["id_documento"] ?>" >
                         <button class="btn-eliminar-pregunta-usuario" type="submit">
-                            <img class="papelera_usuario" src="assets/Images/papelera.png" alt="">
+                            <img class="papelera_usuario" src="assets/Images/Iconos/papelera.png" alt="">
                         </button>
                     </form>
                 </div>

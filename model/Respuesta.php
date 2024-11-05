@@ -151,7 +151,13 @@
             $stmt->execute([$id]);
             header("Location: index.php?controller=respuesta&action=vistaPDF");
         }
-
+        public function eliminarPDFUsu($id)
+        {
+            $sql = "delete from reparaciones where id_documento = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$id]);
+            header("Location: index.php?controller=usuario&action=listGuia");
+        }
             public function getImagenByIdPregunta($id){
                 $sql = "SELECT foto FROM ".$this->table." WHERE id_pregunta = ?";
                     $stmt = $this->connection->prepare($sql);
