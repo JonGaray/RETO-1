@@ -9,6 +9,13 @@ class Usuario{
         $dbObj =new Db();
         $this->connection = $dbObj->conection_db;
     }
+    public function listGuia(){
+        $sql = "SELECT * FROM reparaciones" ;
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function getUserIdByNombre($nombre)
     {
         if (is_null($nombre)) return false;
