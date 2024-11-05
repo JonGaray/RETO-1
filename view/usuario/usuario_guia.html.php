@@ -15,7 +15,9 @@
                 <div class="titulo_pregunta">
                     <h2> <?php echo $preguntas["nombre"]?> </h2>
                 </div>
-
+                    <div class="boton-descargar">
+                        <span class="column"> <a href="index.php?controller=respuesta&action=descargarPDF&id=<?php echo $preguntas["id_documento"]?>"><img src="assets/Images/download.png" ></span></a>
+                    </div>
                 <div class="likes">
                     <a class="btn-ver-mas" href="index.php?controller=pregunta&action=detalle&id=<?php echo $preguntas["id_documento"] ?>">Ver mas</a>
                     <form method="post" action="index.php?controller=usuario&action=deletePregunta">

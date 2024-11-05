@@ -186,6 +186,7 @@ class UsuarioController{
         $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
         $respuestas = $this->modelRespuestas->getRespuestasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
         $guia= $this->model->listGuia();
-        return ["usuario"=>$usuario,"respuestas"=>$respuestas, "guia"=>$guia];
+        $descargarPDF= $this->modelRespuestas->descargarPDF($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
+        return ["usuario"=>$usuario,"respuestas"=>$respuestas, "guia"=>$guia, "descargar"=>$descargarPDF];
     }
 }
