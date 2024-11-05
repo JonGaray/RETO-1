@@ -82,7 +82,6 @@
     display: flex;
     justify-content: space-around;
     margin-top: 0.625em;
-    gap: 1em;
 }
 .preguntasBottomRight .enlaces a {
     text-decoration: none;
