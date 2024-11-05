@@ -17,8 +17,8 @@
                         <input type="text" name="usuario" disabled class="usuario" value="- <?php echo $pregunta["nombre"]; ?> -">
                         <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
                         <div class="enlaces">
-                            <a href="index.php?controller=respuesta&action=responder&id=<?php echo $pregunta["pregunta_id"]; ?>">Responder</a>
-                            <a href="index.php?controller=pregunta&action=detalle&id=<?php echo $pregunta["pregunta_id"]; ?>">Ver más</a>
+                            <a href="index.php?controller=respuesta&action=responder&id=<?php echo $pregunta["pregunta_id"]; ?>"><img src="assets/Images/Iconos/responderTodo.png"></a>
+                            <a href="index.php?controller=pregunta&action=detalle&id=<?php echo $pregunta["pregunta_id"]; ?>"><img src="assets/Images/Iconos/info.png"></a>
                         </div>
                     </div>
                 </div>
