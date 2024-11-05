@@ -35,11 +35,11 @@
 <!-- Botones de paginación -->
 <div class="paginacion">
     <?php if ($paginaActual > 1): ?>
-        <a href="index.php?controller=pregunta&action=list&page=<?php echo $paginaActual - 1; ?>" class="cambiarPagina">Anterior</a>
+        <a href="index.php?controller=pregunta&action=list&page=<?php echo $paginaActual - 1; ?>" class="cambiarPagina"><img src="assets/Images/Iconos/anterior.png" class="paginar"></a>
     <?php endif; ?>
 
     <?php if ($paginaActual < $totalPaginas): ?>
-        <a href="index.php?controller=pregunta&action=list&page=<?php echo $paginaActual + 1; ?>" class="cambiarPagina">Siguiente</a>
+        <a href="index.php?controller=pregunta&action=list&page=<?php echo $paginaActual + 1; ?>" class="cambiarPagina"><img src="assets/Images/Iconos/siguiente.png" class="paginar"></a>
     <?php endif; ?>
 </div>
 

@@ -11,7 +11,6 @@
     border-radius: 0.9375em;
     box-shadow: 0.3125em 0.3125em 0.625em #DFF8EB56;
     width: 100%;
-    margin: 1.5625em;
     position: relative;
 }
 .preguntaTopSection {
@@ -159,9 +158,8 @@
     color: #CDCDCD;
     background-color: #393939;
     display: flex;
-    margin: 0.9375em auto 1.25em auto;
     text-align: center;
-    width: 40%;
+    width: 20%;
     align-items: center;
     transition: background-color 0.5s ease;
 }
@@ -398,6 +396,18 @@
 }
 .custom-checkbox:hover img {
     opacity: 0.8;
+}
+.paginar{
+    height: 2em;
+    width: 2em;
+}
+.paginacion{
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+.cambiarPagina img{
+    margin: 0 auto;
 }
 iframe {
     width: 560px;
