@@ -17,20 +17,17 @@
 <body>
 <header>
     <div class="div-header">
-        <h1>Aergibide</h1> <h3 class="eslogan">Expertos en mantenerte en el cielo</h3>
+        <h1 style="margin: 0">Aergibide</h1> <h3 class="eslogan">Expertos en mantenerte en el cielo</h3>
     </div>
     <div class="div-nav">
         <nav>
             <hr class="hr-nav">
             <ul>
                 <li>
-                    <div class="paginaInicio">
-                        <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()">Inicio</a>
-                        <img src="assets/Images/Iconos/home.png" class="homeImage">
-                    </div>
+                    <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()"><img src="assets/Images/Iconos/home.png" class="iconoHeader"></a>
                 </li>
                 <li>
-                    <a href="index.php?controller=respuesta&action=vistaPDF">Guia de reparacion</a>
+                    <a href="index.php?controller=respuesta&action=vistaPDF"><img src="assets/Images/Iconos/guia.png" class="iconoHeader"></a>
                 </li>
                 <li>
                     <div class="div-buscar">
@@ -46,15 +43,10 @@
                     <hr class="linea-nav">
                 </li>
                 <li>
-                    <div class="div-sesion">
-                        <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;">Cerrar sesión</a>
-                    </div>
+                    <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;"><img src="assets/Images/Iconos/logout.png" class="iconoHeader"></a>
                 </li>
                 <li>
-                    <div class="enlaceUsuario">
-                            <a href="index.php?controller=usuario&action=listPreguntas"> <?php echo $_COOKIE["nombre_usuario"]?> </a>
-                            <img src="assets/Images/Iconos/Persona.png" alt="Personita" class="persona">
-                    </div>
+                    <a href="index.php?controller=usuario&action=listPreguntas"><img src="assets/Images/Iconos/Persona.png" alt="Personita" class="iconoHeader"></a>
                 </li>
             </ul>
         </nav>
