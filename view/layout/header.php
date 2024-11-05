@@ -45,10 +45,12 @@
                 <li>
                     <div class="div-sesion">
                         <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;">Cerrar sesión</a>
-                        <a id="imagen-redireccion" href="index.php?controller=usuario&action=listPreguntas">
-                            <img src="assets/Images/Iconos/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
-                        </a>
-                        <a href="index.php?controller=usuario&action=listPreguntas"> <?php echo $_COOKIE["nombre_usuario"]?> </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="enlaceUsuario">
+                            <a href="index.php?controller=usuario&action=listPreguntas"> <?php echo $_COOKIE["nombre_usuario"]?> </a>
+                            <img src="assets/Images/Iconos/Persona.png" alt="Personita" class="persona">
                     </div>
                 </li>
             </ul>

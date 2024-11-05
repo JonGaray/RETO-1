@@ -94,6 +94,15 @@ ul a {
     width: 100%;
     height: auto;
 }
+.enlaceUsuario{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.persona{
+    margin: 0;
+    width: 2em;
+}
 /* Footer */
 footer {
     background-color: #364156;
