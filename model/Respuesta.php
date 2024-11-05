@@ -137,6 +137,27 @@
                 echo "Error al descargar el archivo: " . $e->getMessage();
             }
         }
+        public function descargarPDFById($id){
+            try {
+                // Consulta para obtener el PDF en binario y el nombre del archivo
+                $sql = "SELECT nombre ,documento FROM reparaciones WHERE id_usuario = ?";
+                $stmt = $this->connection->prepare($sql);
+                $stmt->execute([$id[0]]);
+                // Verificar si se encontró el archivo
+
+                    $documento = $stmt->fetchALL(PDO::FETCH_ASSOC);
+                    $nombreArchivo = $documento['nombre'] . ".pdf";
+                    $pdfData = $documento['archivo'];
+                    // Enviar los encabezados para descargar el archivo
+                    header("Content-Type: application/pdf");
+                    header("Content-Disposition: attachment; filename=\"$nombreArchivo\"");
+                    header("Content-Length: " . strlen($pdfData));
+                    // Imprimir el contenido del archivo PDF
+                    return $pdfData;
+            } catch (Exception $e) {
+                echo "Error al descargar el archivo: " . $e->getMessage();
+            }
+        }
         public function getPDF(){
             $sql = "SELECT r.id_documento, r.nombre AS nombre_documento, r.documento, u.nombre AS nombre_usuario FROM reparaciones r JOIN usuarios u ON r.id_usuario = u.id order by id_documento desc;";
             $stmt = $this->connection->prepare($sql);

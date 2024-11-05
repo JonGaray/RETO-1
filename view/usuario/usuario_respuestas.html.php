@@ -44,16 +44,10 @@
             </form>
         </div>
         <div class="acciones-usuario">
-<<<<<<< HEAD
-            <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil</a>
-            <a class="link-acciones-usuario" href="#">Mostrar respuestas</a>
-            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listPreguntas">Mostrar preguntas</a>
-            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listGuia">Guias de reparacion</a>
-=======
             <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil <img src="assets/Images/Iconos/edit.png"></a>
             <a class="link-acciones-usuario" href="#">Mostrar respuestas <img src="assets/Images/Iconos/respuesta.png"></a>
+            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listGuia">Guias de reparacion</a>
             <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listPreguntas">Mostrar preguntas <img src="assets/Images/Iconos/pregunta.png"></a>
->>>>>>> d63bd5d428c54c670e22fa36337829e09bdd6c4c
             <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
                 <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario <img src="assets/Images/Iconos/adduser.png"> </a>
             <?php } ?>
