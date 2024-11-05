@@ -24,7 +24,10 @@
             <hr class="hr-nav">
             <ul>
                 <li>
-                    <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()">Inicio</a>
+                    <div class="paginaInicio">
+                        <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()">Inicio</a>
+                        <img src="assets/Images/Iconos/home.png" class="homeImage">
+                    </div>
                 </li>
                 <li>
                     <a href="index.php?controller=respuesta&action=vistaPDF">Guia de reparacion</a>

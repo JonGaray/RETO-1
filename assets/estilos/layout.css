@@ -97,10 +97,22 @@ ul a {
 .enlaceUsuario{
     display: flex;
     align-items: center;
-    width: 100%;
+}
+.enlaceUsuario a{
+    margin-right: .5em;
 }
 .persona{
     margin: 0;
+    width: 2em;
+}
+.paginaInicio{
+    display: flex;
+    align-items: center;
+}
+.paginaInicio a{
+    margin-right: .5em;
+}
+.homeImage{
     width: 2em;
 }
 /* Footer */
