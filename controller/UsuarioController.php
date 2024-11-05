@@ -180,13 +180,11 @@ class UsuarioController{
 
     }
     public function listGuia(){
-
         $this->view = "usuario_guia";
         $this->page_title = "Guias de usuario";
         $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
         $respuestas = $this->modelRespuestas->getRespuestasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
         $guia= $this->model->listGuia();
-        $descargarPDF= $this->modelRespuestas->descargarPDF($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
-        return ["usuario"=>$usuario,"respuestas"=>$respuestas, "guia"=>$guia, "descargar"=>$descargarPDF];
+        return ["usuario"=>$usuario,"respuestas"=>$respuestas, "guia"=>$guia];
     }
 }
