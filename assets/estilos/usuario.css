@@ -92,7 +92,7 @@
     border-radius: 1em;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.1fr repeat(3, 1fr) 0.3fr;
+    grid-template-rows: 0.1fr repeat(3, auto) 0.3fr;
     grid-template-areas:
     "titulo titulo"
     ". ."
@@ -135,7 +135,7 @@
     padding: 1em;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    height: 100%;
 }
 .img-like, .img-dislike {
     width: 2em;
@@ -217,6 +217,7 @@
     background-color: #CDCDCD;
     overflow-wrap: anywhere;
     margin-top: 1em;
+    height: 100%;
 }
 .btn-eliminar-pregunta-usuario {
     background-color: #CDCDCD;
@@ -260,6 +261,12 @@
 .guardarDatos:hover{
     background-color: #CDCDCD;
     color: #393939;
+}
+.contenido{
+    height: 100%;
+    width: 80%;
+    background-color: unset;
+    resize: unset;
 }
 @media (max-width: 768px) {
     .pagina-usuario {
