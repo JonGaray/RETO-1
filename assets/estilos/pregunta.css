@@ -357,6 +357,22 @@
     line-height: 1.5;
     border: 0.0625em solid #CDCDCD;
 }
+.contenido-archivo{
+    resize: none;
+    white-space: normal;
+    background-color: #CDCDCD;
+    border-radius: 0.9375em;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.625em;
+    height: 100%;
+    width: 100%;
+    line-height: 1.5;
+    border: 0.0625em solid #CDCDCD;
+}
 .answerBlock .bottomSection .bottomLeft{
     display: flex;
     justify-content: center;

@@ -10,7 +10,7 @@
         </div>
         <div class="div-principal-respuestas">
             <h3>RESPUESTAS</h3>
-            <?php if(!empty($dataToView["data"]["respuestas"])): foreach($dataToView["data"]["respuestas"]["respuesta"] as $respuesta):?>
+            <?php if(!empty($dataToView["data"]["respuestas"]["respuesta"])): foreach($dataToView["data"]["respuestas"]["respuesta"] as $index => $respuesta):?>
             <div class="div-respuesta">
                 <div class="respuesta-usuario">
                 <?php if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){
@@ -21,7 +21,10 @@
                    <textarea name="contenido" disabled class="contenido" id="<?php echo $textareaId; ?>"><?php echo $respuesta["contenido"] ?></textarea>
                    <?php }elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
                             <img class="img-respuesta-usuario" src="<?php echo $respuesta["foto"] ?>" alt="">
-                        <?php } ?>
+                    <?php }elseif(isset($respuesta['archivo']) && $respuesta['archivo'] !== "" ){ ?>
+                        <h2>Documento a descargar: <?php echo $respuesta["nombre_archivo"] ?></h2>
+                        <a href="index.php?controller=respuesta&action=descargarPDFRespuesta&id=<?php echo $respuesta['id'] ?>"><img src="assets/Images/Iconos/download.png" alt=""></a>
+                    <?php } ?>
                 </div>
                 <div class="likes">
                     <img class="img-like" src="assets/Images/Iconos/like.png" alt=""><?php echo $respuesta["megusta"] ?>

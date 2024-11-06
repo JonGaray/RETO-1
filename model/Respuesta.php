@@ -11,7 +11,7 @@
             $this->connection = $dbObj->conection_db;
         }
         function getRespuestasByUsuarioId($param){
-            $sql = "SELECT contenido, megusta, nomegusta, id, id_pregunta, foto FROM " . $this->table . " WHERE id_usuario = ?";
+            $sql = "SELECT contenido, megusta, nomegusta, id, id_pregunta, foto, archivo, nombre_archivo FROM " . $this->table . " WHERE id_usuario = ?";
             $statement = $this->connection->prepare($sql);
             $statement->execute([$param]);
             $info = $statement->fetchAll();
@@ -36,7 +36,9 @@
                         'nomegusta' => $info['nomegusta'],
                         'id' => $info['id'],
                         'id_pregunta' => $info['id_pregunta'],
-                        'foto' => $fotoBase64
+                        'foto' => $fotoBase64,
+                        'archivo' => $info['archivo'],
+                        'nombre_archivo' => $info['nombre_archivo'],
                     ];
             }
             return['respuesta' => $respuesta];

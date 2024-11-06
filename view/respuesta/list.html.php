@@ -107,6 +107,24 @@
             transform: translateY(0px);
         }
     }
+    .nombre_archivo {
+        margin-top: 0.5em;
+        font-size: 1.1em;
+        color: #ffffff;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        width: 100%;
+        padding: 10px 35px;
+        position: relative;
+    }
+    .nombre_archivo::placeholder{
+        color: #ffffff;
+        font-size: 0.9em;
+    }
 </style>
 <article>
     <div class="general">

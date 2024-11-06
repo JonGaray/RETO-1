@@ -35,9 +35,9 @@
                         <?php } elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
                             <img class="img-respuesta" src="<?php echo $respuesta["foto"] ?>" alt="">
                         <?php }elseif(isset($respuesta['archivo']) && $respuesta['archivo'] !== "" ){ ?>
-                            <div class="contenido">
-                                <h2>Documento a descargar</h2>
-                                <a href="index.php?controller=respuesta&action=descargarPDFRespuesta&id=<?php echo $respuesta['id'] ?>">descargar<img src="assets/Images/download.png" alt=""></a>
+                            <div class="contenido-archivo">
+                                <h2>Documento a descargar: <?php echo $respuesta["nombre_archivo"] ?></h2>
+                                <a href="index.php?controller=respuesta&action=descargarPDFRespuesta&id=<?php echo $respuesta['id'] ?>"><img src="assets/Images/Iconos/download.png" alt=""></a>
                             </div>
                         <?php } ?> 
                     </div>

@@ -106,6 +106,7 @@ class Pregunta{
         r.id_usuario AS respuesta_id_usuario,
         r.foto AS respuesta_foto,
         r.archivo AS respuesta_archivo,
+        r.nombre_archivo AS nombre_archivo,
         u_preguntador.id AS usuario_id_preguntador,
         u_preguntador.nombre AS usuario_nombre_preguntador,
         u_preguntador.correo AS usuario_correo_preguntador,
@@ -154,6 +155,7 @@ class Pregunta{
                     'usuario_id_respuesta' => $respuesta['usuario_id_respuesta'],
                     'foto' => $fotoBase64,
                     'archivo' => $respuesta['respuesta_archivo'],
+                    'nombre_archivo' => $respuesta['nombre_archivo'],
                     'usuario_nombre_respuesta' => htmlspecialchars($respuesta['usuario_nombre_respuesta']),
                     'usuario_correo_respuesta' => htmlspecialchars($respuesta['usuario_correo_respuesta']),
                 ];
