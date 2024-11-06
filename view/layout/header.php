@@ -18,7 +18,7 @@
 <body>
 <header>
     <div class="div-header">
-        <h1 style="margin: 0">Aergibide</h1> <h3 class="eslogan">Expertos en mantenerte en el cielo</h3>
+        <h1 style="margin: 0">Aergibide</h1> <h3 class="eslogan" style="font-style: italic">Expertos en mantenerte en el cielo</h3>
     </div>
     <div class="div-nav">
         <nav>

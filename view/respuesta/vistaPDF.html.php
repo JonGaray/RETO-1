@@ -7,7 +7,6 @@
         <?php if (isset($_COOKIE['rol_usuario']) && $_COOKIE['rol_usuario'] == 'admin') { ?>
         <p><?php echo "Opciones:"?></p>
         <?php } ?>
-
     </div>
     <?php foreach ($dataToView["data"] as $pdf): ?>
     <div class="table-header">

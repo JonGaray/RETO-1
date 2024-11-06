@@ -136,6 +136,7 @@
     "botones botones";
     padding: 1.7em;
     gap: 1em;
+    box-shadow: 0.3125em 0.3125em 0.625em #DFF8EB56;
 }
 .datos-usuario {
     background-color: #364156;
@@ -146,6 +147,7 @@
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s ease;
+    box-shadow: 0.3125em 0.3125em 0.625em #DFF8EB56;
 }
 .datos-usuario.visible {
     visibility: visible;
@@ -159,6 +161,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 2em;
+    box-shadow: 0.3125em 0.3125em 0.625em #DFF8EB56;
 }
 .botones-respuestas {
     grid-area: botones;
