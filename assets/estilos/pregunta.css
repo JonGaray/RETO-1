@@ -1,9 +1,9 @@
 .preguntaGrupo {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, auto);
     gap: 1.5625em;
     width: 90%;
-    margin: 1.25em auto;
+    margin: 1.25em auto 5em auto;
 }
 .preguntaBlock {
     background-color: #364156;
@@ -54,7 +54,7 @@
 }
 .crearPregunta {
     margin: 1.25em auto;
-    width: 30%;
+    width: 15%;
     height: 5%;
     padding: 0.625em;
     background-color: #CDCDCD;
@@ -66,9 +66,9 @@
     justify-content: center;
     color: #393939;
     text-decoration: none;
+    align-items: center;
 }
-.crearPregunta a:visited {
-    color: #393939;
+.crearPregunta a{
     text-decoration: none;
 }
 .preguntasBottomRight input {

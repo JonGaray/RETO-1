@@ -16,7 +16,7 @@
                     <h2> <?php echo $preguntas["nombre"]?> </h2>
                 </div>
                     <div class="boton-descargar">
-                        <span class="column"> <a href="index.php?controller=respuesta&action=descargarPDF&id=<?php echo $preguntas["id_documento"]?>"><img src="assets/Images/download.png" ></span></a>
+                        <span class="column"> <a href="index.php?controller=respuesta&action=descargarPDF&id=<?php echo $preguntas["id_documento"]?>"><img src="assets/Images/download.png"></span></a>
                     </div>
                 <div class="likes">
                     <a class="btn-ver-mas" href="index.php?controller=pregunta&action=detalle&id=<?php echo $preguntas["id_documento"] ?>">Ver mas</a>
@@ -41,13 +41,14 @@
         </form>
     </div>
     <div class="acciones-usuario">
-        <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil<img src="assets/Images/edit.png"></a>
-        <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listRespuestas">Mostrar respuestas</a>
-        <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listPreguntas">Mostrar preguntas</a>
-        <a class="link-acciones-usuario" href="#">Guias de reparacion</a>
+        <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil<img src="assets/Images/Iconos/edit.png"></a>
+        <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listRespuestas">Mostrar respuestas <img src="assets/Images/Iconos/respuesta.png"> </a>
+        <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listGuia">Guias de reparacion <img src="assets/Images/Iconos/guia.png"></a>
+        <a class="link-acciones-usuario" href="#">Mostrar preguntas <img src="assets/Images/Iconos/pregunta.png"> </a>
         <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
-            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario</a>
+            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario <img src="assets/Images/Iconos/adduser.png"> </a>
         <?php } ?>
+    </div>} ?>
     </div>
 </div>
 <script>
