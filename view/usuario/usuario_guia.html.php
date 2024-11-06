@@ -15,9 +15,14 @@
                 <div class="titulo_pregunta">
                     <h2> <?php echo $preguntas["nombre"]?> </h2>
                 </div>
-                    <div class="boton-descargar">
-                        <span class="column"> <a href="index.php?controller=respuesta&action=descargarPDF&id=<?php echo $preguntas["id_documento"]?>"><img class="descargarUsu" src="assets/Images/Iconos/download.png" ></span></a>
-                    </div>
+
+                <form method="post" action="index.php?controller=respuesta&action=descargarPDF&id=<?php echo $preguntas["id_documento"]?>">
+                <button class="button">
+                    <span class="button-content">Descargar</span>
+                </button>
+                </form>
+
+
                 <div class="likes">
                     <form method="post" action="index.php?controller=usuario&action=eliminarPDFusu&id=<?php echo $preguntas["id_documento"] ?>">
                         <input type="hidden" id="id" name="id" value="<?php echo $preguntas["id_documento"] ?>" >

@@ -91,7 +91,7 @@ class RespuestaController{
     }
     public function descargarPDF()
     {
-         $this->model->descargarPDF($_GET["id"]);
+        $this->model->descargarPDF($_GET["id"]);
     }
     public function subirPDF()
     {
