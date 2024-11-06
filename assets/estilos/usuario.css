@@ -113,9 +113,8 @@
     gap: 1em;
     grid-template-areas:
     ". respuestas respuestas"
-    "datos respuestas respuestas"
     "acciones respuestas respuestas"
-    "acciones respuestas respuestas";
+    "datos respuestas respuestas";
     background-color: #393939;
     padding: 3em;
     text-align: center;
