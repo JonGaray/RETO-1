@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    color: black;
+}
+/* Body */
+body {
+    background-color: #393939;
+    height: 100vh;
+    width: 100%;
+}
+/* Header */
+.div-header, .div-nav {
+    color: white;
+    background-color: #364156;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div-header {
+    padding-bottom: 0.625em;
+    height: 10%;
+}
+.eslogan, .div-header h1, footer h1, footer h2, footer p {
+    color: #CDCDCD;
+    margin-left: 40px;
+}
+.hr-nav {
+    margin: 0 auto;
+    width: 50%;
+}
+.div-nav {
+    margin: 0 auto;
+    padding: 0.9375em 0 1.5625em;
+    width: 100%;
+}
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25em;
+}
+li {
+    list-style: none;
+}
+ul a {
+    text-decoration: none;
+    color: white;
+}
+.linea-nav {
+    width: 0.0625em;
+    height: 1.875em;
+    background-color: white;
+}
+.persona {
+    width: 1.25em;
+    margin-right: 0.3125em;
+}
+.div-buscar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.buscar {
+    text-align: center;
+    padding: 0.3125em;
+    flex: 1;
+    border-radius: 0.3125em;
+    border: 0.0625em solid #CDCDCD;
+    margin-right: 0.3125em;
+    min-width: 9.375em;
+}
+.lupa {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 1.875em;
+    height: 1.875em;
+}
+.lupa img {
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+}
+.iconoHeader{
+    margin: 0;
+    width: 2em;
+}
+/* Footer */
+footer {
+    background-color: #364156;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    grid-template-areas: "logo form form rrss";
+    gap: 2em;
+    padding: 1em;
+    height: 40vh;
+    color: white;
+    letter-spacing: 0.1em;
+}
+.logo-copyright {
+    grid-area: logo;
+    border-right: 0.0625em solid white;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.logo-copyright p {
+    font-size: 0.5em;
+}
+.contacto {
+    grid-area: form;
+    margin: 1em;
+    border-right: 0.0625em solid white;
+    padding-right: 4em;
+}
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7em;
+    margin-top: 0.3em;
+    border-radius: 10%;
+}
+.formulario-contacto input, .formulario-contacto textarea, .correo-contacto {
+    background-color: #CDCDCD;
+    border-radius: 0.3em;
+    width: 100%;
+}
+.formulario-contacto input {
+    height: 2em;
+}
+.formulario-contacto textarea {
+    resize: none;
+}
+.btn-contacto {
+    width: 50%;
+    background-color: #CDCDCD;
+    border: none;
+    border-radius: 0.3em;
+}
+.formulario-contacto textarea::placeholder, .formulario-contacto input::placeholder {
+    padding-left: 0.2em;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.rrss {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    grid-area: rrss;
+    padding-right: 2em;
+}
+.invalid {
+    border: 2px solid red;
+}
+.invalid::placeholder {
+    color: red;
+    text-align: center;
+}
+/* Media */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+    }
+    .div-header {
+        flex-direction: column;
+        height: auto;
+        padding: 1em 0;
+    }
+    .hr-nav {
+        width: 80%;
+    }
+    .div-nav {
+        padding: 0.5em 0;
+    }
+    ul {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    .div-sesion {
+        flex-direction: column;
+        height: auto;
+    }
+    .buscar {
+        min-width: 70%;
+        margin-right: 0;
+    }
+    .lupa {
+        width: 2.5em;
+        height: 2.5em;
+    }
+    .linea-nav {
+        display: none;
+    }
+    footer {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "logo"
+            "form"
+            "rrss";
+        padding: 1em;
+        height: auto;
+    }
+    .logo-copyright {
+        border-right: none;
+        margin: 0.5em 0;
+    }
+    .contacto {
+        border-right: none;
+        padding-right: 0;
+    }
+    .formulario-contacto {
+        width: 90%;
+    }
+    .btn-contacto {
+        width: 80%;
+    }
+    .rrss {
+        flex-direction: column;
+        padding-right: 0;
+    }
+}
