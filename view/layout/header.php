@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,27 +6,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title></title>
+</head>
+</header>
     <link rel="stylesheet" href="assets/estilos/layout.css">
     <link rel="stylesheet" href="assets/estilos/pregunta.css">
     <link rel="stylesheet" href="assets/estilos/respuesta.css">
     <link rel="stylesheet" href="assets/estilos/usuario.css">
     <title>Document</title>
-</head>
 <body>
 <header>
     <div class="div-header">
-        <h1>Aergibide</h1> <h3 class="eslogan">Expertos en mantenerte en el cielo</h3>
+        <h1 style="margin: 0">Aergibide</h1> <h3 class="eslogan">Expertos en mantenerte en el cielo</h3>
     </div>
     <div class="div-nav">
         <nav>
             <hr class="hr-nav">
             <ul>
                 <li>
-                    <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()">Inicio</a>
+                    <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()"><img src="assets/Images/Iconos/home.png" class="iconoHeader"></a>
                 </li>
                 <li>
-                    <a href="index.php?controller=respuesta&action=vistaPDF">Guia de reparacion</a>
+                    <a href="index.php?controller=respuesta&action=vistaPDF"><img src="assets/Images/Iconos/guia.png" class="iconoHeader"></a>
                 </li>
                 <li>
                     <div class="div-buscar">
@@ -43,13 +44,10 @@
                     <hr class="linea-nav">
                 </li>
                 <li>
-                    <div class="div-sesion">
-                        <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;">Cerrar sesión</a>
-                        <a id="imagen-redireccion" href="index.php?controller=usuario&action=listPreguntas">
-                            <img src="assets/Images/Iconos/Persona.png" alt="Personita" class="persona" style="vertical-align: middle; margin-left: 10px; width: 32px;">
-                        </a>
-                        <a href="index.php?controller=usuario&action=listPreguntas"> <?php echo $_COOKIE["nombre_usuario"]?> </a>
-                    </div>
+                    <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;"><img src="assets/Images/Iconos/logout.png" class="iconoHeader"></a>
+                </li>
+                <li>
+                    <a href="index.php?controller=usuario&action=listPreguntas"><img src="assets/Images/Iconos/Persona.png" alt="Personita" class="iconoHeader"></a>
                 </li>
             </ul>
         </nav>

@@ -17,8 +17,8 @@
                         <input type="text" name="usuario" disabled class="usuario" value="- <?php echo $pregunta["nombre"]; ?> -">
                         <input type="text" name="categoria" disabled class="categoria" value="<?php echo $pregunta["categoria"]; ?>">
                         <div class="enlaces">
-                            <a href="index.php?controller=respuesta&action=responder&id=<?php echo $pregunta["pregunta_id"]; ?>">Responder</a>
-                            <a href="index.php?controller=pregunta&action=detalle&id=<?php echo $pregunta["pregunta_id"]; ?>">Ver más</a>
+                            <a href="index.php?controller=respuesta&action=responder&id=<?php echo $pregunta["pregunta_id"]; ?>"><img src="assets/Images/Iconos/responderTodo.png"></a>
+                            <a href="index.php?controller=pregunta&action=detalle&id=<?php echo $pregunta["pregunta_id"]; ?>"><img src="assets/Images/Iconos/info.png"></a>
                         </div>
                     </div>
                 </div>
@@ -39,10 +39,10 @@
 <!-- Botones de paginación -->
 <div class="paginacion">
     <?php if ($paginaActual > 1): ?>
-        <a href="index.php?controller=pregunta&action=listCategoria&page=<?php echo $paginaActual - 1; ?>" class="cambiarPagina">Anterior</a>
+        <a href="index.php?controller=pregunta&action=listCategoria&page=<?php echo $paginaActual - 1; ?>" class="cambiarPagina"><img src="assets/Images/Iconos/anterior.png" class="paginar"></a>
     <?php endif; ?>
 
     <?php if ($paginaActual < $totalPaginas): ?>
-        <a href="index.php?controller=pregunta&action=listCategoria&page=<?php echo $paginaActual + 1; ?>" class="cambiarPagina">Siguiente</a>
+        <a href="index.php?controller=pregunta&action=listCategoria&page=<?php echo $paginaActual + 1; ?>" class="cambiarPagina"><img src="assets/Images/Iconos/siguiente.png" class="paginar"></a>
     <?php endif; ?>
 </div>

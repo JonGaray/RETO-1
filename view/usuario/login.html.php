@@ -27,7 +27,7 @@
         height: 60%;
         border-radius: 1em;
         background-color: rgba(255, 255, 255, 0.3);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(5px);
         overflow: auto;
     }
     .inicioSesion h1 {
@@ -50,23 +50,27 @@
         padding: 1.25em 2.5em;
         font-size: 1.25em;
         font-weight: bold;
-        background-color: #CDCDCD;
+        background-color: unset;
+        backdrop-filter: blur(5px);
         border-radius: 1em;
         box-shadow: 0.3em 0.3em 0.625em #393939;
     }
     .loginEntrar {
+        background-color: unset;
+        font-size: 1.25em;
+        font-weight: bold;
         border: none;
         outline: none;
         display: block;
         margin: 0 auto;
         margin-bottom: 1.5em;
         text-align: center;
-        padding: 0.75em 1.5em;
-        font-size: 1.25em;
-        font-weight: bold;
-        background-color: #CDCDCD;
+        padding: 1.25em 2.5em;
         border-radius: 1em;
         box-shadow: 0.3em 0.3em 0.625em #393939;
+        overflow: auto;
+        min-width: 50%;
+        backdrop-filter: blur(5px);
         cursor: pointer;
     }
     @media (max-width: 768px) {
@@ -91,6 +95,9 @@
             padding: 0.75em;
             font-size: 1.2em;
         }
+        .botonEntrar{
+            padding: 1em;
+        }
     }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -101,8 +108,8 @@
             <div class="campos">
                 <input type="text" name="nombre" class="loginNombre" placeholder="Nombre">
                 <input type="password" name="contrasenna" class="loginContrasenna" placeholder="Contrase&ntilde;a">
+                <input type="submit" value="Entrar" name="submit" class="loginEntrar">
             </div>
-            <input type="submit" value="Entrar" name="submit" class="loginEntrar">
         </form>
     </div>
 </div>

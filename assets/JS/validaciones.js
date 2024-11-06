@@ -160,3 +160,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+//Validar longitud de caracteres en tituloPregunta

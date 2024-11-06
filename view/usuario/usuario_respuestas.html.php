@@ -13,8 +13,12 @@
             <?php if(!empty($dataToView["data"]["respuestas"])): foreach($dataToView["data"]["respuestas"]["respuesta"] as $respuesta):?>
             <div class="div-respuesta">
                 <div class="respuesta-usuario">
-                <?php if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){ ?>
-                   <p><?php echo $respuesta["contenido"] ?></p>
+                <?php if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){
+                    $textareaId = "contenido-" . $index;
+                    $previewId = "preview-" . $index;
+                    ?>
+                    <div id="<?php echo $previewId; ?>"></div>
+                   <textarea name="contenido" disabled class="contenido" id="<?php echo $textareaId; ?>"><?php echo $respuesta["contenido"] ?></textarea>
                    <?php }elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
                             <img class="img-respuesta-usuario" src="<?php echo $respuesta["foto"] ?>" alt="">
                         <?php } ?>
@@ -46,6 +50,7 @@
         <div class="acciones-usuario">
             <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil <img src="assets/Images/Iconos/edit.png"></a>
             <a class="link-acciones-usuario" href="#">Mostrar respuestas <img src="assets/Images/Iconos/respuesta.png"></a>
+            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listGuia">Guias de reparacion <img src="assets/Images/Iconos/guia.png"></a>
             <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listPreguntas">Mostrar preguntas <img src="assets/Images/Iconos/pregunta.png"></a>
             <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
                 <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario <img src="assets/Images/Iconos/adduser.png"> </a>
@@ -59,4 +64,33 @@
             datosUsuarioDiv.classList.add('visible');
         }
     }
+        function extractYouTubeID(url) {
+        const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+        const match = url.match(regex);
+        return match ? match[1] : null;
+    }
+        function previewYouTubeVideos() {
+        const textareas = document.querySelectorAll('textarea.contenido');
+        textareas.forEach(textarea => {
+        const videoURL = textarea.value;
+        const videoID = extractYouTubeID(videoURL);
+        const previewDiv = document.getElementById('preview-' + textarea.id.split('-')[1]);
+        if (previewDiv) {
+        previewDiv.innerHTML = '';
+        if (videoID) {
+        textarea.style.display = "none";
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoID}`;
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', 'true');
+        previewDiv.appendChild(iframe);
+        iframe.style.display = "block";
+    } else {
+        textarea.style.display = "block";
+    }
+    }
+    });
+    }
+        document.addEventListener('DOMContentLoaded', previewYouTubeVideos);
 </script>

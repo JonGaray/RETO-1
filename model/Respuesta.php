@@ -130,7 +130,7 @@
                 // Leer el archivo PDF en binario
                 $pdfData = file_get_contents($archivo['tmp_name']);
                 // Consulta SQL para insertar el archivo PDF
-                $sql = "INSERT INTO reparacion (nombre, documento, id_usuario) VALUES (?, ?,?)";
+                $sql = "INSERT INTO reparaciones (nombre, documento, id_usuario) VALUES (?, ?,?)";
                 // Preparar la consulta
                 $stmt = $this->connection->prepare($sql);
                 // Ejecutar la consulta con los parámetros
@@ -138,10 +138,11 @@
                 header("Location: index.php?controller=respuesta&action=vistaPDF");
             }
         }
-        public function descargarPDF($id){
+        public function descargarPDF($id)
+        {
             try {
                 // Consulta para obtener el PDF en binario y el nombre del archivo
-                $sql = "SELECT nombre ,documento FROM reparacion WHERE id_documento = ?";
+                $sql = "SELECT nombre ,documento FROM reparaciones WHERE id_documento = ?";
                 $stmt = $this->connection->prepare($sql);
                 $stmt->execute([$id[0]]);
                 // Verificar si se encontró el archivo
@@ -164,19 +165,25 @@
             }
         }
         public function getPDF(){
-            $sql = "SELECT r.id_documento, r.nombre AS nombre_documento, r.documento, u.nombre AS nombre_usuario FROM reparacion r JOIN usuarios u ON r.id_usuario = u.id order by id_documento desc;";
+            $sql = "SELECT r.id_documento, r.nombre AS nombre_documento, r.documento, u.nombre AS nombre_usuario FROM reparaciones r JOIN usuarios u ON r.id_usuario = u.id order by id_documento desc;";
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         public function eliminarPDF($id)
         {
-            $sql = "delete from reparacion where id_documento = ?";
+            $sql = "delete from reparaciones where id_documento = ?";
             $stmt = $this->connection->prepare($sql);
             $stmt->execute([$id]);
             header("Location: index.php?controller=respuesta&action=vistaPDF");
         }
-
+        public function eliminarPDFUsu($id)
+        {
+            $sql = "delete from reparaciones where id_documento = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$id]);
+            header("Location: index.php?controller=usuario&action=listGuia");
+        }
         public function getImagenByIdPregunta($id){
             $sql = "SELECT foto FROM ".$this->table." WHERE id_pregunta = ?";
                 $stmt = $this->connection->prepare($sql);
