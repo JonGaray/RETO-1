@@ -61,17 +61,17 @@
     color: white;
 }
 /*Fin de la guia*/
-.container {
+.container1 {
     background-color: #3a4a6b;
-    padding: 50px;
+    padding: 2em;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    width: 300px;
+    width: 20%;
     text-align: center;
     margin: 2em;
 }
 /* Estilos del título */
-.container h2 {
+.container1 h2 {
     background-color: #d3d3d3;
     padding: 10px;
     border-radius: 4px;
@@ -81,8 +81,8 @@
 }
 
 /* Estilos de los inputs */
-.container input[type="text"],
-.container input[type="file"] {
+.container1 input[type="text"],
+.container1 input[type="file"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -93,13 +93,13 @@
 }
 
 /* Estilos de los botones */
-.container .buttons {
+.container1 .buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
 }
 
-.container button {
+.container1 button {
     width: 48%;
     padding: 10px;
     border: none;
@@ -110,7 +110,7 @@
     font-size: 1em;
 }
 
-.container button:hover {
+.container1 button:hover {
     background-color: #bcbcbc;
 }
 

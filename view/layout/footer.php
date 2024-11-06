@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+<link rel="stylesheet" href="../../assets/css/styles.css">
+=======
+>>>>>>> 59254ededa98f3d4d193ab97116249db59dd824f
 <footer>
     <div class="logo-copyright">
         <h1>AERGIBIDE</h1>
