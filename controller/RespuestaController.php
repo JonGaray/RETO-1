@@ -45,29 +45,40 @@ class RespuestaController{
         $this->view = "list";
         return $this->model->getPreguntaById($_GET["id"]);
     }
-    public function save() {
-        $this->view = "";
-        // Si se ha subido un archivo (tipo texto)
-        if (isset($_FILES["archivo"]) && $_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
-            $contenidoArchivo = file_get_contents($_FILES["archivo"]["tmp_name"]);
-            $_POST["respuesta"] = $contenidoArchivo;
-            $id = $this->model->insertarRespuesta($_POST, null);
-            $result = $this->model->getRespuestaById($id);
-            $_POST["response"] = true;
-            return $result;
-        } elseif (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
-            $imageData = file_get_contents($_FILES['foto']['tmp_name']);
+   public function save() {
+    $this->view = "";
+
+    // Verificar si se ha subido algún archivo
+    if (isset($_FILES["archivo"]) && $_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
+        // Obtener la extensión del archivo
+        $fileType = strtolower(pathinfo($_FILES["archivo"]["name"], PATHINFO_EXTENSION));
+
+        if (in_array($fileType, ["jpg", "jpeg", "png", "gif"])) {
+            // Si es una imagen, procesarla como tal
+            $imageData = file_get_contents($_FILES["archivo"]["tmp_name"]);
             $id = $this->model->insertarRespuesta($_POST, $imageData);
             $result = $this->model->getRespuestaById($id);
             $_POST["response"] = true;
             return $result;
-        } else {
-            $id = $this->model->insertarRespuesta($_POST, null);
+
+        } elseif (in_array($fileType, ["txt", "pdf", "doc", "docx", "html"])) {
+            // Si es un archivo de texto, procesarlo como tal
+            $contenidoArchivo = file_get_contents($_FILES["archivo"]["tmp_name"]);
+            $_POST["respuesta"] = $contenidoArchivo;
+            $id = $this->model->insertarRespuestaPDF($_POST, $_FILES["archivo"]);
             $result = $this->model->getRespuestaById($id);
             $_POST["response"] = true;
             return $result;
         }
+    } else {
+        // Si no se ha subido ningún archivo, procesar solo el contenido de $_POST
+        $id = $this->model->insertarRespuesta($_POST, null);
+        $result = $this->model->getRespuestaById($id);
+        $_POST["response"] = true;
+        return $result;
     }
+}
+
     public function delete(){
         $this->view = "";
         if (isset($_POST["id"]) && isset($_POST["pregunta_id"])) {
@@ -101,32 +112,14 @@ class RespuestaController{
         $this->view = "subirPDF";
 
     }
-    public function guardarFotoRespuesta() {
-        if(isset($_FILES['foto'])) {
-            // Ruta donde se guardarán las fotos
-            $target_dir = "assets/Images/";
-            $target_file = $target_dir . basename($_FILES["foto"]["name"]);
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-            // Validar que sea una imagen
-            $check = getimagesize($_FILES["foto"]["tmp_name"]);
-            if($check !== false) {
-                if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
-                    // Actualizar la base de datos con la nueva ruta de la imagen
-                    $this->model->insertarRespuesta($_POST, $target_file);
-
-                    header("Location:index.php?controller=usuario&action=listPreguntas");
-                } else {
-                    echo "Error subiendo la imagen.";
-                }
-            } else {
-                echo "El archivo no es una imagen.";
-            }
-        }
-    }
     public function deletePDF()
     {
         $this->view = "vistaPDF";
         $this->model->eliminarPDF($_GET["id"]);
+    }
+    public function descargarPDFRespuesta()
+    {
+        $this->view = "";
+        $this->model->descargarPDFRespuesta($_GET["id"]);
     }
 }

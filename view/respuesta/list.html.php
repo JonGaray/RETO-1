@@ -11,7 +11,7 @@
         background: linear-gradient(135deg, #CDCDCD, #364156);
         border-radius: 15px;
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        height: calc(var(--folder-H) * 1.7);
+        height: calc(var(--folder-H) * 2.2);
         position: relative;
         margin-top: 4em;
     }
@@ -126,14 +126,25 @@
                             <div class="back-side cover"></div>
                         </div>
                         <label class="custom-file-upload">
-                            <input class="title" type="file" name="archivo" id="archivo"/>
+                            <input class="title" type="file" name="archivo" id="archivo" onchange="verificarCampoTexto()"/>
                             Seleccionar archivo
                         </label>
+                        <input type="text" id="nombre_archivo" name="nombre_archivo" class="nombre_archivo" placeholder="Nombre del archivo">
                     </div>
-                    <!--<div class="archivoRespuesta">
-                        <label for="foto">Subir foto:</label>
-                        <input type="file" name="foto" id="foto" class="foto">
-                    </div>-->
+                    <script>
+                        function verificarCampoTexto() {
+                            const archivoInput = document.getElementById("archivo");
+                            const textoInput = document.getElementById("nombre_archivo");
+                            
+                            if (archivoInput.files.length > 0) {
+                                // Si hay un archivo seleccionado, hacer el campo de texto obligatorio
+                                textoInput.required = true;
+                            } else {
+                                // Si no hay archivo seleccionado, el campo de texto no es obligatorio
+                                textoInput.required = false;
+                            }
+                        }
+                    </script>
                 </div>
                 <div class="botones">
                     <input class="btn btn-primary" type="submit" value="Enviar">

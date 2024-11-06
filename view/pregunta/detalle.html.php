@@ -62,7 +62,12 @@
                         <textarea name="contenido" disabled class="contenido"><?php echo $respuesta['contenido'] ; ?></textarea>
                         <?php }elseif(isset($respuesta['foto']) && $respuesta['foto'] !== "" ){ ?>
                             <img class="img-respuesta" src="<?php echo $respuesta["foto"] ?>" alt="">
-                        <?php } ?>
+                        <?php }elseif(isset($respuesta['archivo']) && $respuesta['archivo'] !== "" ){ ?>
+                            <div class="contenido">
+                                <h2>Documento a descargar</h2>
+                                <a href="index.php?controller=respuesta&action=descargarPDFRespuesta&id=<?php echo $respuesta['id'] ?>">descargar<img src="assets/Images/download.png" alt=""></a>
+                            </div>
+                        <?php } ?> 
                     </div>
                     <div class="bottomRight">
                         <div class="like-section">

@@ -35,23 +35,8 @@ class UsuarioController{
         $this->page_title = "Editar usuario";
         $usuario=$this->model->getUserDataByNombre($_COOKIE["nombre_usuario"]);
         $respuestas = $this->modelRespuestas->getRespuestasByUsuarioId($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"]);
-        $imagen = $this->modelRespuestas->getImagenByIdPregunta($_GET["id"]);
       
-        if ( !empty($imagen["foto"])) {
-            $finfo = finfo_open(FILEINFO_MIME_TYPE);
-            $imageType = finfo_buffer($finfo, $imagen["foto"]); // Detecta el tipo MIME a partir del contenido
-            finfo_close($finfo);
-            if (strpos($imageType, 'image/') === false) {
-                $imageType = 'image/png'; // Ajusta a un tipo de imagen conocido
-            }
-            $base64Image = 'data:' . $imageType . ';base64,' . base64_encode($imagen["foto"]);
-
-            
-        }
-        if(!empty($base64Image) && $base64Image !== ""){
-            return ["usuario"=>$usuario,"respuestas"=>$respuestas, "imagen"=>$base64Image];
-        }else{
-            return ["usuario"=>$usuario,"respuestas"=>$respuestas];        }
+        return ["usuario"=>$usuario,"respuestas"=>$respuestas];        
     
         
     }

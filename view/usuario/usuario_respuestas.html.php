@@ -10,7 +10,7 @@
         </div>
         <div class="div-principal-respuestas">
             <h3>RESPUESTAS</h3>
-            <?php if(!empty($dataToView["data"]["respuestas"])): foreach($dataToView["data"]["respuestas"] as $respuesta):?>
+            <?php if(!empty($dataToView["data"]["respuestas"])): foreach($dataToView["data"]["respuestas"]["respuesta"] as $respuesta):?>
             <div class="div-respuesta">
                 <div class="respuesta-usuario">
                 <?php if( isset($respuesta['contenido']) && $respuesta['contenido'] !== "" ){ ?>
