@@ -31,6 +31,15 @@
             <?php endforeach; else: ?>
             <?php endif; ?>
         </div>
+    <div class="acciones-usuario">
+        <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listRespuestas">Mostrar respuestas <img src="assets/Images/Iconos/respuesta.png"> </a>
+        <a class="link-acciones-usuario" href="#">Mostrar preguntas <img src="assets/Images/Iconos/pregunta.png"> </a>
+        <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listGuia">Guias de reparacion <img src="assets/Images/Iconos/guia.png"></a>
+        <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
+            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario <img src="assets/Images/Iconos/adduser.png"> </a>
+        <?php } ?>
+        <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil<img src="assets/Images/Iconos/edit.png"></a>
+    </div>
         <div class="datos-usuario">
             <form id="formDatosUsuario" class="form-datos-usuario" action="index.php?controller=usuario&action=updateUsuarioPreguntas" method="post">
                 <input name="id" id="id" type="hidden" value="<?php echo $dataToView["data"]["usuario"]["id"] ?>">
@@ -39,16 +48,6 @@
                 <input name="contrasenna" id="contrasenna" type="text" value="<?php echo $dataToView["data"]["usuario"]["contrasenna"]  ?>" placeholder="contraseña">
                 <input class="guardarDatos" type="submit" value="Guardar">
             </form>
-        </div>
-        <div class="acciones-usuario">
-
-            <a class="link-acciones-usuario" href="#" onclick="habilitarInputs()">Editar perfil<img src="assets/Images/Iconos/edit.png"></a>
-            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listRespuestas">Mostrar respuestas <img src="assets/Images/Iconos/respuesta.png"> </a>
-            <a class="link-acciones-usuario" href="index.php?controller=usuario&action=listGuia">Guias de reparacion <img src="assets/Images/Iconos/guia.png"></a>
-            <a class="link-acciones-usuario" href="#">Mostrar preguntas <img src="assets/Images/Iconos/pregunta.png"> </a>
-            <?php if (isset($_COOKIE["rol_usuario"]) && $_COOKIE["rol_usuario"] == "admin") { ?>
-                <a class="link-acciones-usuario" href="index.php?controller=usuario&action=create">Crear usuario <img src="assets/Images/Iconos/adduser.png"> </a>
-            <?php } ?>
         </div>
 </div>
 <script>

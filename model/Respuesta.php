@@ -140,25 +140,32 @@
                 header("Location: index.php?controller=respuesta&action=vistaPDF");
             }
         }
-        public function descargarPDF($id)
-        {
+        public function descargarPDF($id) {
             try {
+                print_r ($id ."<br>");
+                $arrayConId = [$id];
                 // Consulta para obtener el PDF en binario y el nombre del archivo
-                $sql = "SELECT nombre ,documento FROM reparaciones WHERE id_documento = ?";
+                $sql = "SELECT nombre, documento FROM reparaciones WHERE id_documento = ?";
                 $stmt = $this->connection->prepare($sql);
-                $stmt->execute([$id[0]]);
+                $stmt->execute($arrayConId);
+
                 // Verificar si se encontró el archivo
                 if ($stmt->rowCount() > 0) {
                     $documento = $stmt->fetch(PDO::FETCH_ASSOC);
                     $nombreArchivo = $documento['nombre'] . ".pdf";
-                    $pdfData = $documento['archivo'];
-                    // Enviar los encabezados para descargar el archivo
-                    header("Content-Type: application/pdf");
-                    header("Content-Disposition: attachment; filename=\"$nombreArchivo\"");
-                    header("Content-Length: " . strlen($pdfData));
-                    // Imprimir el contenido del archivo PDF
-                    return $pdfData;
-                    exit();
+                    $pdfData = $documento['documento'];
+
+                    if ($pdfData) {
+                        // Enviar los encabezados para descargar el archivo
+                        header("Content-Type: application/pdf");
+                        header("Content-Disposition: attachment; filename=\"$nombreArchivo\"");
+                        header("Content-Length: " . mb_strlen($pdfData, '8bit'));
+
+                        // Imprimir el contenido del archivo PDF
+                        exit; // Termina la ejecución aquí para evitar cargar una vista
+                    } else {
+                        throw new Exception("Datos del PDF no encontrados.");
+                    }
                 } else {
                     throw new Exception("Archivo no encontrado.");
                 }
@@ -166,6 +173,7 @@
                 echo "Error al descargar el archivo: " . $e->getMessage();
             }
         }
+
         public function getPDF(){
             $sql = "SELECT r.id_documento, r.nombre AS nombre_documento, r.documento, u.nombre AS nombre_usuario FROM reparaciones r JOIN usuarios u ON r.id_usuario = u.id order by id_documento desc;";
             $stmt = $this->connection->prepare($sql);

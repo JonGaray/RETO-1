@@ -160,4 +160,31 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-//Validar longitud de caracteres en tituloPregunta
+//Validar longitud de caracteres en tituloPregunta y descripcionPregunta
+document.addEventListener("DOMContentLoaded", function () {
+    const formCrearPregunta = document.getElementById("form-createPregunta");
+    formCrearPregunta.addEventListener("submit", function (event) {
+        const tituloInput = document.querySelector(".titulo");
+        const descripcionInput = document.querySelector(".descripcion");
+        let error = false;
+        if (tituloInput.value.length > 255) {
+            tituloInput.classList.add("invalid");
+            tituloInput.value = "";
+            tituloInput.setAttribute("placeholder", "Limite de caracteres superado");
+            error = true;
+        } else {
+            tituloInput.classList.remove("invalid");
+        }
+        if (descripcionInput.value.length > 255){
+            descripcionInput.classList.add("invalid");
+            descripcionInput.value = "";
+            descripcionInput.setAttribute("placeholder", "Limite de caracteres superado");
+            error = true;
+        } else {
+            descripcionInput.classList.remove("invalid");
+        }
+        if (error) {
+            event.preventDefault();
+        }
+    });
+});
