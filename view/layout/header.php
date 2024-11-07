@@ -49,6 +49,9 @@
                 <li>
                     <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;"><img src="assets/Images/Iconos/logout.png" class="iconoHeader"></a>
                 </li>
+                <li>
+                    <a href="index.php?controller=usuario&action=listUser"><img src="assets/Images/Iconos/user.png" alt="grupo de user" class="iconoHeader"></a>
+                </li>
             </ul>
         </nav>
     </div>
