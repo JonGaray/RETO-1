@@ -205,4 +205,13 @@ class UsuarioController{
     {
         $this->modelRespuestas->eliminarPDFUsu($_POST["id"]);
     }
+
+    public function listUser()
+    {
+        $this->view="listUser";
+       return $this->model->listuser();
+    }
+    public function deleteUser(){
+        $this->model->deleteUser($_GET["id"]);
+    }
 }

@@ -100,4 +100,18 @@ class Usuario{
         $statement = $this->connection->prepare($sql);
         return $statement->execute([$rutaFoto, $usuarioId]);
     }
+    public function listuser()
+    {
+        $sql = "SELECT id, nombre, contrasenna, correo, rol FROM " . $this->table;
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    public function deleteUser($id)
+    {
+        $sql = "DELETE FROM " . $this->table . " WHERE id = ?";
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute([$id]);
+        header("location: index.php?controller=usuario&action=listUser");
+    }
 }
