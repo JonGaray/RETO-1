@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 48vh;
 }
 .subirDocu{
     margin-top: 20px;
@@ -32,6 +33,7 @@
     width: 40%;
     margin: 20px auto;
     border-radius: 15px;
+    box-shadow: 0.3125em 0.3125em 0.625em #DFF8EB56;
 }
 
 .table-header .column {
@@ -51,7 +53,6 @@
     color: red;
     background-color: #364156;
     display: block;
-    margin: 0.9375em auto 0 auto;
     text-align: center;
     width: 100%;
     transition: background-color 0.5s ease;
@@ -133,6 +134,7 @@ article {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0.3125em 0.3125em 0.625em #DFF8EB56;
 }
 .archivoRespuesta {
     margin-top: 1.25em;

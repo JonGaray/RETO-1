@@ -18,7 +18,7 @@
 <body>
 <header>
     <div class="div-header">
-        <h1 style="margin: 0">Aergibide</h1> <h3 class="eslogan">Expertos en mantenerte en el cielo</h3>
+        <h1 style="margin: 0">Aergibide</h1> <h3 class="eslogan" style="font-style: italic">Expertos en mantenerte en el cielo</h3>
     </div>
     <div class="div-nav">
         <nav>
@@ -44,10 +44,10 @@
                     <hr class="linea-nav">
                 </li>
                 <li>
-                    <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;"><img src="assets/Images/Iconos/logout.png" class="iconoHeader"></a>
+                    <a href="index.php?controller=usuario&action=listPreguntas"><img src="assets/Images/Iconos/Persona.png" alt="Personita" class="iconoHeader"></a>
                 </li>
                 <li>
-                    <a href="index.php?controller=usuario&action=listPreguntas"><img src="assets/Images/Iconos/Persona.png" alt="Personita" class="iconoHeader"></a>
+                    <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;"><img src="assets/Images/Iconos/logout.png" class="iconoHeader"></a>
                 </li>
             </ul>
         </nav>
