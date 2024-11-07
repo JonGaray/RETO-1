@@ -117,23 +117,24 @@ class UsuarioController{
     }
 
     public function guardarFotoPerfilRespuestas() {
-        if(isset($_FILES['foto'])) {
-            // Ruta donde se guardarán las fotos
-            $target_dir = "assets/Images/fotos-perfil/";
-            $target_file = $target_dir . basename($_FILES["foto"]["name"]);
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
+        if (isset($_FILES['foto'])) {
+            // Ruta temporal del archivo subido
+            $temp_file = $_FILES["foto"]["tmp_name"];
+            $imageFileType = strtolower(pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION));
+    
             // Validar que sea una imagen
-            $check = getimagesize($_FILES["foto"]["tmp_name"]);
-            if($check !== false) {
-                if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
-                    // Actualizar la base de datos con la nueva ruta de la imagen
-                    $this->model->actualizarFotoPerfil($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"], $target_file);
-
-                    header("Location:index.php?controller=usuario&action=listRespuestas");
-                } else {
-                    echo "Error subiendo la imagen.";
-                }
+            $check = getimagesize($temp_file);
+            if ($check !== false) {
+                // Leer el archivo en binario
+                $fileContent = file_get_contents($temp_file);
+    
+                // Actualizar la base de datos con el contenido binario de la imagen
+                $this->model->actualizarFotoPerfil(
+                    $this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"],
+                    $fileContent
+                );
+    
+                header("Location:index.php?controller=usuario&action=listRespuestas");
             } else {
                 echo "El archivo no es una imagen.";
             }
@@ -141,23 +142,50 @@ class UsuarioController{
     }
 
     public function guardarFotoPerfilPreguntas() {
-        if(isset($_FILES['foto'])) {
-            // Ruta donde se guardarán las fotos
-            $target_dir = "assets/Images/fotos-perfil/";
-            $target_file = $target_dir . basename($_FILES["foto"]["name"]);
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
+        if (isset($_FILES['foto'])) {
+            // Ruta temporal del archivo subido
+            $temp_file = $_FILES["foto"]["tmp_name"];
+            $imageFileType = strtolower(pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION));
+    
             // Validar que sea una imagen
-            $check = getimagesize($_FILES["foto"]["tmp_name"]);
-            if($check !== false) {
-                if(move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
-                    // Actualizar la base de datos con la nueva ruta de la imagen
-                    $this->model->actualizarFotoPerfil($this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"], $target_file);
+            $check = getimagesize($temp_file);
+            if ($check !== false) {
+                // Leer el archivo en binario
+                $fileContent = file_get_contents($temp_file);
+    
+                // Actualizar la base de datos con el contenido binario de la imagen
+                $this->model->actualizarFotoPerfil(
+                    $this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"],
+                    $fileContent
+                );
+    
+                header("Location:index.php?controller=usuario&action=listPreguntas");
+            } else {
+                echo "El archivo no es una imagen.";
+            }
+        }
 
-                    header("Location:index.php?controller=usuario&action=listPreguntas");
-                } else {
-                    echo "Error subiendo la imagen.";
-                }
+    }
+
+    public function guardarFotoPerfilGuia() {
+        if (isset($_FILES['foto'])) {
+            // Ruta temporal del archivo subido
+            $temp_file = $_FILES["foto"]["tmp_name"];
+            $imageFileType = strtolower(pathinfo($_FILES["foto"]["name"], PATHINFO_EXTENSION));
+    
+            // Validar que sea una imagen
+            $check = getimagesize($temp_file);
+            if ($check !== false) {
+                // Leer el archivo en binario
+                $fileContent = file_get_contents($temp_file);
+    
+                // Actualizar la base de datos con el contenido binario de la imagen
+                $this->model->actualizarFotoPerfil(
+                    $this->model->getUserIdByNombre($_COOKIE["nombre_usuario"])["id"],
+                    $fileContent
+                );
+    
+                header("Location:index.php?controller=usuario&action=listGuia");
             } else {
                 echo "El archivo no es una imagen.";
             }

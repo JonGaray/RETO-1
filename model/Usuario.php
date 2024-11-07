@@ -31,7 +31,16 @@ class Usuario{
         $sql = "SELECT * FROM " . $this->table . " WHERE nombre = ?";
         $stmt = $this->connection->prepare($sql);
         $stmt->execute([$nombre]);
-        return $stmt->fetch();
+        $userData = $stmt->fetch();
+
+    // Convertir la foto a base64 si existe
+    if ($userData && isset($userData['foto'])) {
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                        $imageType = finfo_buffer($finfo, $userData["foto"]);
+                        finfo_close($finfo);
+        $userData['foto'] = 'data:' . $imageType . ';base64,' .base64_encode($userData['foto']);
+    }
+    return $userData;
     }
     public function getUserIntoArray($param){
         $map = array();

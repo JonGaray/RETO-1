@@ -36,8 +36,12 @@
                             <img class="img-respuesta" src="<?php echo $respuesta["foto"] ?>" alt="">
                         <?php }elseif(isset($respuesta['archivo']) && $respuesta['archivo'] !== "" ){ ?>
                             <div class="contenido-archivo">
-                                <h2>Documento a descargar: <?php echo $respuesta["nombre_archivo"] ?></h2>
-                                <a href="index.php?controller=respuesta&action=descargarPDFRespuesta&id=<?php echo $respuesta['id'] ?>"><img src="assets/Images/Iconos/download.png" alt=""></a>
+                                <h2 class="titulo-documento">Documento a descargar: <?php echo $respuesta["nombre_archivo"] ?></h2>
+                                <form method="post" action="index.php?controller=respuesta&action=descargarPDFRespuesta&id=<?php echo $respuesta['id'] ?>">
+                                <button class="button">
+                                    <span class="button-content">Descargar</span>
+                                </button>
+                                </form>
                             </div>
                         <?php } ?> 
                     </div>
