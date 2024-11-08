@@ -3,7 +3,6 @@
     <div class="table-header">
         <span class="column">Documento:</span>
         <span class="column">Descargar: </span></a>
-        <span class="column">Propietario:</span>
         <?php if (isset($_COOKIE['rol_usuario']) && $_COOKIE['rol_usuario'] == 'admin') { ?>
         <p><?php echo "Opciones:"?></p>
         <?php } ?>
@@ -16,7 +15,6 @@
                 <span class="button-content">Descargar</span>
             </button>
         </form>
-        <span class="column"><?php echo $pdf["nombre_usuario"]?></span>
         <?php if (isset($_COOKIE['rol_usuario']) && $_COOKIE['rol_usuario'] == 'admin') { ?>
             <form action="index.php?controller=respuesta&action=deletePDF&id=<?php echo $pdf["id_documento"]?>" method="post">
                 <button type="submit" class="boton-eliminarPDF">Eliminar</button>
