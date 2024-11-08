@@ -20,6 +20,7 @@ class RespuestaController{
         // Verificamos si el usuario está marcando o desmarcando el checkbox
         $accion = isset($_POST['megusta']) ? "add" : "remove";
 
+
         // Llamamos al modelo para actualizar
         $this->model->toggleMegusta($respuestaId, $accion);
 
