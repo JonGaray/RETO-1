@@ -20,11 +20,9 @@
     .inicioSesion {
         display: block;
         text-align: center;
-        padding-top: 2em;
+        padding: 2em;
         margin-left: auto;
         margin-right: 20em;
-        width: 30%;
-        height: 60%;
         border-radius: 1em;
         background-color: rgba(255, 255, 255, 0.3);
         backdrop-filter: blur(5px);
