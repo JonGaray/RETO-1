@@ -201,7 +201,6 @@
     justify-items: center;
     align-items: center;
     width: 90%;
-    height: 60%;
     margin: 1.25em auto;
 }
 .createPreguntaBlock {
@@ -521,5 +520,6 @@ iframe {
     }
     .annadirPregunta{
         margin: 0 auto;
+        width: 50%;
     }
 }
