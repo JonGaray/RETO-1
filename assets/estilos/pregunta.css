@@ -10,13 +10,13 @@
     padding: 1.25em;
     border-radius: 0.9375em;
     box-shadow: 0.3125em 0.3125em 0.625em #DFF8EB56;
-    width: 100%;
     position: relative;
+    width: 100%;
 }
 .preguntaTopSection {
     display: flex;
     justify-content: center;
-    margin: 0.3125em;
+    /*margin: 0.3125em;*/
     width: 100%;
 }
 .preguntaTopSection input {
@@ -27,15 +27,15 @@
     background-color: #CDCDCD;
 }
 .preguntaBottomSection {
-    display: flex;
+    /*display: flex;
     justify-content: space-between;
-    gap: 0.625em;
+    gap: 0.625em;*/
     margin-top: 0.625em;
 }
-.preguntaBottomLeft {
+/*.preguntaBottomLeft {
     flex: 1;
     margin-right: 0.625em;
-}
+}*/
 .preguntaBottomLeft input {
     width: 100%;
     height: 100%;
@@ -81,7 +81,8 @@
 .preguntasBottomRight .enlaces {
     display: flex;
     justify-content: space-around;
-    margin-top: 0.625em;
+    margin: 0 auto;
+    gap: 5em;
 }
 .preguntasBottomRight .enlaces a {
     text-decoration: none;
@@ -89,15 +90,15 @@
     color: #CDCDCD;
     background-color: #364156;
     display: flex;
-    margin: 0.9375em auto 0 auto;
+    margin: 0 auto;
     text-align: center;
     width: 60%;
     align-items: center;
     transition: background-color 0.5s ease;
 }
 .preguntasBottomRight img{
-    width: 2.5em;
-    height: 2.5em;
+    width: 2em;
+    height: 2em;
     margin: 0 auto;
 }
 .preguntasBottomRight .enlaces a:hover {
@@ -134,13 +135,13 @@
     width: 60%;
 }
 .descripcion {
-    width: 90%;
+    width: 100%;
     resize: none;
     white-space: normal;
     overflow-wrap: break-word;
     background-color: #CDCDCD;
     border-radius: 0.9375em;
-    margin: 0.625em 0.625em;
+    /*margin: 0.625em 0.625em;*/
     text-align: center;
     display: flex;
     justify-content: center;
