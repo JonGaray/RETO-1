@@ -25,10 +25,9 @@
             <ul>
                 <li>
                     <a href="index.php?controller=pregunta&action=list" onclick="deleteCookieCategoria()"><img src="assets/Images/Iconos/home.png" class="iconoHeader"></a>
-                </li>
-                <li>
                     <a href="index.php?controller=respuesta&action=vistaPDF"><img src="assets/Images/Iconos/guia.png" class="iconoHeader"></a>
                 </li>
+
                 <li>
                     <div class="div-buscar">
                         <form id="formBuscar" action="index.php?controller=pregunta&action=listCategoria" method="post" onsubmit="crearCookieCategoria();">
@@ -42,15 +41,12 @@
                 <li>
                     <hr class="linea-nav">
                 </li>
-                <li>
+                <li class="lina">
                     <a href="index.php?controller=usuario&action=listPreguntas"><img src="assets/Images/Iconos/Persona.png" alt="Personita" class="iconoHeader"></a>
-                </li>
-                <li>
                     <a href="index.php?controller=usuario&action=listUser"><img src="assets/Images/Iconos/user.png" alt="grupo de user" class="iconoHeader"></a>
-                </li>
-                <li>
                     <a class="cerrar-sesion" id="cerrar-sesion-text" style="cursor: pointer;"><img src="assets/Images/Iconos/logout.png" class="iconoHeader"></a>
                 </li>
+
             </ul>
         </nav>
     </div>
