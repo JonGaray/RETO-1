@@ -315,6 +315,21 @@
     text-overflow: ellipsis;
     max-width: 100%;
 }
+@media (max-width: 1800px) {
+    .div-principal-respuestas{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.1fr repeat(3, auto) 0.3fr;
+        grid-template-areas:
+        "titulo"
+        "."
+        "."
+        "."
+        "botones";
+        padding: 1.7em;
+        gap: 1em;
+        box-shadow: 0.3125em 0.3125em 0.625em #DFF8EB56;
+    }
+}
 @media (max-width: 768px) {
     .pagina-usuario {
         display: flex;
