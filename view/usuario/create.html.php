@@ -9,7 +9,7 @@
                 <input id="contrasennaAlta" type="password" name="contrasenna" class="registroContrasenna" placeholder="Contrase&ntilde;a">
                 <input id="correoAlta" type="correo" name="correo" class="registroCorreo" placeholder="Correo">
             </div>
-            <input type="submit" value="Entrar" name="submit" class="registroEntrar">
+            <input type="submit" value="Crear" name="submit" class="registroEntrar">
         </div>
     </div>
 </form>
