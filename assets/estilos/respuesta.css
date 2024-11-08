@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     min-height: 48vh;
+    margin: 2em;
 }
 .subirDocu{
     margin-top: 20px;
@@ -30,10 +31,12 @@
     color: #E0E0E0;
     font-size: 16px;
     font-weight: normal;
-    width: 40%;
+    min-width: 50%;
     margin: 20px auto;
     border-radius: 15px;
     box-shadow: 0.3125em 0.3125em 0.625em #DFF8EB56;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .table-header .column {

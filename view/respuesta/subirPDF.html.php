@@ -1,5 +1,3 @@
-
-
 <article class="subirPDF">
     <div class="container1">
         <h2>Subir guía de reparación</h2>
