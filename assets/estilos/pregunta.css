@@ -267,7 +267,6 @@
 .questionBlock .topSection, .answerBlock .topSection {
     display: flex;
     justify-content: center;
-    margin: 0.3125em;
     width: 100%;
 }
 .questionBlock .topSection input, .answerBlock .topSection input {
@@ -432,9 +431,22 @@ iframe {
     margin-top: 10px;
     display: none;
 }
+@media (max-width: 1570px) {
+    .answerBlock .bottomSection{
+        display: block;
+    }
+    .bottomLeft textarea{
+        min-height: 15vh;
+    }
+}
 @media (max-width: 1400px) {
     .preguntaGrupo {
         grid-template-columns: repeat(2, auto);
+    }
+}
+@media (max-width: 1095px) {
+    .bottomLeft textarea{
+        min-height: 20vh;
     }
 }
 @media (max-width: 920px) {
