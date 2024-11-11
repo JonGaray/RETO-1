@@ -321,12 +321,12 @@
         grid-area: respuestas;
         border-radius: 1em;
         display: flex;
-        flex-direction: column; /* Alinea los elementos en una columna */
+        flex-direction: column;
         padding: 1.7em;
         gap: 1em;
         box-shadow: 0.3125em 0.3125em 0.625em #DFF8EB56;
-        overflow-y: auto; /* Para evitar desbordamientos verticales */
-        max-height: 100%; /* Ajustar la altura máxima para evitar que el contenedor crezca indefinidamente */
+        overflow-y: auto;
+        max-height: 100%;
     }
 }
 @media (max-width: 768px) {

@@ -17,13 +17,13 @@
             </button>
             </form>
         </span>
-        <span class="column">
             <?php if (isset($_COOKIE['rol_usuario']) && $_COOKIE['rol_usuario'] == 'admin') { ?>
+        <span class="column">
                 <form action="index.php?controller=respuesta&action=deletePDF&id=<?php echo $pdf["id_documento"]?>" method="post">
                 <button type="submit" class="boton-eliminarPDF">Eliminar</button>
             </form>
-            <?php } ?>
         </span>
+            <?php } ?>
     </div>
         <?php endforeach; ?>
 </article>
