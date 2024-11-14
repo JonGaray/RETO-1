@@ -1,0 +1,5 @@
+ROL               USUARIO        Contraseña
+ 
+usuario           Usuario        12345
+
+administrador     Admin          12345
